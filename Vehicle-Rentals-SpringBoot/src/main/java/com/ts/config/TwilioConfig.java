@@ -26,11 +26,10 @@ public class TwilioConfig {
     }
 
     public void sendOtp(String to, String otp) {
-        Message message = Message.creator(
+        Message.creator(
                 new PhoneNumber(to),
                 new PhoneNumber(twilioPhoneNumber),
-                "Your OTP is: " + otp)
-                .create();
-        // System.out.println("Twilio Message SID: " + message.getSid());
+                "Your OTP is: " + otp
+                ).create();
     }
 }

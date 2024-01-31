@@ -1,5 +1,6 @@
 package com.ts.dao;
 
+import java.util.List;
 import java.util.Random;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -29,25 +30,18 @@ public class UserDao {
     }
 	
 	public User addUser(User user) {
-		
-		// Send a welcome email
-		sendWelcomeEmail(user);
-		
-		// Send OTP via Twilio
-		sendOtpViaTwilio(user);
-		
+		String otp = generateOtp();
+		user.setOtp(otp);
+		sendWelcomeEmail(user);		// Send a welcome email
+		sendOtpViaTwilio(user);		// Send OTP via Twilio
 		user.setPassword(hashPassword(user.getPassword()));
 		user.setConfirmPassword(hashPassword(user.getConfirmPassword()));
-		
-		// Save the employee
-		User savedUser = userRepository.save(user);
-
+		User savedUser = userRepository.save(user);   		// Save the employee
 		return savedUser;
 	}
 	
 
 	private void sendWelcomeEmail(User user) {
-		
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(user.getEmail());
 		message.setSubject("Welcome to our website");
@@ -59,7 +53,7 @@ public class UserDao {
 	
     private void sendOtpViaTwilio(User user) {
         String phoneNumber = user.getPhoneNumber();
-        twilioConfig.sendOtp(phoneNumber, generateOtp());
+        twilioConfig.sendOtp(phoneNumber, user.getOtp());
     }
 
     private String generateOtp() {
@@ -67,5 +61,43 @@ public class UserDao {
         int otp = 100000 + random.nextInt(900000);
         return String.valueOf(otp);
     }
+
+	public User getUserById(int userId) {
+		return userRepository.findById(userId).orElse(null);
+	}
+
+	public User getUserByName(String userName) {
+		return userRepository.findByName(userName);
+	}
+
+	public User getUserByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
+	
+	public User userLogin(String email, String password) {
+		User user = userRepository.findByEmail(email);
+	    if (user != null && BCrypt.checkpw(password, user.getPassword())) {
+	        return user;
+	    } else {
+			User product1 = new User("User Not Found to Login!!!"," "," "," "," "," "," "," ");
+			return product1;
+	    }
+	}
+
+	public List<User> getUsers() {
+		return userRepository.findAll();
+	}
+
+	public User updateUser(User user) {
+		if(userRepository.findById(user.getUserId()) != null)return userRepository.save(user);
+		else {
+			User product1 = new User("User Not Found to Update!!!"," "," "," "," "," "," "," ");
+			return product1;
+		}
+	}
+
+	public void deleteUserById(int userId) {
+		userRepository.deleteById(userId);
+	}
 
 }

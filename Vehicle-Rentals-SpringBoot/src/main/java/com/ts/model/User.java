@@ -19,11 +19,12 @@ public class User {
 	private String email;
 	private String password;
 	private String confirmPassword;
+	private String otp;
 	
 	public User() { }
 
 	public User(String userName, String gender, String country, String phoneNumber, String email, String password,
-			String confirmPassword) {
+			String confirmPassword, String otp) {
 		this.userName = userName;
 		this.gender = gender;
 		this.country = country;
@@ -31,10 +32,11 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.confirmPassword = confirmPassword;
+		this.otp = otp;
 	}
 
 	public User(int userId, String userName, String gender, String country, String phoneNumber, String email,
-			String password, String confirmPassword) {
+			String password, String confirmPassword, String otp) {
 		this.userId = userId;
 		this.userName = userName;
 		this.gender = gender;
@@ -43,6 +45,7 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.confirmPassword = confirmPassword;
+		this.otp = otp;
 	}
 
 	public int getUserId() {
@@ -92,27 +95,29 @@ public class User {
 	public String getPassword() {
 		return password;
 	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
+	
+    public void setPassword(String password) {
+        this.password = hashPassword(password);
+    }
 
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
-
+	
 	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
+		this.confirmPassword = hashPassword(confirmPassword);
 	}
-
-
-/*    public boolean checkPassword(String candidatePassword) {
-        return BCrypt.checkpw(candidatePassword, this.password);
+	
+	public String getOtp() {
+		return otp;
+	}
+	
+	public void setOtp(String otp) {
+		this.otp = otp;
+	}
+	
+    private String hashPassword(String password){
+    	return BCrypt.hashpw(password, BCrypt.gensalt());
     }
-
-    // Hash the password using BCrypt
-    private String hashPassword(String plainTextPassword) {
-        return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
-    }*/
 	
 }
