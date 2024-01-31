@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+</head>
+</head>
+<body>
+  <section class="container">
+    <header>Registration Form</header>
+    <form #registrationForm = "ngForm" (ngSubmit)="registerSubmit(registrationForm.value)" class="form">
+      <div class="input-box" class = "input-group">
+        <span class = "input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input type="text" class = "form-control" placeholder="Enter Username" required />
+    
+      </div>
+
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+        <input type="text" class="form-control" placeholder="Enter MobileNo" name="mobileNumber" ngModel
+            #mobileNumber="ngModel" required pattern="[6789]\d{9}" maxlength="10" />
+        <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)" class="error"
+            style="color: red;">
+            <div *ngIf="mobileNumber.hasError('required')">Mobile Number is required.</div>
+            <div *ngIf="mobileNumber.hasError('pattern')">Enter a valid 10-digit number starting with 6, 7,
+                8, or 9.</div>
+        </div>
+    </div>
+
+    
+    
+      
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-menu-down"></i></span>
+
+            <select name="gender" class="form-control" ngModel required>
+                <option value="" selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+      
+
+      <div class="select-box" class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
+        <select class="form-control">
+          <option hidden>Select Country</option>
+          <option>America</option>
+          <option>Japan</option>
+          <option>India</option>
+          <option>Nepal</option>
+        </select>
+      </div>
+
+      <div class="input-box password-field" class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+        <input type="text" class="form-control" placeholder="Enter email" required />
+      </div>
+
+      <div class="input-box " class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span> 
+        <input type="password"  class="form-control" placeholder="Enter password" required />
+          
+        </div>
+        <div class="input-box " class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span> 
+            <input type="password"  class="form-control" placeholder="Enter confirm password" required />
+              
+            </div>
+    
+      <button type="button">Submit</button>
+      Already registred!!!<a href="login.html">login</a>
+    </form>
+  </section>
+</body>
+</html>
