@@ -4,80 +4,100 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
-</head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <title>Registration Form</title>
 </head>
 <body>
   <section class="container">
     <header>Registration Form</header>
-    <form #registrationForm = "ngForm" (ngSubmit)="registerSubmit(registrationForm.value)" class="form">
-      <div class="input-box" class = "input-group">
-        <span class = "input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input type="text" class = "form-control" placeholder="Enter Username" required />
-    
+    <form #registrationForm="ngForm" (ngSubmit)="registerSubmit(registrationForm.value, registrationForm)" class="form" novalidate>
+      <div class="input-box" class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input type="text" class="form-control" placeholder="Enter Username" name="username" ngModel required (focus)="focusPasswordField(passwordInput)" />
       </div>
+      <h6 *ngIf="registrationForm.controls['username'].invalid && registrationForm.controls['username'].touched"
+           class="error" style="color: red;">Username is required.</h6>
+      <br/>
 
-    <div class="input-group">
+      <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
         <input type="text" class="form-control" placeholder="Enter MobileNo" name="mobileNumber" ngModel
-            #mobileNumber="ngModel" required pattern="[6789]\d{9}" maxlength="10" />
-        <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)" class="error"
-            style="color: red;">
-            <div *ngIf="mobileNumber.hasError('required')">Mobile Number is required.</div>
-            <div *ngIf="mobileNumber.hasError('pattern')">Enter a valid 10-digit number starting with 6, 7,
-                8, or 9.</div>
-        </div>
-    </div>
-
-    
-    
+               #mobileNumber="ngModel" required pattern="[6789]\d{9}" maxlength="10" />
+      </div>
+      <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)"
+           class="error" style="color: red;">
+          <h6 *ngIf="mobileNumber.hasError('required')">Mobile Number is required.</h6>
+          <h6 *ngIf="mobileNumber.hasError('pattern')">Enter a valid 10-digit number starting with 6, 7, 8, or 9.</h6>
+          <h6 *ngIf="mobileNumber.hasError('maxlength')">Mobile Number should not exceed 10 characters.</h6>
+      </div>
       
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-menu-down"></i></span>
+      <br/>
 
-            <select name="gender" class="form-control" ngModel required>
-                <option value="" selected>Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Others">Others</option>
-            </select>
-        </div>
-      
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-menu-down"></i></span>
+        <select name="gender" class="form-control" ngModel required>
+          <option value="" disabled selected >Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+      <h6 *ngIf="registrationForm.controls['gender'].invalid && registrationForm.controls['gender'].touched"
+           class="error" style="color: red;">Gender is required.</h6>
+      <br/>
 
       <div class="select-box" class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
-        <select class="form-control">
-          <option hidden>Select Country</option>
-          <option>America</option>
-          <option>Japan</option>
-          <option>India</option>
-          <option>Nepal</option>
+        <select class="form-control" name="country" ngModel required>
+          <option value="" selected>Select Country</option>
+          <option value="{{country.cca3}}" *ngFor="let country of countries">{{country.name.common}}</option>
         </select>
       </div>
+      <h6 *ngIf="registrationForm.controls['country'].invalid && registrationForm.controls['country'].touched"
+           class="error" style="color: red;">Country is required.</h6>
+      <br/>
 
-      <div class="input-box password-field" class="input-group">
+      <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-        <input type="text" class="form-control" placeholder="Enter email" required />
+        <input type="text" class="form-control" placeholder="Enter email" name="emailId" ngModel
+            #emailId="ngModel" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
       </div>
+      <h6 *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)"
+           class="error" style="color: red;">
+          <h6 *ngIf="emailId.hasError('required')">Email is required.</h6>
+          <h6 *ngIf="emailId.hasError('pattern')">Enter a valid email.</h6>
+      </h6>
+      
+      <br/>
 
-      <div class="input-box " class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span> 
-        <input type="password"  class="form-control" placeholder="Enter password" required />
-          
-        </div>
-        <div class="input-box " class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span> 
-            <input type="password"  class="form-control" placeholder="Enter confirm password" required />
-              
-            </div>
-    
-      <button type="button">Submit</button>
-      Already registred!!!<a href="login.html">login</a>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" placeholder="Enter password" name="password" ngModel
+               #passwordInput="ngModel" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" maxlength="10" />
+        <span class="input-group-addon" (click)="togglePasswordVisibility()">
+          <i class="{{ showPassword ? 'glyphicon glyphicon-eye-open' : 'glyphicon glyphicon-eye-close' }}"></i>
+        </span>
+      </div>
+      <h6 *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)"
+           class="error" style="color: red;">
+        <h6 *ngIf="passwordInput.hasError('required')">Password is required.</h6>
+        <h6 *ngIf="passwordInput.hasError('pattern')">Password must Alphanumeric.</h6>
+      </h6>
+      
+      <br/>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        <input type="password" class="form-control" placeholder="Enter confirm password" name="confirmPassword" ngModel
+               #confirmPasswordInput="ngModel" />
+      </div>
+      <h6 *ngIf="confirmPasswordInput.invalid && confirmPasswordInput.touched && confirmPasswordInput.hasError('passwordMismatch')"
+           class="error" style="color: red;">Passwords do not match.</h6>
+      <br/>
+      <button type="submit"><h5>Register</h5></button>
+      
+      Already registered!!!<a href="login.html">login</a>
     </form>
   </section>
 </body>
