@@ -1,3 +1,4 @@
+// TypeScript File
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +12,6 @@ import { NgForm } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   countries: any;
   formError: string = '';
- 
 
   constructor(private service: UserService, private toastr: ToastrService) {}
 
@@ -42,30 +42,22 @@ export class RegisterComponent implements OnInit {
       !formData.confirmPassword
     ) {
       this.formError = 'All fields are required';
-
-      this.toastr.error('All fields are required', 'Error', { timeOut: 5000 });
-
+      this.toastr.error('All fields are required');
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
       this.formError = 'Passwords do not match';
       form.controls['confirmPassword'].setErrors({ passwordMismatch: true });
-
-      
-
       return;
     }
 
     this.formError = '';
 
+    // Display Toastr message
+    this.toastr.success('Registration successful');
+
+    // Print data in the console
     console.log(formData);
-
-    this.toastr.success('Registration successful', 'Success', {
-      timeOut: 5000,
-    });
   }
-
- 
-  
 }
