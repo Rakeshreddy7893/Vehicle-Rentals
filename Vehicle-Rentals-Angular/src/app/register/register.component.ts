@@ -55,10 +55,10 @@ export class RegisterComponent implements OnInit {
 
     this.formError = '';
 
-    // Display Toastr message
+ 
     this.toastr.success('Registration successful');
 
-    // Print data in the console
+    
     console.log(formData);
 
    
