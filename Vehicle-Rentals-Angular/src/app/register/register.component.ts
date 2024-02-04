@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
   countries: any;
   formError: string = '';
 
-  constructor(private service: UserService, private toastr: ToastrService) {}
+  constructor(private service: UserService, private toastr: ToastrService,private router :Router) {}
 
   ngOnInit() {
     this.service.getAllCountries().subscribe((data: any) => {
@@ -59,5 +60,11 @@ export class RegisterComponent implements OnInit {
 
     // Print data in the console
     console.log(formData);
+
+   
+  }
+  loginRedirect(){
+    this.toastr.info('Redirecting to login page'); 
+    this.router.navigate(['/login']);
   }
 }

@@ -8,11 +8,13 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     ToastrModule.forRoot(),
     HttpClientModule,
+    
     
   ],
   providers: [],
