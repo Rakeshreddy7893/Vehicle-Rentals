@@ -79,7 +79,7 @@
         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
         <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" placeholder="Enter password"
           name="password" ngModel #passwordInput="ngModel" required
-          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" maxlength="10" />
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" maxlength="20" />
         <span class="input-group-addon" (click)="togglePasswordVisibility()">
           <i class="{{ showPassword ? 'glyphicon glyphicon-eye-open' : 'glyphicon glyphicon-eye-close' }}"></i>
         </span>

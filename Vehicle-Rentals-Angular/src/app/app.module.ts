@@ -10,13 +10,17 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { OtpComponent } from './otp/otp.component';
+import {  headerComponent } from './header/header.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    OtpComponent
+    OtpComponent,
+    headerComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,
