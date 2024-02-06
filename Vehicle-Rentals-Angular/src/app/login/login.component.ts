@@ -26,11 +26,7 @@ export class LoginComponent {
     }
   }
   
-  registerRedirect() {
-    this.toastr.info('Redirecting to registration page'); 
-    this.router.navigate(['/register']);
-  }
-
+  
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }

@@ -56,15 +56,12 @@ export class RegisterComponent implements OnInit {
     this.formError = '';
 
  
-    this.toastr.success('Registration successful');
+    
 
     
     console.log(formData);
-
-   
+    this.router.navigate(['otp']);
+    //this.router.navigate(['login']);
   }
-  loginRedirect(){
-    this.toastr.info('Redirecting to login page'); 
-    this.router.navigate(['/login']);
-  }
+ 
 }

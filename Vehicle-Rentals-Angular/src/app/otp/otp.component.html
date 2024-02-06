@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>OTP Verification</title>
+
+</head>
+
+<body>
+  <section class="container">
+    <header>OTP Verification</header>
+    <form #otpForm="ngForm" (ngSubmit)="submitOTP(otpForm.value, otpForm)" class="form" novalidate>
+      <div class="input-box" class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        <input type="text" class="form-control" placeholder="Enter OTP sent to registred mobile number" name="otp" ngModel required />
+      </div>
+      <h6 *ngIf="otpForm.controls['otp'].invalid && otpForm.controls['otp'].touched"
+        class="error" style="color: red;">OTP is required sent to.</h6>
+      
+      <br />
+
+      <button type="submit">
+        <h5>Submit</h5>
+      </button>
+    </form>
+  </section>
+</body>
+
+</html>
