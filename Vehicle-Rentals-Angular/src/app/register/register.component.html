@@ -25,17 +25,19 @@
         class="error" style="color: red;">Username is required.</h6>
       <br />
 
+    
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
         <input type="text" class="form-control" placeholder="Enter MobileNo" name="mobileNumber" ngModel
-          #mobileNumber="ngModel" required pattern="[6789]\d{9}" maxlength="10" />
-      </div>
-      <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)" class="error"
+          #mobileNumber="ngModel" required pattern="^\+91 \d{5} \d{5}$" maxlength="15" />
+    </div>
+    <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)" class="error"
         style="color: red;">
         <h6 *ngIf="mobileNumber.hasError('required')">Mobile Number is required.</h6>
-        <h6 *ngIf="mobileNumber.hasError('pattern')">Enter a valid 10-digit number starting with 6, 7, 8, or 9.</h6>
-        <h6 *ngIf="mobileNumber.hasError('maxlength')">Mobile Number should not exceed 10 characters.</h6>
-      </div>
+        <h6 *ngIf="mobileNumber.hasError('pattern')">Enter a valid number starting with +91</h6>
+        <h6 *ngIf="mobileNumber.hasError('maxlength')">Mobile Number should not exceed 15 characters.</h6>
+    </div>
+    
 
       <br />
 
@@ -62,6 +64,19 @@
       <h6 *ngIf="registrationForm.controls['country'].invalid && registrationForm.controls['country'].touched"
         class="error" style="color: red;">Country is required.</h6>
       <br />
+
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-menu-down"></i></span>
+        <select name="role" class="form-control" ngModel required>
+          <option value="" disabled selected>Select role</option>
+          <option value="owner">Owner</option>
+          <option value="customer">Customer</option>
+        </select>
+      </div>
+      <h6 *ngIf="registrationForm.controls['role'].invalid && registrationForm.controls['role'].touched"
+        class="error" style="color: red;">Role is required.</h6>
+      <br />
+      
 
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
