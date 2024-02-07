@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
         userName:'',
         gender:'',
         country:'',
+        role:'',
         phoneNumber:'',
         email:'',
         password:'',
@@ -51,6 +52,7 @@ export class RegisterComponent implements OnInit {
       !formData.mobileNumber ||
       !formData.gender ||
       !formData.country ||
+      !formData.role||
       !formData.emailId ||
       !formData.password ||
       !formData.confirmPassword
@@ -70,6 +72,7 @@ export class RegisterComponent implements OnInit {
     this.user.userName = formData.username;
     this.user.gender = formData.gender;
     this.user.country = formData.country;
+    this.user.role = formData.role;
     this.user.phoneNumber= formData.mobileNumber;
     this.user.email = formData.emailId;
     this.user.password= formData.password;
