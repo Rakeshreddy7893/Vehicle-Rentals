@@ -79,8 +79,7 @@ public class UserDao {
 	    if (user != null && BCrypt.checkpw(password, user.getPassword())) {
 	        return user;
 	    } else {
-			User product1 = new User("User Not Found to Login!!!"," "," "," "," "," "," "," ");
-			return product1;
+			return null;
 	    }
 	}
 
