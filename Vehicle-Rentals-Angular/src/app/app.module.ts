@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { OtpComponent } from './otp/otp.component';
 import {  headerComponent } from './header/header.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactComponent } from './contact/contact.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     LoginComponent,
     OtpComponent,
     headerComponent,
-    AboutusComponent
+    AboutusComponent,
+    ContactComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

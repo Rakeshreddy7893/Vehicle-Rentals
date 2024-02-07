@@ -13,8 +13,21 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   countries: any;
   formError: string = '';
+  user:any;
 
-  constructor(private service: UserService, private toastr: ToastrService,private router :Router) {}
+  constructor(private service: UserService, private toastr: ToastrService,private router :Router) {
+      this.user ={
+        userName:'',
+        gender:'',
+        country:'',
+        phoneNumber:'',
+        email:'',
+        password:'',
+        confirmPassword:'',
+
+      }
+
+  }
 
   ngOnInit() {
     this.service.getAllCountries().subscribe((data: any) => {
@@ -54,14 +67,17 @@ export class RegisterComponent implements OnInit {
     }
 
     this.formError = '';
+    this.user.userName = formData.username;
+    this.user.gender = formData.gender;
+    this.user.country = formData.country;
+    this.user.phoneNumber= formData.mobileNumber;
+    this.user.email = formData.emailId;
+    this.user.password= formData.password;
+    this.user.confirmPassword = formData.confirmPassword;
 
- 
-    
-
-    
     console.log(formData);
+    this.service.registerUser(this.user).subscribe((data:any)=>{console.log(data)});
     this.router.navigate(['otp']);
-    //this.router.navigate(['login']);
   }
  
 }

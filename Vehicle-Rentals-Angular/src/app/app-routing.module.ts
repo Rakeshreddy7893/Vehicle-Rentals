@@ -5,6 +5,8 @@ import { RegisterComponent } from './register/register.component';
 import { OtpComponent } from './otp/otp.component';
 import { headerComponent } from './header/header.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactComponent } from './contact/contact.component';
+import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
 { path: '', component:headerComponent }, 
@@ -12,6 +14,8 @@ const routes: Routes = [
 { path: 'register', component:RegisterComponent },
 { path: 'otp', component:OtpComponent },
 { path: 'aboutus', component:AboutusComponent },
+{path:'contact',component:ContactComponent},
+{path:'main',component:MainComponent}
 
 ];
 
