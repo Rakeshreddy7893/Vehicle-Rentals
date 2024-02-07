@@ -13,6 +13,7 @@ public class User {
 	private String userName;
 	private String gender;
 	private String country;
+	private String role;
 	private String phoneNumber;
 	private String email;
 	private String password;
@@ -21,11 +22,12 @@ public class User {
 	
 	public User() { }
 
-	public User(String userName, String gender, String country, String phoneNumber, String email, String password,
+	public User(String userName, String gender, String country,String role, String phoneNumber, String email, String password,
 			String confirmPassword, String otp) {
 		this.userName = userName;
 		this.gender = gender;
 		this.country = country;
+		this.role = role;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.password = password;
@@ -33,12 +35,13 @@ public class User {
 		this.otp = otp;
 	}
 
-	public User(int userId, String userName, String gender, String country, String phoneNumber, String email,
+	public User(int userId, String userName, String gender, String country,String role, String phoneNumber, String email,
 			String password, String confirmPassword, String otp) {
 		this.userId = userId;
 		this.userName = userName;
 		this.gender = gender;
 		this.country = country;
+		this.role = role;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.password = password;
@@ -72,6 +75,14 @@ public class User {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+	
+	public String getRole() {
+		return role;
+	}
+	
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public String getPhoneNumber() {

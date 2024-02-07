@@ -44,7 +44,7 @@ public class UserDao {
 	private void sendWelcomeEmail(User user) {
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(user.getEmail());
-		message.setSubject("Welcome to our website");
+		message.setSubject("Welcome to VEHICLE-HOST-HUB");
 		message.setText("Dear " + user.getUserName() + ",\n\n"
 				+ "Thank you for registering ");
 
@@ -79,8 +79,7 @@ public class UserDao {
 	    if (user != null && BCrypt.checkpw(password, user.getPassword())) {
 	        return user;
 	    } else {
-			User product1 = new User("User Not Found to Login!!!"," "," "," "," "," "," "," ");
-			return product1;
+			return null;
 	    }
 	}
 
@@ -91,8 +90,7 @@ public class UserDao {
 	public User updateUser(User user) {
 		if(userRepository.findById(user.getUserId()) != null)return userRepository.save(user);
 		else {
-			User product1 = new User("User Not Found to Update!!!"," "," "," "," "," "," "," ");
-			return product1;
+			return null;
 		}
 	}
 

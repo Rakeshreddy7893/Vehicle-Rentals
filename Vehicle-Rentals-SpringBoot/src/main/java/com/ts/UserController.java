@@ -30,7 +30,7 @@ public class UserController {
     public User addUser(@RequestBody User user) {
         // Validate passwords
         if (!user.getPassword().equals(user.getConfirmPassword())) {
-            return new User(0,"User Passwords not match","","","","","","","");
+            return null;
         }
         return userDao.addUser(user);
     }
@@ -65,4 +65,5 @@ public class UserController {
     	userDao.deleteUserById(userId);
     	return "User with userId : "+userId+" deleted successfully !";
     }
+    
 }
