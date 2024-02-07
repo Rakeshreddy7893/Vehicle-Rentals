@@ -4,8 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import org.mindrot.jbcrypt.BCrypt;
-
 @Entity
 public class User {
 	@Id
@@ -97,7 +95,8 @@ public class User {
 	}
 	
     public void setPassword(String password) {
-        this.password = hashPassword(password);
+    	this.password = password;
+        //this.password = hashPassword(password);
     }
 
 	public String getConfirmPassword() {
@@ -105,7 +104,8 @@ public class User {
 	}
 	
 	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = hashPassword(confirmPassword);
+		this.confirmPassword = confirmPassword;
+		//this.confirmPassword = hashPassword(confirmPassword);
 	}
 	
 	public String getOtp() {
@@ -115,9 +115,5 @@ public class User {
 	public void setOtp(String otp) {
 		this.otp = otp;
 	}
-	
-    private String hashPassword(String password){
-    	return BCrypt.hashpw(password, BCrypt.gensalt());
-    }
 	
 }
