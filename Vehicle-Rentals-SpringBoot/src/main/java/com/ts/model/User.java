@@ -1,5 +1,6 @@
 package com.ts.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,15 +16,16 @@ public class User {
 	private String country;
 	private String role;
 	private String phoneNumber;
+	
+	@Column(unique = true)
 	private String email;
 	private String password;
-	private String confirmPassword;
-	private String otp;
+//	private String confirmPassword;
+//	private String otp;
 	
 	public User() { }
 
-	public User(String userName, String gender, String country,String role, String phoneNumber, String email, String password,
-			String confirmPassword, String otp) {
+	public User(String userName, String gender, String country,String role, String phoneNumber, String email, String password) {
 		this.userName = userName;
 		this.gender = gender;
 		this.country = country;
@@ -31,12 +33,11 @@ public class User {
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.password = password;
-		this.confirmPassword = confirmPassword;
-		this.otp = otp;
+//		this.confirmPassword = confirmPassword;
+//		this.otp = otp;
 	}
 
-	public User(int userId, String userName, String gender, String country,String role, String phoneNumber, String email,
-			String password, String confirmPassword, String otp) {
+	public User(int userId, String userName, String gender, String country,String role, String phoneNumber, String email, String password) {
 		this.userId = userId;
 		this.userName = userName;
 		this.gender = gender;
@@ -45,8 +46,8 @@ public class User {
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.password = password;
-		this.confirmPassword = confirmPassword;
-		this.otp = otp;
+//		this.confirmPassword = confirmPassword;
+//		this.otp = otp;
 	}
 
 	public int getUserId() {
@@ -110,21 +111,21 @@ public class User {
         //this.password = hashPassword(password);
     }
 
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-	
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-		//this.confirmPassword = hashPassword(confirmPassword);
-	}
-	
-	public String getOtp() {
-		return otp;
-	}
-	
-	public void setOtp(String otp) {
-		this.otp = otp;
-	}
+//	public String getConfirmPassword() {
+//		return confirmPassword;
+//	}
+//	
+//	public void setConfirmPassword(String confirmPassword) {
+//		this.confirmPassword = confirmPassword;
+//		//this.confirmPassword = hashPassword(confirmPassword);
+//	}
+//	
+//	public String getOtp() {
+//		return otp;
+//	}
+//	
+//	public void setOtp(String otp) {
+//		this.otp = otp;
+//	}
 	
 }

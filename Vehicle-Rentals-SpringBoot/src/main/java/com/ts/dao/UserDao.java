@@ -17,9 +17,6 @@ public class UserDao {
 	
 	@Autowired
 	UserRepository userRepository;
-	
-    @Autowired
-    private TwilioConfig twilioConfig;
     
 	@Autowired
 	private JavaMailSender mailSender;
@@ -30,12 +27,12 @@ public class UserDao {
     }
 	
 	public User addUser(User user) {
-		String otp = generateOtp();
-		user.setOtp(otp);
+		//String otp = generateOtp();
+		//user.setOtp(otp);
 		sendWelcomeEmail(user);		// Send a welcome email
-		sendOtpViaTwilio(user);		// Send OTP via Twilio
+		//sendOtpViaTwilio(user);		// Send OTP via Twilio
 		user.setPassword(hashPassword(user.getPassword()));
-		user.setConfirmPassword(hashPassword(user.getConfirmPassword()));
+		//user.setConfirmPassword(hashPassword(user.getConfirmPassword()));
 		User savedUser = userRepository.save(user);   		// Save the employee
 		return savedUser;
 	}
@@ -51,16 +48,16 @@ public class UserDao {
 		mailSender.send(message);
 	}
 	
-    private void sendOtpViaTwilio(User user) {
-        String phoneNumber = user.getPhoneNumber();
-        twilioConfig.sendOtp(phoneNumber, user.getOtp());
-    }
+//    private void sendOtpViaTwilio(User user) {
+//        String phoneNumber = user.getPhoneNumber();
+//        twilioConfig.sendOtp(phoneNumber, user.getOtp());
+//    }
 
-    private String generateOtp() {
-        Random random = new Random();
-        int otp = 100000 + random.nextInt(900000);
-        return String.valueOf(otp);
-    }
+//    private String generateOtp() {
+//        Random random = new Random();
+//        int otp = 100000 + random.nextInt(900000);
+//        return String.valueOf(otp);
+//    }
 
 	public User getUserById(int userId) {
 		return userRepository.findById(userId).orElse(null);

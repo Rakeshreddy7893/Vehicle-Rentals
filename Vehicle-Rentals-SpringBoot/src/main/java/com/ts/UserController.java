@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ts.config.TwilioConfig;
 import com.ts.dao.UserDao;
 import com.ts.model.User;
 
@@ -21,17 +23,30 @@ public class UserController {
 	@Autowired
 	UserDao userDao;
 	
+    @Autowired
+    private TwilioConfig twilioConfig;
+	
 	@GetMapping("getUsers")
 	public List<User> getUsers() {
 		return userDao.getUsers();
 	}
 	
+	@GetMapping("sendOtp/{phoneNumber}/{otp}")
+    private boolean sendOtpViaTwilio(@PathVariable String phoneNumber,@PathVariable int otp) {
+        try{
+        	twilioConfig.sendOtp(phoneNumber, String.valueOf(otp));
+        	return true;
+        } catch(Exception e){
+        	return false;
+        }
+    }
+	
     @PostMapping("addUser")
     public User addUser(@RequestBody User user) {
-        // Validate passwords
-        if (!user.getPassword().equals(user.getConfirmPassword())) {
-            return null;
-        }
+//        // Validate passwords
+//        if (!user.getPassword().equals(user.getConfirmPassword())) {
+//            return null;
+//        }
         return userDao.addUser(user);
     }
     
