@@ -7,6 +7,7 @@ import { headerComponent } from './header/header.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactComponent } from './contact/contact.component';
 import { MainComponent } from './main/main.component';
+import { ServiceComponent } from './service/service.component';
 
 const routes: Routes = [
 { path: '', component:headerComponent }, 
@@ -15,6 +16,7 @@ const routes: Routes = [
 { path: 'otp', component:OtpComponent },
 { path: 'aboutus', component:AboutusComponent },
 {path:'contact',component:ContactComponent},
+{path:'service',component:ServiceComponent},
 {path:'main',component:MainComponent}
 
 ];
