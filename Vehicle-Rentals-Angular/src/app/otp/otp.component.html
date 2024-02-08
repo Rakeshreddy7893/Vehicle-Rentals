@@ -15,7 +15,7 @@
 <body>
   <section class="container">
     <header>OTP Verification</header>
-    <form #otpForm="ngForm" (ngSubmit)="submitOTP(otpForm.value, otpForm)" class="form" novalidate>
+    <form #otpForm="ngForm" (ngSubmit)="submitOTP(otpForm.value)" class="form" novalidate>
       <div class="input-box" class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
         <input type="text" class="form-control" placeholder="Enter OTP sent to registred mobile number" name="otp" ngModel required />

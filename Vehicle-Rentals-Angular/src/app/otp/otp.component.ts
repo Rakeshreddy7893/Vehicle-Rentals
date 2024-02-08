@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms'; 
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr'; 
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-otp',
@@ -10,20 +10,26 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class OtpComponent implements OnInit {
 
-  constructor(private toastr: ToastrService,private router :Router) { } 
+
+  constructor(private toastr: ToastrService,private router :Router,private service :UserService) { } 
 
   ngOnInit() {
   }
 
-  submitOTP(formData: any, form: NgForm) { 
+  submitOTP(formData: any) { 
     
-    if (!formData.otp) { 
-      this.toastr.error('OTP is required.'); 
-      return;
+    if (this.service.otp == formData.otp) { 
+
+      this.service.registerUser().subscribe((data:any)=>{
+        console.log(data);
+      });
+
+      this.toastr.success('Registration is successful !!');
+      this.router.navigate(['login']); 
+      
+    } else {
+      console.log(formData);
+      this.toastr.error('Registration failed ??');
     }
-    
-    console.log(formData);
-    this.toastr.success('Registration successful');
-    this.router.navigate(['login']) 
   }
 }
