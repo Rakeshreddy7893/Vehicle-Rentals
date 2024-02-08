@@ -1,4 +1,5 @@
-import { Component, HostListener, ElementRef } from '@angular/core';
+
+import { Component, HostListener, ElementRef, OnInit } from '@angular/core';
 
 
 @Component({
@@ -6,22 +7,10 @@ import { Component, HostListener, ElementRef } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class headerComponent {
-
-  nav: any;
-
-  constructor(private elementRef: ElementRef) {}
-
+export class headerComponent implements OnInit {
   ngOnInit() {
-    this.nav = this.elementRef.nativeElement.querySelector('.nav');
+   
   }
 
-  @HostListener('window:scroll', ['$event'])
-  fixNav(event: Event) {
-    if (window.scrollY > this.nav.offsetHeight + 150) {
-      this.nav.classList.add('active');
-    } else {
-      this.nav.classList.remove('active');
-    }
-  }
+  
 }

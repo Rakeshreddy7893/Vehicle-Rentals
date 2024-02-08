@@ -29,14 +29,15 @@
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
         <input type="text" class="form-control" placeholder="Enter MobileNo" name="mobileNumber" ngModel
-          #mobileNumber="ngModel" required pattern="^\+91 \d{5} \d{5}$" maxlength="15" />
+          #mobileNumber="ngModel" required pattern="^\+91 \d{5} \d{5}$" maxlength="16" />
     </div>
     <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)" class="error"
         style="color: red;">
         <h6 *ngIf="mobileNumber.hasError('required')">Mobile Number is required.</h6>
-        <h6 *ngIf="mobileNumber.hasError('pattern')">Enter a valid number starting with +91</h6>
+        <h6 *ngIf="mobileNumber.hasError('pattern')">Enter a valid number starting with +91 </h6>
         <h6 *ngIf="mobileNumber.hasError('maxlength')">Mobile Number should not exceed 15 characters.</h6>
     </div>
+    
     
 
       <br />
