@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../user.service';
@@ -9,15 +9,27 @@ import { UserService } from '../user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: NgForm;
   showPassword: boolean = false;
+  protected aFormGroup: FormGroup;
 
   user : any;
 
-  constructor(private router: Router, private toastr: ToastrService, private service : UserService) {
-    this.loginForm = {} as NgForm; 
+  constructor(private router: Router, private toastr: ToastrService, private service : UserService, private formBuilder: FormBuilder) {
+    this.loginForm = {} as NgForm;
+    this.aFormGroup = this.formBuilder.group({
+      recaptcha: ['', Validators.required]
+    });
+}
+  ngOnInit() {
+    this.aFormGroup = this.formBuilder.group({
+      recaptcha: ['', Validators.required]
+    });
+    
   }
+
+  siteKey:string = "6Lfel20pAAAAAAOAa-byclJub9pLkMaXtbXdaZUP";
 
  async loginSubmit(formData: any, form: NgForm) {
     if (!formData.email || !formData.password) {

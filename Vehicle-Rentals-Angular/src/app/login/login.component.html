@@ -42,6 +42,13 @@
       </h6>
       <br />
 
+      <form [formGroup]="aFormGroup">
+        <ngx-recaptcha2 #captchaElem
+          [siteKey]="siteKey"
+          formControlName="recaptcha">
+        </ngx-recaptcha2>
+      </form>
+
       <button type="button" (click)="loginSubmit(loginForm.value, loginForm)">
         <h5>Login</h5>
       </button>

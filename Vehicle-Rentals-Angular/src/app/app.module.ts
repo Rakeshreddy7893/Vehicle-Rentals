@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,6 +15,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactComponent } from './contact/contact.component';
 import { MainComponent } from './main/main.component';
 import { ServiceComponent } from './service/service.component';
+import { NgxCaptchaModule } from 'ngx-captcha';
+
 
 @NgModule({
   declarations: [
@@ -26,16 +28,19 @@ import { ServiceComponent } from './service/service.component';
     AboutusComponent,
     ContactComponent,
     MainComponent,
-    ServiceComponent
+    ServiceComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     ToastrModule.forRoot(),
     HttpClientModule,
-    
+    NgxCaptchaModule
+   
     
   ],
   providers: [],
