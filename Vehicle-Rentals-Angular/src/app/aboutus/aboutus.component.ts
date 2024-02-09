@@ -11,7 +11,7 @@ export class AboutusComponent implements OnInit{
   constructor(private router:Router){}
   ngOnInit() {
     
-  }
+}
 
   registerMe(){
   this.router.navigate(['register']);
