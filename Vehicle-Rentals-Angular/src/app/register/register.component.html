@@ -25,20 +25,20 @@
         class="error" style="color: red;">Username is required.</h6>
       <br />
 
-    
+
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
         <input type="text" class="form-control" placeholder="Enter MobileNo" name="mobileNumber" ngModel
           #mobileNumber="ngModel" required pattern="^\+91 \d{5} \d{5}$" maxlength="16" />
-    </div>
-    <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)" class="error"
+      </div>
+      <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)" class="error"
         style="color: red;">
         <h6 *ngIf="mobileNumber.hasError('required')">Mobile Number is required.</h6>
         <h6 *ngIf="mobileNumber.hasError('pattern')">Enter a valid number starting with +91 </h6>
         <h6 *ngIf="mobileNumber.hasError('maxlength')">Mobile Number should not exceed 15 characters.</h6>
-    </div>
-    
-    
+      </div>
+
+
 
       <br />
 
@@ -74,8 +74,8 @@
           <option value="customer">Customer</option>
         </select>
       </div>
-      <h6 *ngIf="registrationForm.controls['role'].invalid && registrationForm.controls['role'].touched"
-        class="error" style="color: red;">Role is required.</h6>
+      <h6 *ngIf="registrationForm.controls['role'].invalid && registrationForm.controls['role'].touched" class="error"
+        style="color: red;">Role is required.</h6>
       <br />
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
@@ -93,7 +93,7 @@
         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
         <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" placeholder="Enter password"
           name="password" ngModel #passwordInput="ngModel" required
-          pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$" maxlength="20" />
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%?&]{8,20}$" maxlength="20" />
         <span class="input-group-addon" (click)="togglePasswordVisibility()">
           <i class="{{ showPassword ? 'glyphicon glyphicon-eye-open' : 'glyphicon glyphicon-eye-close' }}"></i>
         </span>
@@ -101,18 +101,21 @@
       <h6 *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error"
         style="color: red;">
         <h6 *ngIf="passwordInput.hasError('required')">Password is required.</h6>
-        <h6 *ngIf="passwordInput.hasError('pattern')">Password must Alphanumeric.</h6>
+        <h6 *ngIf="passwordInput.hasError('pattern')">Password must be alphanumeric </h6>
       </h6>
-
       <br />
+
+
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
         <input type="password" class="form-control" placeholder="Enter confirm password" name="confirmPassword" ngModel
-          #confirmPasswordInput="ngModel" />
+          #confirmPasswordInput="ngModel" required />
       </div>
       <h6
         *ngIf="confirmPasswordInput.invalid && confirmPasswordInput.touched && confirmPasswordInput.hasError('passwordMismatch')"
         class="error" style="color: red;">Passwords do not match.</h6>
+      <h6 *ngIf="confirmPasswordInput.touched && confirmPasswordInput.hasError('required')" class="error"
+        style="color: red;">Confirm Password is Required.</h6>
       <br />
       <button type="button" (click)="registerSubmit(registrationForm.value, registrationForm)">
         <h5>Register</h5>

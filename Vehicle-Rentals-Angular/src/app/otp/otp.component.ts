@@ -29,7 +29,7 @@ export class OtpComponent implements OnInit {
       
     } else {
       console.log(formData);
-      this.toastr.error('Registration failed ??');
+      this.toastr.error('Invalid OTP');
     }
   }
 }
