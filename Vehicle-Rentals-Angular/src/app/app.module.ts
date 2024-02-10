@@ -16,6 +16,9 @@ import { ContactComponent } from './contact/contact.component';
 import { MainComponent } from './main/main.component';
 import { ServiceComponent } from './service/service.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { AdminComponent } from './admin/admin.component';
+import { OwnerComponent } from './owner/owner.component';
+import { CustomerComponent } from './customer/customer.component';
 
 
 @NgModule({
@@ -29,6 +32,9 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     ContactComponent,
     MainComponent,
     ServiceComponent,
+    AdminComponent,
+    OwnerComponent,
+    CustomerComponent,
    
   ],
   imports: [

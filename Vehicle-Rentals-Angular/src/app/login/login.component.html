@@ -42,6 +42,19 @@
       </h6>
       <br />
 
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-menu-down"></i></span>
+        <select name="role" class="form-control" ngModel required>
+          <option value="" disabled selected>Select role</option>
+          <option value="owner">Owner</option>
+          <option value="customer">Customer</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+      <h6 *ngIf="loginForm.controls['role'].invalid && loginForm.controls['role'].touched" class="error"
+        style="color: red;">Role is required.</h6>
+      <br />
+
       <form [formGroup]="aFormGroup">
         <ngx-recaptcha2 #captchaElem
           [siteKey]="siteKey"

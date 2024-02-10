@@ -111,9 +111,15 @@ export class LoginComponent implements OnInit {
       this.user = data;
     });
 
-    if(this.user != null){
-      this.toastr.success("Success");
-      this.router.navigate(['main']);
+    if(this.user != null && this.user.role === formData.role && this.user.role === 'admin'){
+      this.toastr.success("Admin login is Success!!");
+      this.router.navigate(['admin']);
+    } else if(this.user != null && this.user.role === formData.role && this.user.role === 'customer'){
+      this.toastr.success("Customer login is Success!!");
+      this.router.navigate(['customer']);
+    } else if(this.user != null && this.user.role === formData.role && this.user.role === 'owner'){
+      this.toastr.success("Owner login is success !!");
+      this.router.navigate(['owner']);
     } else {
       this.toastr.error("Invalid Login credentials");
     }

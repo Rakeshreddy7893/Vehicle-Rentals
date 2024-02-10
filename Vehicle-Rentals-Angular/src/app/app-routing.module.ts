@@ -8,6 +8,9 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactComponent } from './contact/contact.component';
 import { MainComponent } from './main/main.component';
 import { ServiceComponent } from './service/service.component';
+import { AdminComponent } from './admin/admin.component';
+import { OwnerComponent } from './owner/owner.component';
+import { CustomerComponent } from './customer/customer.component';
 
 const routes: Routes = [
 { path: '', component:headerComponent }, 
@@ -17,7 +20,10 @@ const routes: Routes = [
 { path: 'aboutus', component:AboutusComponent },
 {path:'contact',component:ContactComponent},
 {path:'service',component:ServiceComponent},
-{path:'main',component:MainComponent}
+{path:'main',component:MainComponent},
+{path:'admin',      component:AdminComponent},
+{path:'owner',      component:OwnerComponent},
+{path:'customer',   component:CustomerComponent}
 
 ];
 
