@@ -43,10 +43,6 @@ public class UserController {
 	
     @PostMapping("addUser")
     public User addUser(@RequestBody User user) {
-//        // Validate passwords
-//        if (!user.getPassword().equals(user.getConfirmPassword())) {
-//            return null;
-//        }
         return userDao.addUser(user);
     }
     

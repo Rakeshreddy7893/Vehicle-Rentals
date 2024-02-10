@@ -20,8 +20,7 @@ public class User {
 	@Column(unique = true)
 	private String email;
 	private String password;
-//	private String confirmPassword;
-//	private String otp;
+
 	
 	public User() { }
 
@@ -33,8 +32,6 @@ public class User {
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.password = password;
-//		this.confirmPassword = confirmPassword;
-//		this.otp = otp;
 	}
 
 	public User(int userId, String userName, String gender, String country,String role, String phoneNumber, String email, String password) {
@@ -46,8 +43,6 @@ public class User {
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.password = password;
-//		this.confirmPassword = confirmPassword;
-//		this.otp = otp;
 	}
 
 	public int getUserId() {
@@ -108,24 +103,6 @@ public class User {
 	
     public void setPassword(String password) {
     	this.password = password;
-        //this.password = hashPassword(password);
     }
-
-//	public String getConfirmPassword() {
-//		return confirmPassword;
-//	}
-//	
-//	public void setConfirmPassword(String confirmPassword) {
-//		this.confirmPassword = confirmPassword;
-//		//this.confirmPassword = hashPassword(confirmPassword);
-//	}
-//	
-//	public String getOtp() {
-//		return otp;
-//	}
-//	
-//	public void setOtp(String otp) {
-//		this.otp = otp;
-//	}
 	
 }

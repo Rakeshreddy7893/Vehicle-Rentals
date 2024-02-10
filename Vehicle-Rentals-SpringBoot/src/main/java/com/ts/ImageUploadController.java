@@ -1,9 +1,3 @@
-//package com.ts;
-//
-//public class ImageUploadController {
-//
-//}
-
 package com.ts;
 
 import java.io.ByteArrayOutputStream;

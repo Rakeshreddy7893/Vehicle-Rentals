@@ -27,13 +27,9 @@ public class UserDao {
     }
 	
 	public User addUser(User user) {
-		//String otp = generateOtp();
-		//user.setOtp(otp);
-		sendWelcomeEmail(user);		// Send a welcome email
-		//sendOtpViaTwilio(user);		// Send OTP via Twilio
+		sendWelcomeEmail(user);		
 		user.setPassword(hashPassword(user.getPassword()));
-		//user.setConfirmPassword(hashPassword(user.getConfirmPassword()));
-		User savedUser = userRepository.save(user);   		// Save the employee
+		User savedUser = userRepository.save(user);   		
 		return savedUser;
 	}
 	
@@ -47,17 +43,6 @@ public class UserDao {
 
 		mailSender.send(message);
 	}
-	
-//    private void sendOtpViaTwilio(User user) {
-//        String phoneNumber = user.getPhoneNumber();
-//        twilioConfig.sendOtp(phoneNumber, user.getOtp());
-//    }
-
-//    private String generateOtp() {
-//        Random random = new Random();
-//        int otp = 100000 + random.nextInt(900000);
-//        return String.valueOf(otp);
-//    }
 
 	public User getUserById(int userId) {
 		return userRepository.findById(userId).orElse(null);

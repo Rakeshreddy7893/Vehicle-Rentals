@@ -1,9 +1,3 @@
-//package com.ts.dao;
-//
-//public interface ImageRepository {
-//
-//}
-
 package com.ts.dao;
 
 import java.util.List;
