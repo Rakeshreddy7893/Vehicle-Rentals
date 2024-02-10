@@ -43,6 +43,10 @@ export class UserService {
     return this.http.get('http://localhost:8085/userLogin/' + emailId +'/'+ password).toPromise();
   }
 
+  sendMail(mail : string, message : string){
+    return this.http.get('http://localhost:8085/sendMail/'+mail+'/'+ message);
+  }
+
 setIsUserLoggedIn(){
    this.isUserLoggedIn = true;
 }
