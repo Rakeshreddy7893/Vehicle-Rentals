@@ -13,7 +13,6 @@ import { OtpComponent } from './otp/otp.component';
 import {  headerComponent } from './header/header.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactComponent } from './contact/contact.component';
-import { MainComponent } from './main/main.component';
 import { ServiceComponent } from './service/service.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { AdminComponent } from './admin/admin.component';
@@ -30,7 +29,6 @@ import { CustomerComponent } from './customer/customer.component';
     headerComponent,
     AboutusComponent,
     ContactComponent,
-    MainComponent,
     ServiceComponent,
     AdminComponent,
     OwnerComponent,
