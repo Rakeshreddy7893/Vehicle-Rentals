@@ -11,6 +11,7 @@ import { AdminComponent } from './admin/admin.component';
 import { OwnerComponent } from './owner/owner.component';
 import { CustomerComponent } from './customer/customer.component';
 import { authGuard } from './auth.guard';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
 { path: '',           component:headerComponent }, 
@@ -18,6 +19,7 @@ const routes: Routes = [
 { path: 'register',   component:RegisterComponent },
 {path:'service',      component:ServiceComponent},
 { path: 'aboutus',    component:AboutusComponent },
+{ path: 'logout',     canActivate:[authGuard],   component:LogoutComponent },
 { path: 'otp',        canActivate:[authGuard],   component:OtpComponent },
 {path:'contact',      canActivate:[authGuard],   component:ContactComponent},
 {path:'admin',        canActivate:[authGuard],   component:AdminComponent},

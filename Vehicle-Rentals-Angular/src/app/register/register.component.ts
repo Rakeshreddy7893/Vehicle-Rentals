@@ -90,6 +90,7 @@ export class RegisterComponent implements OnInit {
         if (flag) {
           this.service.user = this.user;
           this.service.otp = this.randomNumber;
+          this.service.setIsUserLoggedIn();
           this.router.navigate(['otp']);
         } else {
           this.toastr.error('OTP is not sent to the user');

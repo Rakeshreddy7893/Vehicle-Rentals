@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +8,14 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   isUserLoggedIn : boolean;
+  loginStatus : any;
 
   user : any;
   otp : number;
 
   constructor(private http : HttpClient) {
     this.isUserLoggedIn = false;
+    this.loginStatus = new Subject();
 
     this.otp = 0;
     this.user ={
@@ -49,11 +51,23 @@ export class UserService {
 
 setIsUserLoggedIn(){
    this.isUserLoggedIn = true;
+   this.loginStatus.next(true);
 }
 
 getIsUserLoggedIn():boolean{
   return this.isUserLoggedIn;
 }
+
+getLoginStatus(): any {
+  return this.loginStatus.asObservable();
+}
+
+setIsUserLoggedOut() {
+  this.isUserLoggedIn = false;
+  this.loginStatus.next(false);
+}
+
+
 
 
 }

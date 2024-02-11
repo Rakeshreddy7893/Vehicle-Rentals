@@ -1,5 +1,6 @@
 
 import { Component, HostListener, ElementRef, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -8,9 +9,15 @@ import { Component, HostListener, ElementRef, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class headerComponent implements OnInit {
-  ngOnInit() {
-   
+  loginStatus: any;
+
+  constructor(private service: UserService) {
   }
 
+ngOnInit() {
+    this.service.getLoginStatus().subscribe((data: any) => {
+      this.loginStatus = data;
+    });
+  }
   
 }
