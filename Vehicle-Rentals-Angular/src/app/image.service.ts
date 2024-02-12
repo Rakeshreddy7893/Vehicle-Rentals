@@ -13,4 +13,17 @@ export class ImageService {
   uploadImage(formData: FormData): Observable<any> {
     return this.httpClient.post<any>(`${this.baseUrl}/upload`, formData);
   }
+
+  getImage(imageName: string): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl}/get/${imageName}`);
+  }
+
+  getAllImages(): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${this.baseUrl}/getAllImages`);
+  }
+
+  getImagesByCategory(category: string): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${this.baseUrl}/getImagesByCategory/${category}`);
+  }
+
 }

@@ -1,0 +1,39 @@
+
+<!-- Button to get all images -->
+<div class="container row">
+    <div class="col-md-6">
+      <input type="button" (click)="getAllImages()" value="Get All Images">
+    </div>
+  </div>
+  
+  
+  <!-- Display the image using an img tag with the base64-encoded image data -->
+  <div *ngFor="let image of allImages">
+    <ng-container *ngIf="image.picByte">
+      <p>Id: {{ image.id }}</p>
+      <p>Name: {{ image.name }}</p>
+      <p>Category: {{ image.category }}</p>
+      <p>Start Date: {{ image.startDate }}</p>
+      <p>End Date: {{ image.endDate }}</p>
+      <p>Price Per Hour: {{ image.pricePerHour }}</p>
+      <p>Owner ID: {{ image.owner.userId }}</p>
+      <p>Status: {{ image.status }}</p>
+      <img [src]="image.picByte" alt="{{ image.name }}">
+      <hr />
+    </ng-container>
+  </div>
+  
+  <hr/>
+  <hr/>
+  
+  <br>
+  <br>
+  <!-- Button to get images by category -->
+  <div class="container row">
+    <div class="col-md-6">
+      <input type="text" name="categoryFilter" [(ngModel)]="categoryFilter" placeholder="Enter category for filtering" />
+    </div>
+    <div class="col-md-6">
+      <input type="button" (click)="getImagesByCategory()" value="Get Images by Category">
+    </div>
+  </div>

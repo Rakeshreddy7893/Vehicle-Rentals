@@ -19,6 +19,7 @@ import { AdminComponent } from './admin/admin.component';
 import { OwnerComponent } from './owner/owner.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ImageComponent } from './image/image.component';
+import { VehicleimagesComponent } from './vehicleimages/vehicleimages.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { ImageComponent } from './image/image.component';
     OwnerComponent,
     CustomerComponent,
     ImageComponent,
+    VehicleimagesComponent,
    
   ],
   imports: [
