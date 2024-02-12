@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
     await this.service.userLogin(formData.email, formData.password).then((data: any) => {
       console.log(data);
       this.user = data;
+      localStorage.setItem("userid",data.userId);
     });
 
     if(this.user != null && this.user.role === formData.role && this.user.role === 'admin'){

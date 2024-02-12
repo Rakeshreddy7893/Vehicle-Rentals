@@ -27,6 +27,7 @@ export class UserService {
       email:'',
       password:''
     }
+
   }
 
   sendOtpToUser(phoneNumber: string, otp: number): Observable<any> {
@@ -66,8 +67,5 @@ setIsUserLoggedOut() {
   this.isUserLoggedIn = false;
   this.loginStatus.next(false);
 }
-
-
-
 
 }

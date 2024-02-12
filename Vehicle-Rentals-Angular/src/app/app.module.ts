@@ -18,6 +18,7 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import { AdminComponent } from './admin/admin.component';
 import { OwnerComponent } from './owner/owner.component';
 import { CustomerComponent } from './customer/customer.component';
+import { ImageComponent } from './image/image.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { CustomerComponent } from './customer/customer.component';
     AdminComponent,
     OwnerComponent,
     CustomerComponent,
+    ImageComponent,
    
   ],
   imports: [
