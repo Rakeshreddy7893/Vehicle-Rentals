@@ -11,9 +11,13 @@ import org.springframework.stereotype.Repository;
 import com.ts.model.ImageModel;
 
 @Repository
-public interface ImageRepository extends JpaRepository<ImageModel, Long> {
+public interface ImageRepository extends JpaRepository<ImageModel, String> {
 	Optional<ImageModel> findByName(String name);
 	
 	@Query("from ImageModel where category = :category")
 	List<ImageModel> findByCategory(@Param("category") String category);
+	
+	@Query("from ImageModel where status = :status")
+	List<ImageModel> findAllVehicles(@Param("status") String status);
+
 }

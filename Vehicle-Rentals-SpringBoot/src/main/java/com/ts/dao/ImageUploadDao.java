@@ -13,8 +13,8 @@ public class ImageUploadDao {
 	@Autowired
 	ImageRepository imageRepository;
 
-	public List<ImageModel> getAllImages() {
-		return imageRepository.findAll();
-	}
+//	public List<ImageModel> getAllImages() {
+//		return imageRepository.findAll();
+//	}
 	
 }

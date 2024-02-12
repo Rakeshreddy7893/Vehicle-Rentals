@@ -45,7 +45,7 @@ public class UserDao {
 	}
 
 	public User getUserById(int userId) {
-		return userRepository.findById(userId).orElse(null);
+		return userRepository.findById(userId);
 	}
 
 	public User getUserByName(String userName) {
