@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ImageService } from '../image.service';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-image',
@@ -10,6 +12,9 @@ import { UserService } from '../user.service';
 export class ImageComponent {
   imageId:string = '';
   imageName: string = '';
+  imageColour: string = '';
+  imageSeats: string = '';
+  imageModel: string = '';
   imageCategory: string = '';
   imageStartDate: any = new Date(); // Initialize to current date
   imageEndDate: any = new Date(); // Initialize to current date
@@ -18,7 +23,7 @@ export class ImageComponent {
 
   ownerId: any;
 
-  constructor(private imageService: ImageService, private userService: UserService) {
+  constructor(private imageService: ImageService, private userService: UserService, private router : Router, private toastr : ToastrService) {
     this.ownerId = localStorage.getItem("userid");
   }
 
@@ -40,6 +45,9 @@ export class ImageComponent {
     formData.append('file', this.selectedFile);
     formData.append('id', this.imageId);
     formData.append('name', this.imageName);
+    formData.append('colour', this.imageColour);
+    formData.append('seats', this.imageSeats);
+    formData.append('model', this.imageModel);
     formData.append('category', this.imageCategory);
     formData.append('startDate', this.imageStartDate.toISOString()); // Convert to string
     formData.append('endDate', this.imageEndDate.toISOString()); // Convert to string
@@ -47,11 +55,14 @@ export class ImageComponent {
     formData.append('ownerId', this.ownerId); 
 
     this.imageService.uploadImage(formData).subscribe(
-      () => {
+      (data : any) => {
         console.log('Image uploaded successfully');
+        console.log(data);
+        this.toastr.success("Image uploaded successfully !");
+        this.router.navigate(['vehicleimages']);
       },
       (error) => {
-        console.error('Error uploading image', error);
+        this.toastr.error("Image not inserted successfully ?");
       }
     );
   }

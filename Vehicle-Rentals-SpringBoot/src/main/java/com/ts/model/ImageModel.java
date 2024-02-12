@@ -113,6 +113,15 @@ public class ImageModel {
 
     @Column(name = "vehicle_name")
     private String name;
+    
+    @Column(name = "colour")
+    private String colour;
+    
+    @Column(name = "seats")
+    private String seats;
+    
+    @Column(name = "model")
+    private String model;
 
     @Column(name = "category")
     private String category;
@@ -141,8 +150,11 @@ public class ImageModel {
         this.status = "not approved"; // Default status
     }
 
-    public ImageModel(String name, byte[] picByte, String category, Date startDate, Date endDate, double pricePerHour, User owner, String status) {
+    public ImageModel(String name,String colour, String seats, String model, byte[] picByte, String category, Date startDate, Date endDate, double pricePerHour, User owner, String status) {
         this.name = name;
+        this.colour = colour;
+        this.seats = seats;
+        this.model = model;
         this.picByte = picByte;
         this.category = category;
         this.startDate = startDate;
@@ -152,9 +164,12 @@ public class ImageModel {
         this.status = status;
     }
 
-    public ImageModel(String id, String name, byte[] picByte, String category, Date startDate, Date endDate, double pricePerHour, User owner, String status) {
+    public ImageModel(String id, String name, String colour, String seats, String model, byte[] picByte, String category, Date startDate, Date endDate, double pricePerHour, User owner, String status) {
         this.id = id;
         this.name = name;
+        this.colour = colour;
+        this.seats = seats;
+        this.model = model;
         this.picByte = picByte;
         this.category = category;
         this.startDate = startDate;
@@ -180,6 +195,30 @@ public class ImageModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public String getColour() {
+    	return colour;
+    }
+    
+    public void setColour(String colour) {
+    	this.colour = colour;
+    }
+    
+    public String getSeats() {
+    	return seats;
+    }
+    
+    public void setSeats(String seats) {
+    	this.seats = seats;
+    }
+    
+    public String getModel() {
+    	return model;
+    }
+    
+    public void setModel(String model) {
+    	this.model = model;
     }
 
     public String getCategory() {

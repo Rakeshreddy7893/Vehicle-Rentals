@@ -17,6 +17,15 @@ public interface ImageRepository extends JpaRepository<ImageModel, String> {
 	@Query("from ImageModel where category = :category")
 	List<ImageModel> findByCategory(@Param("category") String category);
 	
+	@Query("from ImageModel where colour = :colour")
+	List<ImageModel> findByColour(@Param("colour") String colour);
+	
+	@Query("from ImageModel where seats = :seats")
+	List<ImageModel> findBySeats(@Param("seats") String seats);
+	
+	@Query("from ImageModel where model = :model")
+	List<ImageModel> findByModel(@Param("model") String model);
+	
 	@Query("from ImageModel where status = :status")
 	List<ImageModel> findAllVehicles(@Param("status") String status);
 

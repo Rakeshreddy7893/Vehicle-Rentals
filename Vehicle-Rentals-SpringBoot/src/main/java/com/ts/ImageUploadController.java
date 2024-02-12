@@ -43,6 +43,9 @@ public class ImageUploadController {
     public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile file,
     		                             @RequestParam("id") String id,
                                          @RequestParam("name") String name,
+                                         @RequestParam("colour") String colour,
+                                         @RequestParam("seats") String seats,
+                                         @RequestParam("model") String model,
                                          @RequestParam("category") String category,
                                          @RequestParam("startDate") @DateTimeFormat(pattern="yyyy-MM-dd") Date startDate,
                                          @RequestParam("endDate") @DateTimeFormat(pattern="yyyy-MM-dd") Date endDate,
@@ -52,11 +55,14 @@ public class ImageUploadController {
         ImageModel img = new ImageModel();
         img.setId(id);
         img.setName(name);
+        img.setColour(colour);
+        img.setSeats(seats);
+        img.setModel(model);
         img.setCategory(category);
         img.setStartDate(startDate);
         img.setEndDate(endDate);
         img.setPricePerHour(pricePerHour);
-        img.setStatus("not approved"); // Default status
+        img.setStatus("Not Approved"); // Default status
 
         // Get owner from database using ownerId
         Optional<User> ownerOptional = userRepository.findById(ownerId);
@@ -80,6 +86,7 @@ public class ImageUploadController {
         final Optional<ImageModel> retrievedImage = imageRepository.findByName(imageName);
         if (retrievedImage.isPresent()) {
             ImageResponse img = new ImageResponse(retrievedImage.get().getId(), retrievedImage.get().getName(),
+            		retrievedImage.get().getColour(), retrievedImage.get().getSeats(), retrievedImage.get().getModel(),
                     retrievedImage.get().getCategory(), retrievedImage.get().getStartDate(),
                     retrievedImage.get().getEndDate(), retrievedImage.get().getPricePerHour(),
                     retrievedImage.get().getOwner(), retrievedImage.get().getStatus(),
@@ -93,11 +100,12 @@ public class ImageUploadController {
     
     @GetMapping(path = { "/getAllImages" })
     public ResponseEntity<List<ImageResponse>> getAllImages() {
-        List<ImageModel> images = imageRepository.findAllVehicles("approved");
+        List<ImageModel> images = imageRepository.findAllVehicles("Approved");
         List<ImageResponse> imageResponses = new ArrayList<>();
 
         for (ImageModel retrievedImage : images) {
             ImageResponse img = new ImageResponse(retrievedImage.getId(), retrievedImage.getName(),
+            		retrievedImage.getColour(), retrievedImage.getSeats(), retrievedImage.getModel(),
                     retrievedImage.getCategory(), retrievedImage.getStartDate(),
                     retrievedImage.getEndDate(), retrievedImage.getPricePerHour(),
                     retrievedImage.getOwner(), retrievedImage.getStatus(),
@@ -115,6 +123,7 @@ public class ImageUploadController {
 
         for (ImageModel retrievedImage : images) {
             ImageResponse img = new ImageResponse(retrievedImage.getId(), retrievedImage.getName(),
+            		retrievedImage.getColour(), retrievedImage.getSeats(), retrievedImage.getModel(),
                     retrievedImage.getCategory(), retrievedImage.getStartDate(),
                     retrievedImage.getEndDate(), retrievedImage.getPricePerHour(),
                     retrievedImage.getOwner(), retrievedImage.getStatus(),
@@ -129,6 +138,9 @@ public class ImageUploadController {
 public class ImageResponse {
     private String id;
     private String name;
+    private String colour;
+    private String seats;
+    private String model;
     private String category;
     private Date startDate;
     private Date endDate;
@@ -139,9 +151,12 @@ public class ImageResponse {
 
     // Constructors, getters, and setters
 
-    public ImageResponse(String id, String name, String category, Date startDate, Date endDate, double pricePerHour, User owner, String status, byte[] picByte) {
+    public ImageResponse(String id, String name, String colour, String seats, String model, String category, Date startDate, Date endDate, double pricePerHour, User owner, String status, byte[] picByte) {
         this.id = id;
         this.name = name;
+        this.colour = colour;
+        this.seats = seats;
+        this.model = model;
         this.category = category;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -165,6 +180,30 @@ public class ImageResponse {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public String getColour() {
+    	return colour;
+    }
+    
+    public void setColour(String colour) {
+    	this.colour = colour;
+    }
+    
+    public String getSeats() {
+    	return seats;
+    }
+    
+    public void setSeats(String seats) {
+    	this.seats = seats;
+    }
+    
+    public String getModel() {
+    	return model;
+    }
+    
+    public void setModel(String model) {
+    	this.model = model;
     }
 
     public String getCategory() {
