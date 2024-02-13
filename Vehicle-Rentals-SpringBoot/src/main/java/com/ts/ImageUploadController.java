@@ -134,6 +134,26 @@ public class ImageUploadController {
         return ResponseEntity.ok(imageResponses);
     } 
     
+    
+    @GetMapping(path = { "/getAllImagesByOwnerId/{ownerId}" })
+    public ResponseEntity<List<ImageResponse>> getAllImagesByOwnerId(@PathVariable("ownerId") int ownerId) {
+        List<ImageModel> images = imageRepository.findByOwnerId(ownerId);
+        List<ImageResponse> imageResponses = new ArrayList<>();
+
+        for (ImageModel retrievedImage : images) {
+            ImageResponse img = new ImageResponse(retrievedImage.getId(), retrievedImage.getName(),
+            		retrievedImage.getColour(), retrievedImage.getSeats(), retrievedImage.getModel(),
+                    retrievedImage.getCategory(), retrievedImage.getStartDate(),
+                    retrievedImage.getEndDate(), retrievedImage.getPricePerHour(),
+                    retrievedImage.getOwner(), retrievedImage.getStatus(),
+                    decompressBytes(retrievedImage.getPicByte()));
+            imageResponses.add(img);
+        }
+
+        return ResponseEntity.ok(imageResponses);
+    } 
+    
+    
  // ImageResponse class definition
 public class ImageResponse {
     private String id;

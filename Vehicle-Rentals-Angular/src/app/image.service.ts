@@ -26,4 +26,8 @@ export class ImageService {
     return this.httpClient.get<any[]>(`${this.baseUrl}/getImagesByCategory/${category}`);
   }
 
+  getMyStack(ownerId: any): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${this.baseUrl}/getAllImagesByOwnerId/${ownerId}`)
+  }
+
 }

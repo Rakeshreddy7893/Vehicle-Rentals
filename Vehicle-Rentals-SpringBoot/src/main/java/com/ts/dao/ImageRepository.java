@@ -29,4 +29,7 @@ public interface ImageRepository extends JpaRepository<ImageModel, String> {
 	@Query("from ImageModel where status = :status")
 	List<ImageModel> findAllVehicles(@Param("status") String status);
 
+	@Query("from ImageModel where owner.userId = :ownerId")
+	List<ImageModel> findByOwnerId(@Param("ownerId") int ownerId);
+
 }

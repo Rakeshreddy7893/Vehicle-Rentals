@@ -20,6 +20,7 @@ import { OwnerComponent } from './owner/owner.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ImageComponent } from './image/image.component';
 import { VehicleimagesComponent } from './vehicleimages/vehicleimages.component';
+import { MystackComponent } from './mystack/mystack.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { VehicleimagesComponent } from './vehicleimages/vehicleimages.component'
     CustomerComponent,
     ImageComponent,
     VehicleimagesComponent,
+    MystackComponent,
    
   ],
   imports: [
