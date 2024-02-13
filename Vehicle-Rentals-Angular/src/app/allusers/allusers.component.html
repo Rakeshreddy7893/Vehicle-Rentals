@@ -1,0 +1,112 @@
+<head>
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
+    crossorigin="anonymous">
+</head>
+<h3>Welcome <u><i>{{email}}</i></u>!</h3>
+<h1 align="center">Users Data</h1>
+<br/>
+<div align="center" class="container">
+    <table class="table table-hover table-striped table-sm table-bordered">
+        <thead>
+            <tr align="center">
+                <th class="bg-info text-white">UserId</th>
+                <th class="bg-info text-white">UserName</th>
+                <th class="bg-info text-white">Gender</th>
+                <th class="bg-info text-white">Country</th>
+                <th class="bg-info text-white">Role</th>
+                <th class="bg-info text-white">PhoneNumber</th>
+                <th class="bg-info text-white">Email</th>
+                <th class="bg-info text-white" colspan="2" align="center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users" align="center">
+                <td> {{user.userId}} </td>
+                <td> {{user.userName}} </td>
+                <td> {{user.gender}} </td>
+                <td> {{user.country}} </td>
+                <td> {{user.role}} </td>
+                <td> {{user.phoneNumber}} </td>
+                <td> {{user.email}} </td>
+                <td> <button (click)="editUser(user)" class="glyphicon glyphicon-pencil"></button></td>
+                <td> <button (click)="deleteUser(user)" class="glyphicon glyphicon-trash"></button> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="container">   
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>Update User</b></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <table align="center">
+                        <tr>
+                            <td>UserId</td>
+                            <td><input type="number" name="userId" [(ngModel)]="this.singleUser.userId" readonly /></td>
+                        </tr>
+                        <tr>
+                            <td>UserName</td>
+                            <td><input type="text" name="userName" [(ngModel)]="this.singleUser.userName"/></td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td>
+                                <select name="gender"  [(ngModel)]="singleUser.gender" >
+                                    <option value="" selected>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Country</td>
+                            <td>
+                                <select name="country"  [(ngModel)]="singleUser.country" >
+                                    <option value="" selected>Select Country</option>
+                                    <option value="{{country.cca3}}" *ngFor="let country of countries">{{country.name.common}}</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Role</td>
+                            <td>
+                                <select name="role" [(ngModel)]="singleUser.role" readonly >
+                                    <option value="" selected>Select Role</option>
+                                    <option value="customer">Customer</option>
+                                    <option value="owner">Owner</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PhoneNumber</td>
+                            <td><input type="text" name="phoneNumber"  [(ngModel)]="singleUser.phoneNumber" readonly /></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><input type="text" name="email"  [(ngModel)]="singleUser.email" readonly /></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="password" name="password"  [(ngModel)]="singleUser.password" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" (click)="updateUser()" class="btn btn-default" data-dismiss="modal">Update User</button>
+                </div>
+            </div>        
+        </div>
+    </div>    
+</div>

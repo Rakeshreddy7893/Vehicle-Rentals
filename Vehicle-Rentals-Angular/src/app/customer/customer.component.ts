@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './customer.component.css'
 })
 export class CustomerComponent {
-
+  email: any;
+  constructor() {
+    this.email = localStorage.getItem("email");
+  }
 }

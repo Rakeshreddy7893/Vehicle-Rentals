@@ -7,5 +7,8 @@ import { ImageComponent } from '../image/image.component';
   styleUrl: './owner.component.css'
 })
 export class OwnerComponent {
-
+  email: any;
+  constructor() {
+    this.email = localStorage.getItem("email");
+  }
 }

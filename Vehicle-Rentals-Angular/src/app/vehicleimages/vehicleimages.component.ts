@@ -17,7 +17,9 @@ export class VehicleimagesComponent implements OnInit {
 
   allImages: any[] = [];
 
-  constructor(private imageService: ImageService) { }
+  constructor(private imageService: ImageService) { 
+
+  }
 
   ngOnInit() {
     this.getAllImages();

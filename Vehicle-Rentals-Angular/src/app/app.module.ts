@@ -21,6 +21,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { ImageComponent } from './image/image.component';
 import { VehicleimagesComponent } from './vehicleimages/vehicleimages.component';
 import { MystackComponent } from './mystack/mystack.component';
+import { AllusersComponent } from './allusers/allusers.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { MystackComponent } from './mystack/mystack.component';
     ImageComponent,
     VehicleimagesComponent,
     MystackComponent,
+    AllusersComponent,
    
   ],
   imports: [

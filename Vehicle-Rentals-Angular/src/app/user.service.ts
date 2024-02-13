@@ -30,6 +30,18 @@ export class UserService {
 
   }
 
+  updateUser(user : any){
+    return this.http.put('http://localhost:8085/updateUser',user);
+  }
+
+  deleteUser(userId : any) {
+    return this.http.delete('http://localhost:8085/deleteUserById/'+userId);
+  }
+
+  getAllUsers() {
+    return this.http.get(`http://localhost:8085/getAllUsers`);
+  }
+
   sendOtpToUser(phoneNumber: string, otp: number): Observable<any> {
     return this.http.get(`http://localhost:8085/sendOtp/${phoneNumber}/${otp}`);
   }

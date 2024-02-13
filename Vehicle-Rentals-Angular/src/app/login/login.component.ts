@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
       console.log(data);
       this.user = data;
       localStorage.setItem("userid",data.userId);
+      localStorage.setItem("email",data.email);
     });
 
     if(this.user != null && this.user.role === formData.role && this.user.role === 'admin'){

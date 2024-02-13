@@ -26,7 +26,7 @@ public class UserController {
     @Autowired
     private TwilioConfig twilioConfig;
 	
-	@GetMapping("getUsers")
+	@GetMapping("getAllUsers")
 	public List<User> getUsers() {
 		return userDao.getUsers();
 	}

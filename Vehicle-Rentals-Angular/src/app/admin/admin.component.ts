@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './admin.component.css'
 })
 export class AdminComponent {
-
+  email: any;
+  constructor() {
+    this.email = localStorage.getItem("email");
+  }
 }
