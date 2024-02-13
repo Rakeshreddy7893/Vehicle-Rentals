@@ -43,12 +43,9 @@ import { FooterComponent } from './footer/footer.component';
     ImageComponent,
     VehicleimagesComponent,
     Header1Component,   
-<<<<<<< HEAD
     MystackComponent,
     AllusersComponent,
-=======
     MystackComponent, FooterComponent,
->>>>>>> 61043ee3789aa54cc45d27936a46651fbe900fba
    
   ],
   imports: [
