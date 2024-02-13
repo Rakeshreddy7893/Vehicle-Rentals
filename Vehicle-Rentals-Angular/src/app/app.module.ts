@@ -23,6 +23,7 @@ import { VehicleimagesComponent } from './vehicleimages/vehicleimages.component'
 import { Header1Component } from './header1/header1.component';
 
 import { MystackComponent } from './mystack/mystack.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -41,7 +42,7 @@ import { MystackComponent } from './mystack/mystack.component';
     ImageComponent,
     VehicleimagesComponent,
     Header1Component,   
-    MystackComponent,
+    MystackComponent, FooterComponent,
    
   ],
   imports: [
