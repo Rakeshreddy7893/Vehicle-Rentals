@@ -57,9 +57,9 @@ export class ImageComponent {
     this.imageService.uploadImage(formData).subscribe(
       (data : any) => {
         console.log('Image uploaded successfully');
-        console.log(data);
         this.toastr.success("Image uploaded successfully !");
-        this.router.navigate(['vehicleimages']);
+        this.router.navigate(['mystack']);
+        console.log(data);
       },
       (error) => {
         this.toastr.error("Image not inserted successfully ?");

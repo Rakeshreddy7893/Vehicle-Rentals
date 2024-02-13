@@ -12,6 +12,7 @@ import { OwnerComponent } from './owner/owner.component';
 import { CustomerComponent } from './customer/customer.component';
 import { authGuard } from './auth.guard';
 import { LogoutComponent } from './logout/logout.component';
+import { MystackComponent } from './mystack/mystack.component';
 
 const routes: Routes = [
 { path: '',           component:headerComponent }, 
@@ -26,8 +27,8 @@ const routes: Routes = [
 {path:'owner',        canActivate:[authGuard],   component:OwnerComponent},
 {path:'customer',     canActivate:[authGuard],   component:CustomerComponent},
 { path: 'owner/logout', canActivate: [authGuard], component: LogoutComponent },
-{ path: 'owner/contact', canActivate:[authGuard], component: ContactComponent }
-
+{ path: 'owner/contact', canActivate:[authGuard], component: ContactComponent },
+{path:'mystack',      canActivate:[authGuard],   component:MystackComponent}
 
 ];
 
