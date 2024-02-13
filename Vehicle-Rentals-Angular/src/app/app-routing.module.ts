@@ -24,7 +24,10 @@ const routes: Routes = [
 {path:'contact',      canActivate:[authGuard],   component:ContactComponent},
 {path:'admin',        canActivate:[authGuard],   component:AdminComponent},
 {path:'owner',        canActivate:[authGuard],   component:OwnerComponent},
-{path:'customer',     canActivate:[authGuard],   component:CustomerComponent}
+{path:'customer',     canActivate:[authGuard],   component:CustomerComponent},
+{ path: 'owner/logout', canActivate: [authGuard], component: LogoutComponent },
+{ path: 'owner/contact', canActivate:[authGuard], component: ContactComponent }
+
 
 ];
 

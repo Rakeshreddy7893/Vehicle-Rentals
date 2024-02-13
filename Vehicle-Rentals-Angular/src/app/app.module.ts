@@ -20,6 +20,8 @@ import { OwnerComponent } from './owner/owner.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ImageComponent } from './image/image.component';
 import { VehicleimagesComponent } from './vehicleimages/vehicleimages.component';
+import { Header1Component } from './header1/header1.component';
+
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { VehicleimagesComponent } from './vehicleimages/vehicleimages.component'
     CustomerComponent,
     ImageComponent,
     VehicleimagesComponent,
+    Header1Component
+    
    
   ],
   imports: [
