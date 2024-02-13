@@ -20,6 +20,8 @@ import { OwnerComponent } from './owner/owner.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ImageComponent } from './image/image.component';
 import { VehicleimagesComponent } from './vehicleimages/vehicleimages.component';
+import { Header1Component } from './header1/header1.component';
+
 import { MystackComponent } from './mystack/mystack.component';
 import { AllusersComponent } from './allusers/allusers.component';
 
@@ -39,6 +41,7 @@ import { AllusersComponent } from './allusers/allusers.component';
     CustomerComponent,
     ImageComponent,
     VehicleimagesComponent,
+    Header1Component,   
     MystackComponent,
     AllusersComponent,
    
