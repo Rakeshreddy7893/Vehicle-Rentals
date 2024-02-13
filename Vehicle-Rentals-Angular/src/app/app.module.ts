@@ -24,6 +24,7 @@ import { Header1Component } from './header1/header1.component';
 
 import { MystackComponent } from './mystack/mystack.component';
 import { AllusersComponent } from './allusers/allusers.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -42,8 +43,12 @@ import { AllusersComponent } from './allusers/allusers.component';
     ImageComponent,
     VehicleimagesComponent,
     Header1Component,   
+<<<<<<< HEAD
     MystackComponent,
     AllusersComponent,
+=======
+    MystackComponent, FooterComponent,
+>>>>>>> 61043ee3789aa54cc45d27936a46651fbe900fba
    
   ],
   imports: [
