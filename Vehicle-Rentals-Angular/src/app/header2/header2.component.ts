@@ -1,13 +1,14 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactComponent } from '../contact/contact.component';
 
 @Component({
-  selector: 'app-header1',
-  templateUrl: './header1.component.html',
-  styleUrl: './header1.component.css'
+  selector: 'app-header2',
+  templateUrl: './header2.component.html',
+  styleUrl: './header2.component.css'
 })
-export class Header1Component implements OnInit {
+export class Header2Component implements OnInit {
   constructor(private router:Router){
 
   }
@@ -20,8 +21,10 @@ export class Header1Component implements OnInit {
     this.router.navigate(['login'])
   }
 
-  redirectToContact(){
-    this.router.navigate(['contact']);
-  }
+  // redirectToContact(){
+  //   this.router.navigate(['contact']);
+  // }
 
 }
+
+

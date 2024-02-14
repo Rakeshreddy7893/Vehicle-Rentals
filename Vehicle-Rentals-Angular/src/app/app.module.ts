@@ -25,6 +25,7 @@ import { Header1Component } from './header1/header1.component';
 import { MystackComponent } from './mystack/mystack.component';
 import { AllusersComponent } from './allusers/allusers.component';
 import { FooterComponent } from './footer/footer.component';
+import { Header2Component } from './header2/header2.component';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import { FooterComponent } from './footer/footer.component';
     Header1Component,   
     MystackComponent,
     AllusersComponent,
-    MystackComponent, FooterComponent,
+    MystackComponent, FooterComponent, Header2Component,
    
   ],
   imports: [

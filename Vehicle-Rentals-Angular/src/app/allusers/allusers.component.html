@@ -4,7 +4,100 @@
     integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
     crossorigin="anonymous">
 </head>
-<h3>Welcome <u><i>{{email}}</i></u>!</h3>
+<!-- <h3>Welcome <u><i>{{email}}</i></u>!</h3> -->
+
+<h1 align="center">Approved Vehicles Data</h1>
+<br/>
+<div align="center" class="container">
+    <table class="table table-hover table-striped table-sm table-bordered">
+        <thead>
+            <tr align="center">
+                <th class="bg-info text-white">Vehicle</th>
+                <th class="bg-info text-white">Id</th>
+                <th class="bg-info text-white">Name</th>
+                <th class="bg-info text-white">Colour</th>
+                <th class="bg-info text-white">Seats</th>
+                <th class="bg-info text-white">Model</th>
+                <th class="bg-info text-white">Category</th>
+                <th class="bg-info text-white">AvailableFrom</th>
+                <th class="bg-info text-white">AvailableTo</th>
+                <th class="bg-info text-white">Price</th>
+                <th class="bg-info text-white">OwnerId</th>
+                <th class="bg-info text-white">Status</th>
+                <th class="bg-info text-white" colspan="2" align="center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let image of allImages" align="center">
+                <td><img [src]="image.picByte" width="50px" height="50px" alt={{image.name}} /></td>
+                <td> {{image.id}} </td>
+                <td> {{image.name}} </td>
+                <td> {{image.colour}} </td>
+                <td> {{image.seats}} </td>
+                <td> {{image.model}} </td>
+                <td> {{image.category}} </td>
+                <td> {{image.startDate}} </td>
+                <td> {{image.endDate}} </td>
+                <td> {{image.pricePerHour}} </td>
+                <td> {{image.owner.userId}} </td>
+                <td> <button (click)="toggleStatus(image)">{{image.status}}</button> </td>
+                <!-- <td> {{image.status}} </td> -->
+                <td> <button (click)="editUser(image)" class="glyphicon glyphicon-pencil"></button></td>
+                <td> <button (click)="deleteUser(image)" class="glyphicon glyphicon-trash"></button> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<br><br><br><br>
+
+
+<h1 align="center">Not Approved Vehicles Data</h1>
+<br/>
+<div align="center" class="container">
+    <table class="table table-hover table-striped table-sm table-bordered">
+        <thead>
+            <tr align="center">
+                <th class="bg-info text-white">Vehicle</th>
+                <th class="bg-info text-white">Id</th>
+                <th class="bg-info text-white">Name</th>
+                <th class="bg-info text-white">Colour</th>
+                <th class="bg-info text-white">Seats</th>
+                <th class="bg-info text-white">Model</th>
+                <th class="bg-info text-white">Category</th>
+                <th class="bg-info text-white">AvailableFrom</th>
+                <th class="bg-info text-white">AvailableTo</th>
+                <th class="bg-info text-white">Price</th>
+                <th class="bg-info text-white">OwnerId</th>
+                <th class="bg-info text-white">Status</th>
+                <th class="bg-info text-white" colspan="2" align="center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let image of allNotApprovedImages" align="center">
+                <td><img [src]="image.picByte" width="50px" height="50px" alt={{image.name}} /></td>
+                <td> {{image.id}} </td>
+                <td> {{image.name}} </td>
+                <td> {{image.colour}} </td>
+                <td> {{image.seats}} </td>
+                <td> {{image.model}} </td>
+                <td> {{image.category}} </td>
+                <td> {{image.startDate}} </td>
+                <td> {{image.endDate}} </td>
+                <td> {{image.pricePerHour}} </td>
+                <td> {{image.owner.userId}} </td>
+                <td> <button (click)="toggleStatus(image)">{{image.status}}</button> </td>
+                <!-- <td> {{image.status}} </td> -->
+                <td> <button (click)="editUser(image)" class="glyphicon glyphicon-pencil"></button></td>
+                <td> <button (click)="deleteUser(image)" class="glyphicon glyphicon-trash"></button> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<br><br><br>
+
 <h1 align="center">Users Data</h1>
 <br/>
 <div align="center" class="container">

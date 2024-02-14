@@ -13,8 +13,12 @@ public class ImageUploadDao {
 	@Autowired
 	ImageRepository imageRepository;
 
-//	public List<ImageModel> getAllImages() {
-//		return imageRepository.findAll();
-//	}
+	public List<ImageModel> getAllImagesToAdmin() {
+		return imageRepository.findAll();
+	}
+
+	public void deleteImageById(String id) {
+		imageRepository.deleteById(id);
+	}
 	
 }

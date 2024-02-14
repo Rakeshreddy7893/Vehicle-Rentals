@@ -14,12 +14,24 @@ export class ImageService {
     return this.httpClient.post<any>(`${this.baseUrl}/upload`, formData);
   }
 
+  updateImage(status : any, id : any) {
+    return this.httpClient.get(`${this.baseUrl}/updateImage/${status}/${id}`);
+  }
+
+  deleteImage(id : any) {
+    return this.httpClient.delete(`${this.baseUrl}/deleteImage/${id}`);
+  }
+
   getImage(imageName: string): Observable<any> {
     return this.httpClient.get(`${this.baseUrl}/get/${imageName}`);
   }
 
   getAllImages(): Observable<any[]> {
     return this.httpClient.get<any[]>(`${this.baseUrl}/getAllImages`);
+  }
+
+  getAllNotApprovedImages(): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${this.baseUrl}/getAllNotApprovedImages`);
   }
 
   getImagesByCategory(category: string): Observable<any[]> {
