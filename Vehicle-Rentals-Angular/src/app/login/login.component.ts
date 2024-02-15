@@ -47,9 +47,13 @@ export class LoginComponent implements OnInit {
     await this.service.userLogin(formData.email, formData.password).then((data: any) => {
       console.log(data);
       this.user = data;
+      if(this.user == null){
+        this.toastr.error("Invalid User Details ?");
+      }
       localStorage.setItem("userid",data.userId);
       localStorage.setItem("email",data.email);
     });
+
 
     if(this.user != null && this.user.role === formData.role && this.user.role === 'admin'){
       this.service.setIsUserLoggedIn();
@@ -64,6 +68,7 @@ export class LoginComponent implements OnInit {
       this.toastr.success("Owner login is success !!");
       this.router.navigate(['owner']);
     } else {
+      console.log("else")
       this.toastr.error("Invalid Login credentials");
     }
   }

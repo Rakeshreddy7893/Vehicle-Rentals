@@ -46,15 +46,15 @@ header {
   justify-content: space-between;
 }
 
-.navbar .logo {
-  margin-left: 20px; /* Adjust the margin as needed */
+/* .navbar .logo {
+  margin-left: 20px; 
 }
 
 .navbar .all-links {
   display: flex;
   align-items: center;
-  margin-right: 20px; /* Adjust the margin as needed */
-}
+  margin-right: 20px; 
+} */
 
 .navbar .all-links li {
   position: relative;
@@ -409,4 +409,17 @@ footer a {
 .portfolio .cards .card:hover,
 .services .cards .card:hover {
   transform: translateY(-20px);
+}
+
+
+.navbar .logo {
+  margin-left: -50px; 
+  margin-right: auto;
+}
+
+.navbar .all-links {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; 
+  margin-left: auto; 
 }

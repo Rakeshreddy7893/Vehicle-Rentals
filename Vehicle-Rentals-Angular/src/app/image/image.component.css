@@ -1,0 +1,68 @@
+/* Center the form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  input[type="file"],
+  button {
+    margin-bottom: 10px; /* Add some space between form elements */
+    padding: 10px;
+    width: calc(100% - 20px); /* Adjust width to fit container with padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #4caf50; /* Green */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+  /* Style the input[type="file"] */
+  input[type="file"] {
+    border: none;
+    padding: 0;
+    width: auto;
+    cursor: pointer;
+  }
+  
+  /* Hide the default file input text */
+  input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  
+  /* Style the file input button */
+  input[type="file"]::before {
+    content: 'Select File';
+    display: inline-block;
+    background: #007bff; /* Blue */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Add margin to the button for better spacing */
+  button[type="submit"] {
+    margin-top: 10px;
+  }
+  

@@ -1,4 +1,4 @@
-
+/* 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 * {
@@ -75,7 +75,7 @@ header a:hover {
 }
 
 .navbar .all-links li {
-  margin-right: 20px; /* Adjust as needed */
+  margin-right: 20px; 
 }
 
 .nav-link{
@@ -90,15 +90,15 @@ header a:hover {
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s; /* Add transition for smooth hover effect */
+  transition: background 0.3s, color 0.3s;
 }
 
-/* Change cursor to pointer on hover */
+
 .navbar .all-links button.nav-link:hover {
-  background: #555; /* Change background color on hover */
+  background: #555; 
 }
 
-/* Show hamburger button on smaller screens */
+
 @media screen and (max-width: 860px) {
   .navbar .all-links {
     position: fixed;
@@ -117,7 +117,118 @@ header a:hover {
 
   .navbar .all-links li {
     font-size: 18px;
-    margin: 20px 0; /* Adjust margin as needed */
+    margin: 20px 0; 
+  }
+
+  .navbar #hamburger-btn {
+    display: block;
+  }
+} */
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f2f2f2;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #333;
+}
+
+.navbar {
+  display: flex;
+  padding: 0 10px;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar input#menu-toggler {
+  display: none;
+}
+
+.navbar #hamburger-btn {
+  cursor: pointer;
+  display: none;
+}
+
+.navbar .all-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .all-links li {
+  position: relative;
+  list-style: none;
+}
+
+.navbar .logo {
+  margin-right: auto; /* Push the logo to the left corner */
+}
+
+.navbar .all-links {
+  margin-left: auto; /* Push the list items to the right corner */
+}
+
+.navbar .logo a {
+  text-decoration: none;
+  color: #fff;
+  padding: 20px;
+}
+
+.navbar .logo a:hover {
+  color: #ddd;
+}
+
+.nav-link {
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s; /* Add transition for smooth hover effect */
+}
+
+.nav-link:hover {
+  background: #555; /* Change background color on hover */
+}
+
+/* Show hamburger button on smaller screens */
+@media screen and (max-width: 860px) {
+  .navbar .all-links {
+    position: fixed;
+    left: -100%;
+    width: 300px;
+    display: block;
+    height: 100vh;
+    top: 75px;
+    background: #333;
+    transition: left 0.3s ease;
+  }
+
+  .navbar #menu-toggler:checked ~ .all-links {
+    left: 0;
   }
 
   .navbar #hamburger-btn {
