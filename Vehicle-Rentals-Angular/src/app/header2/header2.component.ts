@@ -21,6 +21,11 @@ export class Header2Component implements OnInit {
     this.router.navigate(['login'])
   }
 
+  redirectToHome(){
+    console.log("home");
+    this.router.navigate(['']);
+  }
+
   // redirectToContact(){
   //   this.router.navigate(['contact']);
   // }

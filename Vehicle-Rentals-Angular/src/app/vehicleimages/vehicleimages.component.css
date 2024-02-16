@@ -1,0 +1,20 @@
+.card {
+    background-color: #f8f9fa; /* Background color for the card */
+    border: 1px solid #dee2e6; /* Border color for the card */
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-img-container {
+    overflow: hidden; /* Hide overflowing image */
+    max-height: 200px; /* Set max height for the image */
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: auto; 
+  }
+  

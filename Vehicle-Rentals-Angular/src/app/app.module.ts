@@ -11,9 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { OtpComponent } from './otp/otp.component';
 import {  headerComponent } from './header/header.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
+
 import { ContactComponent } from './contact/contact.component';
-import { ServiceComponent } from './service/service.component';
+
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { AdminComponent } from './admin/admin.component';
 import { OwnerComponent } from './owner/owner.component';
@@ -35,9 +35,7 @@ import { Header2Component } from './header2/header2.component';
     LoginComponent,
     OtpComponent,
     headerComponent,
-    AboutusComponent,
     ContactComponent,
-    ServiceComponent,
     AdminComponent,
     OwnerComponent,
     CustomerComponent,

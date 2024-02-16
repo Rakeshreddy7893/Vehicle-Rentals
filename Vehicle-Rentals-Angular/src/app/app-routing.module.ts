@@ -4,9 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OtpComponent } from './otp/otp.component';
 import { headerComponent } from './header/header.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactComponent } from './contact/contact.component';
-import { ServiceComponent } from './service/service.component';
 import { AdminComponent } from './admin/admin.component';
 import { OwnerComponent } from './owner/owner.component';
 import { CustomerComponent } from './customer/customer.component';
@@ -18,8 +16,6 @@ const routes: Routes = [
 { path: '',           component:headerComponent }, 
 { path: 'login',      component: LoginComponent },
 { path: 'register',   component:RegisterComponent },
-{path:'service',      component:ServiceComponent},
-{ path: 'aboutus',    component:AboutusComponent },
 { path: 'logout',     canActivate:[authGuard],   component:LogoutComponent },
 { path: 'otp',        canActivate:[authGuard],   component:OtpComponent },
 {path:'contact',      canActivate:[authGuard],   component:ContactComponent},
