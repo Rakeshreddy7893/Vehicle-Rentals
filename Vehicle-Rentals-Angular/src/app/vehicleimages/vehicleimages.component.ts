@@ -18,7 +18,6 @@ export class VehicleimagesComponent implements OnInit {
   flag : boolean = false;
   btnData : string = 'table';
 
-
   allImages: any[] = [];
 
   constructor(private imageService: ImageService) { 
@@ -72,7 +71,6 @@ export class VehicleimagesComponent implements OnInit {
     this.category = '';
     this.categoryFilter = '';
   }
-
 
   toggle() : void {
     if(this.flag == false){

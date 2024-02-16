@@ -1,43 +1,4 @@
-<!-- 
 
-<div class="container row">
-    <div class="col-md-6">
-      <input type="button" (click)="getAllImages()" value="Get All Images">
-    </div>
-  </div>
-  
-  
-  <div *ngFor="let image of allImages">
-    <ng-container *ngIf="image.picByte">
-      <p>Id: {{ image.id }}</p>
-      <p>Name: {{ image.name }}</p>
-      <p>Colour: {{ image.colour }}</p>
-      <p>Seats: {{ image.seats }}</p>
-      <p>Model: {{ image.model }}</p>
-      <p>Category: {{ image.category }}</p>
-      <p>Start Date: {{ image.startDate }}</p>
-      <p>End Date: {{ image.endDate }}</p>
-      <p>Price Per Day: {{ image.pricePerHour }}</p>
-      <p>Owner ID: {{ image.owner.userId }}</p>
-      <p>Status: {{ image.status }}</p>
-      <img [src]="image.picByte" alt="{{ image.name }}">
-      <hr />
-    </ng-container>
-  </div>
-  
-  <hr/>
-  <hr/>
-  
-  <br>
-  <br>
-  <div class="container row">
-    <div class="col-md-6">
-      <input type="text" name="categoryFilter" [(ngModel)]="categoryFilter" placeholder="Enter category for filtering" />
-    </div>
-    <div class="col-md-6">
-      <input type="button" (click)="getImagesByCategory()" value="Get Images by Category">
-    </div>
-  </div> -->
 
   <div class="container mt-4">
     <div class="row">
@@ -51,47 +12,11 @@
     </div>
   </div>
 
-
-  <!-- <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        
-      </div>
-    </div>
-  </div> -->
-  
-  <!-- <div class="container mt-4">
-    <div class="row">
-      <ng-container *ngFor="let image of allImages">
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <div class="card-img-container">
-              <img class="card-img-top" [src]="image.picByte" alt="{{ image.name }}">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">{{ image.name }}</h5>
-              <p class="card-text">Colour: {{ image.colour }}</p>
-              <p class="card-text">Seats: {{ image.seats }}</p>
-              <p class="card-text">Model: {{ image.model }}</p>
-              <p class="card-text">Category: {{ image.category }}</p>
-              <p class="card-text">Start Date: {{ image.startDate }}</p>
-              <p class="card-text">End Date: {{ image.endDate }}</p>
-              <p class="card-text">Price Per Day: {{ image.pricePerHour }}</p>
-              <p class="card-text">Owner ID: {{ image.owner.userId }}</p>
-              <p class="card-text">Status: {{ image.status }}</p>
-            </div>
-          </div>
-        </div>
-      </ng-container>
-    </div>
-  </div> -->
-
-
   <div class="container">
-    <h1>Mars Photos</h1>
+    <h1>Vehicles</h1>
     <button class="btn btn-info" (click)="getAllImages()">get all vehicle images</button>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button class="btn btn-success" (click)="toggle()">{{btnData}}</button>
+     <button class="btn btn-primary" style="font-size: 16px; padding: 10px 20px;" (click)="toggle()">{{btnData}}</button>
 
     <div *ngIf="flag; then success; else fail"></div>
     <ng-template #success>
@@ -134,41 +59,48 @@
     </ng-template>
     
     <ng-template #fail>
-        <div class="d-flex flex-wrap">
-            <div *ngFor="let item of allImages" style="width:200px" class="card m-3 p2">
-                <img class="card-img-top" [src]="item.picByte" alt="Card image cap" >
+      
+      <div class="d-flex flex-wrap">
+        <div *ngFor="let item of allImages" class="card-container m-3">
+            <div class="card">
+                <img class="card-img-top" [src]="item.picByte" alt="Vehicle Image">
                 <div class="card-header">
-                    <h3>{{item.id}}</h3>
+                    <h4>Vehicle ID: {{item.id}}</h4>
+                    <h4>Vehicle Name: {{item.name}}</h4>
                 </div>
                 <div class="card-body">
-                    <dl>
-                        <dt>Vehicle Name</dt>
-                        <dl>{{item.name}}</dl>
-                        <dt>Colour</dt>
-                        <dl>{{item.colour}}</dl>
-                        <dt>Seats</dt>
-                        <dl>{{item.seats}}</dl>
-                        <dt>Model</dt>
-                        <dl>{{item.model}}</dl>
-                        <dt>Category</dt>
-                        <dl>{{item.category}}</dl>
-                        <dt>AvailableFrom</dt>
-                        <dl>{{item.startDate}}</dl>
-                        <dt>AvailableTo</dt>
-                        <dl>{{item.endDate}}</dl>
-                        <dt>PricePerDay</dt>
-                        <dl>{{item.pricePerHour}}</dl>
-                        <dt>OwnerId</dt>
-                        <dl>{{item.owner.userId}}</dl>
-                        <dt>Status</dt>
-                        <dl>{{item.status}}</dl>
+                    <dl class="card-info">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <dt>Colour:</dt>
+                                <dd>{{item.colour}}</dd>
+                                <dt>Seats:</dt>
+                                <dd>{{item.seats}}</dd>
+                                <dt>Model:</dt>
+                                <dd>{{item.model}}</dd>
+                                <dt>Category:</dt>
+                                <dd>{{item.category}}</dd>
+                            </div>
+                            <div class="col-md-6">
+                                <dt>Available From:</dt>
+                                <dd>{{item.startDate | date:'shortDate'}}</dd>
+                                <dt>Available To:</dt>
+                                <dd>{{item.endDate | date:'shortDate'}}</dd>
+                                <dt>Price Per Day:</dt>
+                                <dd>{{item.pricePerHour}}</dd>
+                                <dt>Owner ID:</dt>
+                                <dd>{{item.owner.userId}}</dd>
+                            </div>
+                        </div>
                     </dl>
                 </div>
             </div>
         </div>
+    </div>
+    
+    
     </ng-template>
 
 </div>
   
-  
-  
+ 

@@ -39,7 +39,7 @@
                 <td> {{image.endDate}} </td>
                 <td> {{image.pricePerHour}} </td>
                 <td> {{image.owner.userId}} </td>
-                <td> <button (click)="toggleStatus(image)">{{image.status}}</button> </td>
+                <td> <button (click)="toggleStatus(image)" class="btn btn-success">{{image.status}}</button> </td>
                 <td> <button (click)="editImage(image)" class="glyphicon glyphicon-pencil"></button></td>
                 <td> <button (click)="deleteImage(image.id)" class="glyphicon glyphicon-trash"></button> </td>
             </tr>
@@ -83,7 +83,7 @@
                 <td> {{image.endDate}} </td>
                 <td> {{image.pricePerHour}} </td>
                 <td> {{image.owner.userId}} </td>
-                <td> <button (click)="toggleStatus(image)">{{image.status}}</button> </td>
+                <td> <button (click)="toggleStatus(image)" class="btn btn-danger">{{image.status}}</button> </td>
             </tr>
         </tbody>
     </table>
