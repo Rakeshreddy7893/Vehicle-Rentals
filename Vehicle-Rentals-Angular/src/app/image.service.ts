@@ -10,6 +10,10 @@ export class ImageService {
 
   constructor(private httpClient: HttpClient) {}
 
+  updateSingleImage(formData: any): Observable<any> {
+    return this.httpClient.put(`${this.baseUrl}/updateSingleImage`,formData);
+  }
+
   uploadImage(formData: FormData): Observable<any> {
     return this.httpClient.post<any>(`${this.baseUrl}/upload`, formData);
   }

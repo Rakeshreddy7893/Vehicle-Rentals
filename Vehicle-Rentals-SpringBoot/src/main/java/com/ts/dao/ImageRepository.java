@@ -1,7 +1,7 @@
 package com.ts.dao;
 
+import java.util.Date;
 import java.util.List;
-
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,7 +10,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 
 import com.ts.model.ImageModel;
 
@@ -41,11 +40,13 @@ public interface ImageRepository extends JpaRepository<ImageModel, String> {
     @Query("update ImageModel set status = :status where id = :id")
     void updateImageStatus(@Param("status") String status, @Param("id") String id);
 	
-//	@Modifying
-//	@Query("update ImageModel set status = :status where id = :id")
-//	void updateImageStatus(@Param("status") String status, @Param("id") String id);
-	
 	@Query("from ImageModel where status = :status")
 	List<ImageModel> findAllNotApprovedVehicles(@Param("status") String status);
+
+	@Transactional
+	@Modifying
+	@Query("update ImageModel set name= :name, colour= :colour, seats= :seats, model= :model, category= :category, pricePerHour= :pricePerHour where id = :id")
+	void updateSingleImage(@Param("id") String id, @Param("name") String name, @Param("colour") String colour, @Param("seats") String seats, @Param("model") String model, @Param("category") String category, @Param("pricePerHour") double pricePerHour);
+
 
 }

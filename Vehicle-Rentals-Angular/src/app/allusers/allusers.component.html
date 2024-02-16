@@ -4,7 +4,6 @@
     integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
     crossorigin="anonymous">
 </head>
-<!-- <h3>Welcome <u><i>{{email}}</i></u>!</h3> -->
 
 <h1 align="center">Approved Vehicles Data</h1>
 <br/>
@@ -41,9 +40,8 @@
                 <td> {{image.pricePerHour}} </td>
                 <td> {{image.owner.userId}} </td>
                 <td> <button (click)="toggleStatus(image)">{{image.status}}</button> </td>
-                <!-- <td> {{image.status}} </td> -->
-                <td> <button (click)="editUser(image)" class="glyphicon glyphicon-pencil"></button></td>
-                <td> <button (click)="deleteUser(image)" class="glyphicon glyphicon-trash"></button> </td>
+                <td> <button (click)="editImage(image)" class="glyphicon glyphicon-pencil"></button></td>
+                <td> <button (click)="deleteImage(image.id)" class="glyphicon glyphicon-trash"></button> </td>
             </tr>
         </tbody>
     </table>
@@ -70,7 +68,6 @@
                 <th class="bg-info text-white">Price</th>
                 <th class="bg-info text-white">OwnerId</th>
                 <th class="bg-info text-white">Status</th>
-                <th class="bg-info text-white" colspan="2" align="center">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -87,9 +84,6 @@
                 <td> {{image.pricePerHour}} </td>
                 <td> {{image.owner.userId}} </td>
                 <td> <button (click)="toggleStatus(image)">{{image.status}}</button> </td>
-                <!-- <td> {{image.status}} </td> -->
-                <td> <button (click)="editUser(image)" class="glyphicon glyphicon-pencil"></button></td>
-                <td> <button (click)="deleteUser(image)" class="glyphicon glyphicon-trash"></button> </td>
             </tr>
         </tbody>
     </table>
@@ -203,3 +197,60 @@
         </div>
     </div>    
 </div>
+
+
+<!-- Modal for editing image -->
+<div class="container">   
+    <div class="modal fade" id="imageModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>Update Image</b></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <table align="center">
+                        <tr>
+                            <td>ImageId</td>
+                            <td><input type="text" name="id" [(ngModel)]="imageId" readonly/></td>
+                        </tr>
+                        <tr>
+                            <td>Image Name</td>
+                            <td><input type="text" name="name" [(ngModel)]="imageName" /></td>
+                        </tr>
+                        <tr>
+                            <td>Image Colour</td>
+                            <td><input type="text" name="colour" [(ngModel)]="imageColour" /></td>
+                        </tr>
+                        <tr>
+                            <td>Image Seats</td>
+                            <td><input type="text" name="seats" [(ngModel)]="imageSeats" /></td>
+                        </tr>
+                        <tr>
+                            <td>Image Model</td>
+                            <td><input type="text" name="model" [(ngModel)]="imageModel" /></td>
+                        </tr>
+                        <tr>
+                            <td>Image Category</td>
+                            <td><input type="text" name="category" [(ngModel)]="imageCategory" /></td>
+                        </tr>
+                        <tr>
+                            <td>Price Per Hour</td>
+                            <td><input type="number" name="pricePerHour" [(ngModel)]="imagePricePerHour" /></td>
+                        </tr>
+                        <tr>
+                            <td><img [src]="selectedFile" width="50px" height="50px" alt={{imageName}} /></td>
+                            <td><input type="file" (change)="onFileSelected($event)" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" (click)="updateSingleImage()" class="btn btn-info" data-dismiss="modal">Update</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

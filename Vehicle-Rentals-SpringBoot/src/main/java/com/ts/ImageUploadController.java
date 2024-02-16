@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
+import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -150,48 +152,25 @@ public class ImageUploadController {
 		return ResponseEntity.ok(imageResponses);
 	}
 	
-//	@GetMapping(path = { "/updateImage/{status}/{id}" })
-//	public ResponseEntity<ImageResponse> updateImage(@PathVariable("status") String status, @PathVariable("id") String id) throws IOException {
-//	    imageRepository.updateImageStatus(status, id);
-//	    
-//	    Optional<ImageModel> retrievedImage = imageRepository.findById(id);
-//
-//	    if (retrievedImage.isPresent()) {
-//	        ImageResponse img = new ImageResponse(retrievedImage.get().getId(), retrievedImage.get().getName(),
-//	                retrievedImage.get().getColour(), retrievedImage.get().getSeats(), retrievedImage.get().getModel(),
-//	                retrievedImage.get().getCategory(), retrievedImage.get().getStartDate(),
-//	                retrievedImage.get().getEndDate(), retrievedImage.get().getPricePerHour(),
-//	                retrievedImage.get().getOwner(), retrievedImage.get().getStatus(),
-//	                decompressBytes(retrievedImage.get().getPicByte()));
-//	        return ResponseEntity.ok(img);
-//	    } else {
-//	        return ResponseEntity.notFound().build();
-//	    }
-//	}
+	
+	 @PutMapping("/updateSingleImage")
+	 public void updateSingleImage(
+	            @RequestParam("id") String id, @RequestParam("name") String name, @RequestParam("colour") String colour,
+	            @RequestParam("seats") String seats, @RequestParam("model") String model,
+	            @RequestParam("category") String category,
+	            @RequestParam("pricePerHour") double pricePerHour) {
+		 imageRepository.updateSingleImage(id,name,colour,seats,model,category,pricePerHour);
+	 }
 	
 	@GetMapping(path = { "/updateImage/{status}/{id}" })
 	public void updateImage(@PathVariable("status") String status, @PathVariable("id") String id) throws IOException {
 	    imageRepository.updateImageStatus(status, id);
-	    
-//	    Optional<ImageModel> retrievedImage = imageRepository.findById(id);
-//
-//	    if (retrievedImage.isPresent()) {
-//	        ImageResponse img = new ImageResponse(retrievedImage.get().getId(), retrievedImage.get().getName(),
-//	                retrievedImage.get().getColour(), retrievedImage.get().getSeats(), retrievedImage.get().getModel(),
-//	                retrievedImage.get().getCategory(), retrievedImage.get().getStartDate(),
-//	                retrievedImage.get().getEndDate(), retrievedImage.get().getPricePerHour(),
-//	                retrievedImage.get().getOwner(), retrievedImage.get().getStatus(),
-//	                decompressBytes(retrievedImage.get().getPicByte()));
-//	        return ResponseEntity.ok(img);
-//	    } else {
-//	        return ResponseEntity.notFound().build();
-//	    }
 	}
 	
 	@DeleteMapping(path = {"/deleteImage/{id}"})
-    public String deleteImageById(@PathVariable String id) {
+    public boolean deleteImageById(@PathVariable String id) {
     	imageUploadDao.deleteImageById(id);
-    	return "VehicleImage with id : "+id+" deleted successfully !";
+    	return true;
     }
 
 	@GetMapping(path = { "/getImagesByCategory/{category}" })
