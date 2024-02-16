@@ -17,6 +17,9 @@ export class MystackComponent {
 
   allImages: any[] = [];
 
+  flag : boolean = false;
+  btnData : string = 'table';
+
   ownerId: any;
 
   constructor(private imageService : ImageService) { 
@@ -49,6 +52,16 @@ export class MystackComponent {
     this.imageName = '';
     this.category = '';
     this.categoryFilter = '';
+  }
+
+  toggle() : void {
+    if(this.flag == false){
+      this.flag = (!this.flag);
+      this.btnData = 'cards';
+    } else {
+      this.flag = (!this.flag);
+      this.btnData = 'table';
+    }
   }
 
 }
