@@ -26,6 +26,10 @@ import { MystackComponent } from './mystack/mystack.component';
 import { AllusersComponent } from './allusers/allusers.component';
 import { FooterComponent } from './footer/footer.component';
 import { Header2Component } from './header2/header2.component';
+import { VehicleInfoComponent } from './vehicle-info/vehicle-info.component';
+
+import { CartService } from './cart.service';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -44,7 +48,7 @@ import { Header2Component } from './header2/header2.component';
     Header1Component,   
     MystackComponent,
     AllusersComponent,
-    MystackComponent, FooterComponent, Header2Component,
+    MystackComponent, FooterComponent, Header2Component, VehicleInfoComponent, CartComponent,
    
   ],
   imports: [
@@ -59,7 +63,7 @@ import { Header2Component } from './header2/header2.component';
    
     
   ],
-  providers: [],
+  providers: [CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../image.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicleimages',
@@ -20,8 +21,14 @@ export class VehicleimagesComponent implements OnInit {
 
   allImages: any[] = [];
 
-  constructor(private imageService: ImageService) { 
 
+  products: any;
+  email : any;
+
+  cartProducts : any;
+
+  constructor(private imageService: ImageService, private router : Router) { 
+    this.email = localStorage.getItem('email');
   }
 
   ngOnInit() {
@@ -65,11 +72,22 @@ export class VehicleimagesComponent implements OnInit {
     );
   }
 
-  private resetValues() {
-    this.selectedFile = undefined;
-    this.imageName = '';
-    this.category = '';
-    this.categoryFilter = '';
+  addToCart(product: any) {
+    const isData = localStorage.getItem("singleItem");
+    if(isData == null){
+      const newArr = [];
+      newArr.push(product);
+      localStorage.setItem("singleItem", JSON.stringify(newArr));
+    } else {
+      //const oldData = JSON.parse(isData);
+      localStorage.removeItem("singleItem");
+      const newArr = [];
+      newArr.push(product);
+      localStorage.setItem("singleItem", JSON.stringify(newArr));
+    }
+
+    this.router.navigate(['vehicle-info']);
+
   }
 
   toggle() : void {
@@ -80,6 +98,13 @@ export class VehicleimagesComponent implements OnInit {
       this.flag = (!this.flag);
       this.btnData = 'table';
     }
+  }
+
+  private resetValues() {
+    this.selectedFile = undefined;
+    this.imageName = '';
+    this.category = '';
+    this.categoryFilter = '';
   }
   
 }

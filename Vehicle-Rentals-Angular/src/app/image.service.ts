@@ -1,14 +1,25 @@
-import { Injectable } from '@angular/core';
+// import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ImageService {
+
+  cartItems: any;
+
+  // Declare an event emitter for cart changes
+  cartChanged: EventEmitter<void> = new EventEmitter<void>();
+
+
+
   private baseUrl = 'http://localhost:8085/image';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+    this.cartItems = [];
+  }
 
   updateSingleImage(formData: any): Observable<any> {
     return this.httpClient.put(`${this.baseUrl}/updateSingleImage`,formData);
@@ -44,6 +55,25 @@ export class ImageService {
 
   getMyStack(ownerId: any): Observable<any[]> {
     return this.httpClient.get<any[]>(`${this.baseUrl}/getAllImagesByOwnerId/${ownerId}`)
+  }
+
+
+  addToCart(product: any) {
+    this.cartItems.push(product);
+    this.cartChanged.emit(); // Emit the event when the cart is updated
+  }
+
+  //Cart using Service
+  getCartItems(): any {
+    return this.cartItems;
+  }
+
+  clearCart() {
+    this.cartItems = [];
+  }
+
+  setCartItems(count: any) {
+    this.cartItems = count;
   }
 
 }

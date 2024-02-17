@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactComponent } from '../contact/contact.component';
+import { ImageService } from '../image.service';
 
 @Component({
   selector: 'app-header1',
@@ -8,14 +9,28 @@ import { ContactComponent } from '../contact/contact.component';
   styleUrl: './header1.component.css'
 })
 export class Header1Component implements OnInit {
-  constructor(private router:Router){
-
+  cartItems: any;
+  // loginStatus : any;
+  constructor(private service: ImageService, private router:Router) {
+    this.cartItems = service.getCartItems();
   }
 
+  ngOnInit() {
+    // Listen for the cartChanged event
+    this.service.cartChanged.subscribe(() => {
+      this.cartItems = this.service.getCartItems();
+    });
 
-  ngOnInit(){
-   
+
+    // this.service.getLoginStatus().subscribe((data: any) => {
+    //   this.loginStatus = data;
+    // });
   }
+
+  redirectToCart(){
+    this.router.navigate(['cart'])
+  }
+
   redirectToLogin(){
     this.router.navigate(['login'])
   }

@@ -1,5 +1,6 @@
 
-
+<app-header1></app-header1>
+<br><br><br><br><br><br><br>
   <div class="container mt-4">
     <div class="row">
       <div class="col-md-6">
@@ -91,6 +92,7 @@
                                 <dt>Owner ID:</dt>
                                 <dd>{{item.owner.userId}}</dd>
                             </div>
+                            <p align="right"><button (click)="addToCart(item)" class="btn btn-primary">AddToOrders</button> </p>
                         </div>
                     </dl>
                 </div>

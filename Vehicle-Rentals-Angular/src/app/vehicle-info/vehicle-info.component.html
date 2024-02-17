@@ -1,0 +1,40 @@
+<app-header1></app-header1>
+<br><br><br><br><br><br><br>
+<h1>Vehicle Information</h1>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3" *ngFor="let item of products">
+            <div class="card" style="width:300px;">
+                <img class="card-img-top" [src]="item.picByte" alt="Card image" style="width:100%; margin-top: 5px;">
+                <div class="card-body">
+                    <dl class="card-info">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <dt>Colour:</dt>
+                                <dd>{{item.colour}}</dd>
+                                <dt>Seats:</dt>
+                                <dd>{{item.seats}}</dd>
+                                <dt>Model:</dt>
+                                <dd>{{item.model}}</dd>
+                                <dt>Category:</dt>
+                                <dd>{{item.category}}</dd>
+                            </div>
+                            <div class="col-md-6">
+                                <dt>Available From:</dt>
+                                <dd>{{item.startDate | date:'shortDate'}}</dd>
+                                <dt>Available To:</dt>
+                                <dd>{{item.endDate | date:'shortDate'}}</dd>
+                                <dt>Price Per Day:</dt>
+                                <dd>{{item.pricePerHour}}</dd>
+                                <dt>Owner ID:</dt>
+                                <dd>{{item.owner.userId}}</dd>
+                            </div>
+                            <p align="right"><button (click)="addToCart(item)" class="btn btn-primary">AddToOrders</button> </p>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>

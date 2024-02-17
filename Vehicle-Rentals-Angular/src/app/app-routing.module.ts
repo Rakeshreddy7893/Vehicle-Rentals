@@ -11,6 +11,9 @@ import { CustomerComponent } from './customer/customer.component';
 import { authGuard } from './auth.guard';
 import { LogoutComponent } from './logout/logout.component';
 import { MystackComponent } from './mystack/mystack.component';
+import { VehicleInfoComponent } from './vehicle-info/vehicle-info.component';
+import { CartComponent } from './cart/cart.component';
+import { VehicleimagesComponent } from './vehicleimages/vehicleimages.component';
 
 const routes: Routes = [
 { path: '',           component:headerComponent }, 
@@ -21,10 +24,13 @@ const routes: Routes = [
 {path:'contact',      canActivate:[authGuard],   component:ContactComponent},
 {path:'admin',        canActivate:[authGuard],   component:AdminComponent},
 {path:'owner',        canActivate:[authGuard],   component:OwnerComponent},
-{path:'customer',     canActivate:[authGuard],   component:CustomerComponent},
+{path:'customer',        component:CustomerComponent},
 { path: 'owner/logout', canActivate: [authGuard], component: LogoutComponent },
 { path: 'owner/contact', canActivate:[authGuard], component: ContactComponent },
-{path:'mystack',      canActivate:[authGuard],   component:MystackComponent}
+{path:'mystack',      canActivate:[authGuard],   component:MystackComponent},
+{path:'vehicleimages',      canActivate:[authGuard],   component:VehicleimagesComponent},
+{path:'vehicle-info',      canActivate:[authGuard],   component:VehicleInfoComponent},
+{path:'cart',      canActivate:[authGuard],   component:CartComponent}
 
 ];
 
