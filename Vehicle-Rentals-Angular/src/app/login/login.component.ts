@@ -136,6 +136,8 @@ export class LoginComponent implements OnInit {
   if(response){
     const payLoad = this.decodeToken(response.credential)
     sessionStorage.setItem("loggedInUser",JSON.stringify(payLoad));
+    localStorage.setItem("email",payLoad.email);
+    this.service.setIsUserLoggedIn();
     this.router.navigate(['customer']);
   }
 

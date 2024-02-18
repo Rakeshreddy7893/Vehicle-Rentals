@@ -423,3 +423,36 @@ footer a {
   margin-right: 20px; 
   margin-left: auto; 
 }
+
+
+footer {
+  background: #000;
+  color: #fff;
+  padding: 20px 0;
+}
+
+footer div {
+  margin-bottom: 10px;
+}
+
+.locations {
+  display: flex;
+  flex-direction: column;
+}
+
+.locations span {
+  margin-bottom: 5px;
+}
+
+.locations ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.locations ul li {
+  margin-bottom: 5px;
+}
+
+
+

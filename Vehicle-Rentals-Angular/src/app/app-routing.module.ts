@@ -14,6 +14,7 @@ import { MystackComponent } from './mystack/mystack.component';
 import { VehicleInfoComponent } from './vehicle-info/vehicle-info.component';
 import { CartComponent } from './cart/cart.component';
 import { VehicleimagesComponent } from './vehicleimages/vehicleimages.component';
+import { StatuspageComponent } from './statuspage/statuspage.component';
 
 const routes: Routes = [
 { path: '',           component:headerComponent }, 
@@ -30,7 +31,8 @@ const routes: Routes = [
 {path:'mystack',      canActivate:[authGuard],   component:MystackComponent},
 {path:'vehicleimages',      canActivate:[authGuard],   component:VehicleimagesComponent},
 {path:'vehicle-info',      canActivate:[authGuard],   component:VehicleInfoComponent},
-{path:'cart',      canActivate:[authGuard],   component:CartComponent}
+{path:'cart',       canActivate:[authGuard],   component:CartComponent},
+{path:'statuspage', canActivate:[authGuard],component:StatuspageComponent}
 
 ];
 
