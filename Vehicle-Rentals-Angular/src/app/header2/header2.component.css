@@ -184,11 +184,11 @@ header {
 }
 
 .navbar .logo {
-  margin-right: auto; /* Push the logo to the left corner */
+  margin-right: auto; 
 }
 
 .navbar .all-links {
-  margin-left: auto; /* Push the list items to the right corner */
+  margin-left: auto; 
 }
 
 .navbar .logo a {
@@ -207,14 +207,14 @@ header {
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s; /* Add transition for smooth hover effect */
+  transition: background 0.3s, color 0.3s; 
 }
 
 .nav-link:hover {
-  background: #555; /* Change background color on hover */
+  background: #555; 
 }
 
-/* Show hamburger button on smaller screens */
+
 @media screen and (max-width: 860px) {
   .navbar .all-links {
     position: fixed;
@@ -234,4 +234,9 @@ header {
   .navbar #hamburger-btn {
     display: block;
   }
-}
+} 
+
+
+
+
+
