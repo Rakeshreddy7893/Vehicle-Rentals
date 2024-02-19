@@ -1,8 +1,9 @@
 .main {
-    /* background-image: url('../../assets/images/main.jpeg'); */
-    background-size: cover; /* Ensure the background image covers the entire element */
-    background-position: center; /* Center the background image */
-    padding: 20px; /* Add padding to the component content */
+    /* background-image: url('https://images.pexels.com/photos/978587/pexels-photo-978587.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); */
+    background-size: cover; 
+    background-position: center; 
+    padding: 20px; 
+    background-color:#F0F8E1;
   }
   
  

@@ -63,9 +63,9 @@ export class CartComponent {
     }
     Razorpay.open(RazorpayOptions,successCallback,failureCallback);
     this.goToProducts();
-    setTimeout(() => {
-      this.router.navigate(['statuspage']);
-    }, 5000);
+    // setTimeout(() => {
+    //   this.router.navigate(['statuspage']);
+    // }, 5000);
   }
   
 

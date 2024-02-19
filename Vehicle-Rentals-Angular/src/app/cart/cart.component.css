@@ -1,0 +1,49 @@
+/* CSS for Cart Items Table */
+.container {
+    margin-top: 20px;
+}
+
+.table {
+    background-color: #fff; /* White background for the table */
+}
+
+.table th,
+.table td {
+    vertical-align: middle; /* Align table cells vertically in the middle */
+}
+
+.table th {
+    background-color: #007bff; /* Blue background for table header */
+    color: #fff; /* White text color for table header */
+}
+
+.table td {
+    background-color: #f8f9fa; /* Light gray background for table cells */
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue background on hover for Purchase button */
+    border-color: #0056b3; /* Darker blue border color on hover for Purchase button */
+}
+
+.bg-info {
+    background-color: #17a2b8 !important; /* Cyan background color for table header background */
+}
+
+.text-white {
+    color: #fff !important; /* White text color for table header text */
+}
+
+.text-center {
+    text-align: center !important; /* Center align text */
+}

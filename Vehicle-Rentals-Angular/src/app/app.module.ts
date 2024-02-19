@@ -26,6 +26,7 @@ import { VehicleInfoComponent } from './vehicle-info/vehicle-info.component';
 import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';
 import { StatuspageComponent } from './statuspage/statuspage.component';
+import { Header3Component } from './header3/header3.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { StatuspageComponent } from './statuspage/statuspage.component';
     VehicleInfoComponent,
     CartComponent,
     StatuspageComponent,
+    Header3Component,
   ],
   imports: [
     BrowserModule,
