@@ -1,20 +1,16 @@
- 
- 
- <form #uploadForm="ngForm" (ngSubmit)="onImageUpload()">
+<form #uploadForm="ngForm" (ngSubmit)="onImageUpload()">
     <input type="text" name="id" [(ngModel)]="imageId" placeholder="Vehicle number" required><br>
     <input type="text" name="name" [(ngModel)]="imageName" placeholder="vehicle Name" required><br>
     <input type="text" name="colour" [(ngModel)]="imageColour" placeholder="vehicle Colour" required><br>
     <input type="text" name="seats" [(ngModel)]="imageSeats" placeholder="No. of Seats" required><br>
     <input type="text" name="model" [(ngModel)]="imageModel" placeholder="vehicle model" required><br>
     <input type="text" name="category" [(ngModel)]="imageCategory" placeholder="Category" required><br>
-    <input type="date" name="startDate" [(ngModel)]="imageStartDate" placeholder="Start Date" required><br>
-    <input type="date" name="endDate" [(ngModel)]="imageEndDate" placeholder="End Date" required><br>
+    <!-- <input type="date" name="startDate" [(ngModel)]="imageStartDate" placeholder="Start Date" required><br>
+    <input type="date" name="endDate" [(ngModel)]="imageEndDate" placeholder="End Date" required><br> -->
+    <input type="date" name="startDate" [(ngModel)]="imageStartDate" placeholder="Start Date" required
+        [min]="minDate"><br>
+    <input type="date" name="endDate" [(ngModel)]="imageEndDate" placeholder="End Date" required [min]="minDate"><br>
     <input type="number" name="pricePerHour" [(ngModel)]="imagePricePerHour" placeholder="Price Per Hour" required><br>
     <input type="file" name="file" (change)="onFileSelected($event)" required><br>
     <button type="submit">Upload Image</button>
 </form>
-
-
-
-
-

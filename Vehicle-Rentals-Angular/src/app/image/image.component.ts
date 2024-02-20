@@ -20,11 +20,18 @@ export class ImageComponent {
   imageEndDate: any = new Date(); // Initialize to current date
   imagePricePerHour: number = 0;
   selectedFile: File | undefined;
+  minDate: string;
 
   ownerId: any;
 
   constructor(private imageService: ImageService, private userService: UserService, private router : Router, private toastr : ToastrService) {
     this.ownerId = localStorage.getItem("userid");
+
+    const today = new Date();
+    const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Adjust for zero-based month
+    const day = today.getDate().toString().padStart(2, '0');
+    this.minDate = `${today.getFullYear()}-${month}-${day}`;
+
   }
 
   onFileSelected(event: any) {

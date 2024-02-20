@@ -1,205 +1,277 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
 
-  <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  </head>
+<header>
+  <nav class="navbar">
+    <h2 class="logo">
+      <a href="#">
+        <img src="../../assets/images/logo.png" alt="img" height="100px" width="100px" /></a>
+    </h2>
+    <input type="checkbox" id="menu-toggler" />
+    <label for="menu-toggler" id="hamburger-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M3 18h18v-2H3v2zm0-5h18V11H3v2zm0-7v2h18V6H3z" />
+      </svg>
+    </label>
+    <ul class="all-links">
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#portfolio">Available Vehicles</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a class="nav-link" routerLink="register">Register</a></li>
+      <li><a class="nav-link" routerLink="login">Login</a></li>
+    </ul>
+  </nav>
+</header>
+<section class="homepage" id="home">
+  <div class="content">
+    <div class="text">
+      <h1>Camping Gear and Essentials</h1>
+      <p>
+        Discover top-quality camping gear for unforgettable outdoor adventures.
+        <br />
+        Gear up and make lasting memories.
+      </p>
+    </div>
+    <li><a href="#portfolio">Services</a></li>
+  </div>
+</section>
 
-    <header>
-      <nav class="navbar">
-        <h2 class="logo"><a href="#"> <img src="../../assets/images/logo.png" alt="img" height="100px" width="100px"></a></h2>
-        <input type="checkbox" id="menu-toggler">
-        <label for="menu-toggler" id="hamburger-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
-            <path d="M0 0h24v24H0z" fill="none"/>
-            <path d="M3 18h18v-2H3v2zm0-5h18V11H3v2zm0-7v2h18V6H3z"/>
-          </svg>
-        </label>
-        <ul class="all-links">
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#portfolio">Available Vehicles</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a class="nav-link" routerLink="register">Register</a></li>
-          <li><a class="nav-link" routerLink="login">Login</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section class="homepage" id="home">
-      <div class="content">
-        <div class="text">
-          <h1>Camping Gear and Essentials</h1>
-          <p>
-            Discover top-quality camping gear for unforgettable outdoor adventures. <br> Gear up and make lasting memories.</p>
-        </div>
-        <li><a href="#portfolio">Services</a></li>
-      </div>
-    </section>
+<section class="portfolio" id="portfolio">
+  <h1>Available Vehicles</h1>
+  <p>Take a look at some of our memorable services.</p>
+  <ul class="cards">
+    <li class="card">
+      <img src="../../assets/images/B2.jpg" alt="img" />
+      <h3>Bikes</h3>
+      <p>
+        Booking your rental bike is quick and easy! Simply visit our website or
+        give us a call to reserve your preferred bike size and rental duration.
+        Flexible rental options available, including hourly, daily, and weekly
+        rates.
+      </p>
+    </li>
+    <li class="card">
+      <img src="../../assets/images/car2.jpg" alt="img" />
+      <h3>Cars</h3>
+      <p>
+        Your safety is our top priority.Maintenance checks to ensure peak
+        performance and reliability on the road. Drive with confidence knowing
+        you're in a well-maintained and safe vehicle.
+      </p>
+    </li>
+    <li class="card">
+      <img src="../../assets/images/lorry.webp" alt="img" />
+      <h3>Logistics Carriers</h3>
+      <p>
+        The efficient movement of goods and materials across various industries.
+        diverse range of vehicles, including trucks, vans, ships, airplanes to
+        specific transportation needs. Utilized by manufacturers, retailers,
+        wholesalers, and consumers.
+      </p>
+    </li>
+    <li class="card">
+      <img src="../../assets/images/bus.jpeg" alt="img" />
+      <h3>Buses</h3>
+      <p>
+        Are you planning a group outing, corporate event, or special occasion
+        that requires reliable transportation? Our fleet of rental buses offers
+        the perfect solution for all your group travel needs.
+      </p>
+    </li>
+    <li class="card">
+      <img src="../../assets/images/J2.jpg" alt="img" />
+      <h3>JCB's</h3>
+      <p>
+        JCBs are versatile construction machines in various earthmoving and
+        excavation tasks.The JCB arm is used for digging trenches, and lifting
+        heavy materials, while the loader bucket is utilized for moving and
+        loading soil, gravel, or debris.
+      </p>
+    </li>
+    <li class="card">
+      <img src="../../assets/images/truck2.jpg" alt="img" />
+      <h3>Trucks</h3>
+      <p>
+        Trucks serve as the lifeblood of modern society, seamlessly connecting
+        industries, businesses, and households while driving economic growth and
+        development. These versatile vehicles play a multifaceted role in our
+        daily lives, facilitating the transportation of goods, supporting
+        commerce, and enabling essential services.Z.
+      </p>
+    </li>
+    <li class="card">
+      <img src="../../assets/images/van.jpeg" alt="img" />
+      <h3>Vans</h3>
+      <p>
+        Vans are the unsung heroes of daily life, From transporting families on
+        road trips to facilitating business operations with efficient cargo
+        space, vans are essential companions in our everyday routines.
+      </p>
+    </li>
+    <li class="card">
+      <img src="../../assets/images/c2.jpg" alt="img" />
+      <h3>Cranes</h3>
+      <p>
+        Cranes are powerful and versatile machines used in various industries
+        for lifting, moving, and positioning heavy loads. They consist of a wire
+        ropes or chains, and sheaves Safety protocols, load capacity limits, and
+        regular equipment inspections, are essential to prevent accidents.
+      </p>
+    </li>
+    <li class="card">
+      <img src="../../assets/images/T2.jpg" alt="img" />
+      <h3>Semitruck</h3>
+      <p>
+        Semi trucks are utilized by a wide range of industries for transporting
+        various consumer goods, raw materials, perishable goods, and industrial
+        equipment.These trucks are primarily used for transportation of goods
+        and materials across vast distances.
+      </p>
+    </li>
+  </ul>
+</section>
 
-    <section class="portfolio" id="portfolio">
-      <h1>Available Vehicles</h1>
-      <p>Take a look at some of our memorable services.</p>
-      <ul class="cards">
-        <li class="card">
-          <img src="../../assets/images/B2.jpg"alt="img">
-          <h3>Bikes</h3>
-          <p>Booking your rental bike is quick and easy! Simply visit our website or give us a call to reserve your preferred bike size and rental duration. Flexible rental options available, including hourly, daily, and weekly rates.</p>
-        </li>
-        <li class="card">
-          <img src="../../assets/images/car2.jpg" alt="img">
-          <h3>Cars</h3>
-          <p>Your safety is our top priority.Maintenance checks to ensure peak performance and reliability on the road. Drive with confidence knowing you're in a well-maintained and safe vehicle.</p>
-        </li>
-        <li class="card">
-          <img src="../../assets/images/lorry.webp" alt="img">
-          <h3>Logistics Carriers</h3>
-          <p>The efficient movement of goods and materials across various industries. diverse range of vehicles, including trucks, vans, ships, airplanes to specific transportation needs. Utilized by manufacturers, retailers, wholesalers, and consumers.</p>
-        </li>
-        <li class="card">
-          <img src="../../assets/images/bus.jpeg" alt="img">
-          <h3>Buses</h3>
-          <p>Are you planning a group outing, corporate event, or special occasion that requires reliable transportation? Our fleet of rental buses offers the perfect solution for all your group travel needs.</p>
-        </li>
-        <li class="card">
-          <img src="../../assets/images/J2.jpg" alt="img">
-          <h3>JCB's</h3>
-          <p>JCBs are versatile construction machines in various earthmoving and excavation tasks.The JCB arm is used for digging trenches, and lifting heavy materials, while the loader bucket is utilized for moving and loading soil, gravel, or debris. </p>
-        </li>
-        <li class="card">
-          <img src="../../assets/images/truck2.jpg" alt="img">
-          <h3>Trucks</h3>
-          <p>
-            Trucks serve as the lifeblood of modern society, seamlessly connecting industries, businesses, and households while driving economic growth and development. These versatile vehicles play a multifaceted role in our daily lives, facilitating the transportation of goods, supporting commerce, and enabling essential services.Z.</p>
-        </li>
-        <li class="card">
-          <img src="../../assets/images/van.jpeg" alt="img">
-          <h3>Vans</h3>
-          <p>Vans are the unsung heroes of daily life, From transporting families on road trips to facilitating business operations with efficient cargo space, vans are essential companions in our everyday routines.</p>
-        </li>
-        <li class="card">
-          <img src="../../assets/images/c2.jpg" alt="img">
-          <h3>Cranes</h3>
-          <p>Cranes are powerful and versatile machines used in various industries for lifting, moving, and positioning heavy loads. They consist of a wire ropes or chains, and sheaves Safety protocols, load capacity limits, and regular equipment inspections, are essential to prevent accidents. </p>
-        </li>
-        <li class="card">
-          <img src="../../assets/images/T2.jpg" alt="img">
-          <h3>Semitruck</h3>
-          <p>Semi trucks are utilized by a wide range of industries for transporting various consumer goods, raw materials, perishable goods, and industrial equipment.These trucks are primarily used for transportation of goods and materials across vast distances. </p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="portfolio" id="services"><br/><br/>
-      <h1>Our Services</h1>
-      <p>Take a look at some of our memorable services.</p>
-      <div class="card-list">
-          <a href="#" class="card-item">
-              <img src="../../assets/images/A5.webp" alt="Card Image">
-              <p>Explain the features of each bike, including gear shifts, brake systems, and suspension.Help customers choose bikes that suit their needs and preferences, such as mountain bikes for off-road trails.</p>
-              
-          </a>
-          <a href="#" class="card-item">
-              <img src="../../assets/images/R1.webp" alt="Card Image">
-              <p>Assist with completing necessary paperwork, including rental agreements and insurance documentation.Help customers choose a vehicle based on their needs, such as compact cars for city driving.</p>
-              
-          </a>
-          <a href="#" class="card-item">
-              <img src="../../assets/images/A3.jpg" alt="Card Image">
-              <p>Provide information on payment methods, security deposits, and any additional fees.Offer maps or GPS navigation systems to help customers navigate unfamiliar roads.</p>
-              
-          </a>
-          <a href="#" class="card-item">
-            <img src="../../assets/images/R2.webp" alt="Card Image">
-            <p>Provide a brief orientation on the rental process, including any paperwork they need to fill out and the terms of the rental agreement.Remind customers to return the bikes.</p>
-            
-        </a>
-        <a href="#" class="card-item">
-          <img src="../../assets/images/R3.jpg" alt="Card Image">
-          <p>Greet customers with a friendly smile and welcoming demeanor as they arrive at the rental location.Provide demonstrations on how to properly wear and adjust helmets for maximum safety.</p>
-          
-      </a>
-      <a href="#" class="card-item">
-        <img src="../../assets/images/R4.webp" alt="Card Image">
-        <p>Clearly outline the process for returning the rental bike, including any designated drop-off locations and return times.Conduct a brief demonstration on basic bike maintenance tasks.</p>
-        
+<section class="portfolio" id="services">
+  <br /><br />
+  <h1>Our Services</h1>
+  <p>Take a look at some of our memorable services.</p>
+  <div class="card-list">
+    <a href="#" class="card-item">
+      <img src="../../assets/images/A5.webp" alt="Card Image" />
+      <p>
+        Explain the features of each bike, including gear shifts, brake systems,
+        and suspension.Help customers choose bikes that suit their needs and
+        preferences, such as mountain bikes for off-road trails.
+      </p>
     </a>
-      </div>
-    </section>
+    <a href="#" class="card-item">
+      <img src="../../assets/images/R1.webp" alt="Card Image" />
+      <p>
+        Assist with completing necessary paperwork, including rental agreements
+        and insurance documentation.Help customers choose a vehicle based on
+        their needs, such as compact cars for city driving.
+      </p>
+    </a>
+    <a href="#" class="card-item">
+      <img src="../../assets/images/A3.jpg" alt="Card Image" />
+      <p>
+        Provide information on payment methods, security deposits, and any
+        additional fees.Offer maps or GPS navigation systems to help customers
+        navigate unfamiliar roads.
+      </p>
+    </a>
+    <a href="#" class="card-item">
+      <img src="../../assets/images/R2.webp" alt="Card Image" />
+      <p>
+        Provide a brief orientation on the rental process, including any
+        paperwork they need to fill out and the terms of the rental
+        agreement.Remind customers to return the bikes.
+      </p>
+    </a>
+    <a href="#" class="card-item">
+      <img src="../../assets/images/R3.jpg" alt="Card Image" />
+      <p>
+        Greet customers with a friendly smile and welcoming demeanor as they
+        arrive at the rental location.Provide demonstrations on how to properly
+        wear and adjust helmets for maximum safety.
+      </p>
+    </a>
+    <a href="#" class="card-item">
+      <img src="../../assets/images/R4.webp" alt="Card Image" />
+      <p>
+        Clearly outline the process for returning the rental bike, including any
+        designated drop-off locations and return times.Conduct a brief
+        demonstration on basic bike maintenance tasks.
+      </p>
+    </a>
+  </div>
+</section>
 
-    <section class="about" id="about">
-      <h1>About Us</h1>
-      <p>Welcome to Our Vehicle Rental Booking Platform!</p>
-      <div class="row company-info">
-        <h3>Our Story</h3>
-        <p>At Vehicle Rental Hub, we are dedicated to revolutionizing the way people access transportation. Our journey began with a simple yet ambitious goal: to make all types of vehicles accessible to everyone at affordable rates. With years of experience in the transportation industry, we have built a platform that connects individuals and businesses with a wide range of vehicles, from cars and trucks to vans and specialty vehicles.</p>
-      </div>
-      <div class="row mission-vision">
-        <h3>Our Mission</h3>
-        <p>Our mission at Vehicle Rental Hub is to provide convenient, reliable, and affordable transportation solutions for everyone. We are committed to offering a diverse fleet of vehicles and exceptional customer service to ensure that our customers can find the perfect vehicle for their needs, whether it's for a short trip, a family vacation, or a business venture.</p>
-        <h3>Our Vision</h3>
-        <p>Our vision is to be the leading vehicle rental platform, known for our extensive selection of vehicles, competitive pricing, and user-friendly booking process. We aspire to empower individuals and businesses to explore new destinations, pursue their passions, and accomplish their goals with ease and convenience.</p>
-      </div>
-      <div class="row team">
-        <h3>Our Team</h3>
-        <ul>
-          <li>Michael Johnson - Founder and CEO</li>
-          <li>Emily Clark - Operations Manager</li>
-          <li>David Smith - Customer Service Specialist</li>
-          <li>Samantha White - Marketing Coordinator</li>
-        </ul>
-      </div>
-    </section>
-    <br/>
-    <br/>
-    <br/>
-    <footer>
-      <div class="locations">
-        <span>Copyright © 2023 All Rights Reserved</span>
-        <span>Instagram</span>
-        <span>Twitter</span>
-        <span>Facebook</span>
-      </div>
+<section class="about" id="about">
+  <h1>About Us</h1>
+  <p>Welcome to Our Vehicle Rental Booking Platform!</p>
+  <div class="row company-info">
+    <h3>Our Story</h3>
+    <p>
+      At Vehicle Rental Hub, we are dedicated to revolutionizing the way people
+      access transportation. Our journey began with a simple yet ambitious goal:
+      to make all types of vehicles accessible to everyone at affordable rates.
+      With years of experience in the transportation industry, we have built a
+      platform that connects individuals and businesses with a wide range of
+      vehicles, from cars and trucks to vans and specialty vehicles.
+    </p>
+  </div>
+  <div class="row mission-vision">
+    <h3>Our Mission</h3>
+    <p>
+      Our mission at Vehicle Rental Hub is to provide convenient, reliable, and
+      affordable transportation solutions for everyone. We are committed to
+      offering a diverse fleet of vehicles and exceptional customer service to
+      ensure that our customers can find the perfect vehicle for their needs,
+      whether it's for a short trip, a family vacation, or a business venture.
+    </p>
+    <h3>Our Vision</h3>
+    <p>
+      Our vision is to be the leading vehicle rental platform, known for our
+      extensive selection of vehicles, competitive pricing, and user-friendly
+      booking process. We aspire to empower individuals and businesses to
+      explore new destinations, pursue their passions, and accomplish their
+      goals with ease and convenience.
+    </p>
+  </div>
+  <div class="row team">
+    <h3>Our Team</h3>
+    <ul>
+      <li>Maddeni Uday - Founder and CEO</li>
+      <li>Rakesh Reddy- Operations Manager</li>
+      <li>Ranjith Reddy - Customer Service Specialist</li>
+    </ul>
+  </div>
+</section>
+<br />
+<br />
+<br />
+<footer>
+  <div class="locations">
+    <span>Copyright © 2023 All Rights Reserved</span>
+    <span>Instagram</span>
+    <span>Twitter</span>
+    <span>Facebook</span>
+  </div>
 
-      <div class="locations">
-        <span><b>Locations</b></span>
-        <ul>
-          <li>Hyderabad</li>
-          <li>Mumbai</li>
-          <li>Banglore</li>
-          <li>Chennai</li>
-          <li>Kolkata</li>
-        </ul>
-      </div>
+  <div class="locations">
+    <span><b>Locations</b></span>
+    <ul>
+      <li>Hyderabad</li>
+      <li>Mumbai</li>
+      <li>Banglore</li>
+      <li>Chennai</li>
+      <li>Kolkata</li>
+    </ul>
+  </div>
 
-      <div class="locations">
-        <ul>
-          <li>Jaipur</li>
-          <li>Delhi</li>
-          <li>Pune</li>
-          <li>Agra</li>
-          <li>Kochi</li>
-        </ul>
-      </div>
+  <div class="locations">
+    <ul>
+      <li>Jaipur</li>
+      <li>Delhi</li>
+      <li>Pune</li>
+      <li>Agra</li>
+      <li>Kochi</li>
+    </ul>
+  </div>
 
-      <div class="locations">
-        <span><b>Customer Care</b></span>
-        <ul>
-          <li>Contact Us</li>
-          <li>FAQ'S</li>
-          <li>Privacy Policy</li>
-          <li>Terms and Conditions</li>
-          <li>Canceling or Changing a booking</li>
-        </ul>
-      </div>
-    </footer>
-    
-    
-
-
-    
-
-    
-    
-    
-    
- 
-
+  <div class="locations">
+    <span><b>Customer Care</b></span>
+    <ul>
+      <li>Contact Us</li>
+      <li>FAQ'S</li>
+      <li>Privacy Policy</li>
+      <li>Terms and Conditions</li>
+      <li>Canceling or Changing a booking</li>
+    </ul>
+  </div>
+</footer>
