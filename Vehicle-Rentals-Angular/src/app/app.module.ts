@@ -27,6 +27,7 @@ import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';
 import { StatuspageComponent } from './statuspage/statuspage.component';
 import { Header3Component } from './header3/header3.component';
+import { Header4Component } from './header4/header4.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { Header3Component } from './header3/header3.component';
     CartComponent,
     StatuspageComponent,
     Header3Component,
+    Header4Component,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactComponent } from '../contact/contact.component';
 import { ImageService } from '../image.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header1',
@@ -11,7 +12,7 @@ import { ImageService } from '../image.service';
 export class Header1Component implements OnInit {
   cartItems: any;
   // loginStatus : any;
-  constructor(private service: ImageService, private router:Router) {
+  constructor(private service: ImageService, private router:Router,private location :Location) {
     this.cartItems = service.getCartItems();
   }
 
@@ -37,6 +38,10 @@ export class Header1Component implements OnInit {
 
   redirectToContact(){
     this.router.navigate(['contact']);
+  }
+
+  redirectBack(): void {
+    this.location.back();
   }
 
 }
