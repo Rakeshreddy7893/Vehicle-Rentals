@@ -9,6 +9,7 @@ import com.ts.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
+	
 	@Query("from User where userName = :userName")
 	User findByName(@Param("userName") String userName);
 	

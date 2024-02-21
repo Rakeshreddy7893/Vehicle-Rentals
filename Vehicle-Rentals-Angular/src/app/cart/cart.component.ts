@@ -14,10 +14,15 @@ export class CartComponent {
   localStorageData: any;
   email: any;
   products: any;
+  totalAmount:any
+  days:any;
+ 
+  
 
   constructor(private service: ImageService, private router: Router) {
     this.email = localStorage.getItem('email');
     this.products = service.getCartItems();
+    this.days = localStorage.getItem('numberOfDays');
   }
 
   ngOnInit() {
@@ -31,11 +36,13 @@ export class CartComponent {
   }
 
   payNow(){
+    this.totalAmount = this.calculateTotal() * this.days ;
+    console.log('Total Amount:',this. totalAmount);
    
     const RazorpayOptions = {
       description :'Sample Rozorpay demo',
       currency :'INR',
-      amount :this.calculateTotal() * 100, 
+      amount : this.totalAmount * 100 , 
       name : 'Rakesh',
       key : 'rzp_test_chEE74MxFAuQwE',
       image:'https://cdn-icons-png.flaticon.com/512/1688/1688408.png',
@@ -66,6 +73,7 @@ export class CartComponent {
     // setTimeout(() => {
     //   this.router.navigate(['statuspage']);
     // }, 5000);
+    
   }
   
 
