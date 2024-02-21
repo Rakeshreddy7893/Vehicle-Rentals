@@ -127,13 +127,18 @@
                                 <dt>Owner ID:</dt>
                                 <dd>{{item.owner.userId}}</dd>
                             </div>
-                            <p align="right"><button (click)="addToCart(item)" class="btn btn-primary">AddToOrders</button> </p>
+                            <p align="right"><button (click)="addToCart(item)" class="btn btn-primary" [disabled]="!fromDate || !toDate ||errorMessage">AddToOrders</button> </p>
                         </div>
                     </dl>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
+    
 
     <!-- Input fields for start and end dates -->
     <div class="row">
