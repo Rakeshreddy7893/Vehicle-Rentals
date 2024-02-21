@@ -14,9 +14,12 @@ body {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  /* background: rgb(130, 106, 251); */
-  background-image: url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: url('https://cdn.pixabay.com/photo/2021/09/25/10/08/road-6654573_960_720.jpg');
+  background-repeat: no-repeat; /* Prevent background image from repeating */
+  background-size: cover; 
+  background-position: center; 
 }
+
 
 .container {
   position: relative;
