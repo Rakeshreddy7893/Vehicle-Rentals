@@ -1,5 +1,5 @@
 declare var Razorpay: any;
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../image.service';
 import { Router } from '@angular/router';
 
@@ -8,18 +8,22 @@ import { Router } from '@angular/router';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
   email: any;
-  products: any;
-  totalAmount: any;
+  products: any[] = [];
+  totalAmount: number = 0;
 
-  constructor(private service: ImageService, private router: Router) {
+  constructor(private service: ImageService, private router: Router) {}
+
+  ngOnInit() {
     this.email = localStorage.getItem('email');
-    this.products = service.getCartItems();
-    this.totalAmount = localStorage.getItem('totalAmount');
+    this.products = this.service.getCartItems();
+    const totalAmountFromStorage = localStorage.getItem('totalAmount');
+    this.totalAmount = totalAmountFromStorage !== null ? +totalAmountFromStorage : 0;
   }
 
   goToProducts() {
+    // Clear cart and navigate back to products page
     this.deleteAllProducts();
     this.service.clearCart();
     this.service.cartChanged.emit();
@@ -59,15 +63,23 @@ export class CartComponent {
   }
 
   deleteAllProducts() {
+    // Clear cart items and update totalAmount
     this.service.setCartItems([]);
+    this.products = [];
+    this.totalAmount = 0; // Reset totalAmount
+    localStorage.setItem('totalAmount', this.totalAmount.toString()); // Update totalAmount in localStorage
   }
 
   deleteProduct(product: any) {
+    // Delete a product from the cart and update totalAmount
     const index = this.products.indexOf(product);
     if (index !== -1) {
       this.products.splice(index, 1);
       this.service.setCartItems(this.products);
       this.service.cartChanged.emit();
+      this.totalAmount -= product.pricePerHour; // Subtract price of deleted product from totalAmount
+      localStorage.setItem('totalAmount', this.totalAmount.toString()); // Update totalAmount in localStorage
     }
   }
 }
+

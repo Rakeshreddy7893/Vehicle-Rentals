@@ -48,7 +48,7 @@ export class VehicleInfoComponent implements OnInit {
     this.fetchProducts();
     this.femaleDriverPrice = 700;
     this.maleDriverPrice = 700;
-    this.totalAmount = 0;
+    this.calculateTotal(); // Calculate totalAmount initially
   }
 
   ngOnInit() {
@@ -175,3 +175,5 @@ export class VehicleInfoComponent implements OnInit {
     return total;
   }
 }
+
+
