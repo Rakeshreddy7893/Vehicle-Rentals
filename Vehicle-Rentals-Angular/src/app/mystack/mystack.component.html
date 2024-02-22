@@ -1,17 +1,12 @@
-
 <app-header3></app-header3>
 
-<br/>
-<!-- <app-header1></app-header1> -->
-
-<br/>
-<br/>
-<br/>
-  <div class="container">
+<br />
+<br />
+<br />
+<br />
+<div class="container">
     <h1>Vehicles List</h1>
-    <!-- <button class="btn btn-info" (click)="getAllMyVehicles() ">get all vehicle images</button>
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-     <button class="btn btn-primary" style="font-size: 16px; padding: 10px 20px;" (click)="toggle()">{{btnData}}</button>
+    <button class="btn btn-primary" style="font-size: 16px; padding: 10px 20px;" (click)="toggle()">{{btnData}}</button>
 
     <div *ngIf="flag; then success; else fail"></div>
     <ng-template #success>
@@ -34,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor = "let image of allImages">
+                    <tr *ngFor="let image of allImages">
                         <td><img [src]="image.picByte" alt="{{image.name}}"></td>
                         <td>{{image.id}}</td>
                         <td>{{image.name}}</td>
@@ -52,50 +47,48 @@
             </table>
         </div>
     </ng-template>
-    
+
     <ng-template #fail>
-      
-      <div class="d-flex flex-wrap">
-        <div *ngFor="let item of allImages" class="card-container m-3">
-            <div class="card">
-                <img class="card-img-top" [src]="item.picByte" alt="Vehicle Image">
-                <div class="card-header">
-                    <h4>Vehicle ID: {{item.id}}</h4>
-                    <h4>Vehicle Name: {{item.name}}</h4>
-                </div>
-                <div class="card-body">
-                    <dl class="card-info">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <dt>Colour:</dt>
-                                <dd>{{item.colour}}</dd>
-                                <dt>Seats:</dt>
-                                <dd>{{item.seats}}</dd>
-                                <dt>Model:</dt>
-                                <dd>{{item.model}}</dd>
-                                <dt>Category:</dt>
-                                <dd>{{item.category}}</dd>
+
+        <div class="d-flex flex-wrap">
+            <div *ngFor="let item of allImages" class="card-container m-3">
+                <div class="card">
+                    <img class="card-img-top" [src]="item.picByte" alt="Vehicle Image">
+                    <div class="card-header">
+                        <h4>Vehicle ID: {{item.id}}</h4>
+                        <h4>Vehicle Name: {{item.name}}</h4>
+                    </div>
+                    <div class="card-body">
+                        <dl class="card-info">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <dt>Colour:</dt>
+                                    <dd>{{item.colour}}</dd>
+                                    <dt>Seats:</dt>
+                                    <dd>{{item.seats}}</dd>
+                                    <dt>Model:</dt>
+                                    <dd>{{item.model}}</dd>
+                                    <dt>Category:</dt>
+                                    <dd>{{item.category}}</dd>
+                                </div>
+                                <div class="col-md-6">
+                                    <dt>Available From:</dt>
+                                    <dd>{{item.startDate | date:'shortDate'}}</dd>
+                                    <dt>Available To:</dt>
+                                    <dd>{{item.endDate | date:'shortDate'}}</dd>
+                                    <dt>Price Per Day:</dt>
+                                    <dd>{{item.pricePerHour}}</dd>
+                                    <dt>Owner ID:</dt>
+                                    <dd>{{item.owner.userId}}</dd>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <dt>Available From:</dt>
-                                <dd>{{item.startDate | date:'shortDate'}}</dd>
-                                <dt>Available To:</dt>
-                                <dd>{{item.endDate | date:'shortDate'}}</dd>
-                                <dt>Price Per Day:</dt>
-                                <dd>{{item.pricePerHour}}</dd>
-                                <dt>Owner ID:</dt>
-                                <dd>{{item.owner.userId}}</dd>
-                            </div>
-                        </div>
-                    </dl>
+                        </dl>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    
+
+
     </ng-template>
 
 </div>
-  
- 

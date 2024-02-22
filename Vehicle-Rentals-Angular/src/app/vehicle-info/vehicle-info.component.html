@@ -1,162 +1,4 @@
-<!-- <app-header1></app-header1>
-<br><br><br><br><br><br><br>
-<h1>Vehicle Information</h1>
-<br>
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-3" *ngFor="let item of products">
-            <div class="card" style="width:300px;">
-                <img class="card-img-top" [src]="item.picByte" alt="Card image" style="width:100%; margin-top: 5px;">
-                <div class="card-body">
-                    <dl class="card-info">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <dt>Colour:</dt>
-                                <dd>{{item.colour}}</dd>
-                                <dt>Seats:</dt>
-                                <dd>{{item.seats}}</dd>
-                                <dt>Model:</dt>
-                                <dd>{{item.model}}</dd>
-                                <dt>Category:</dt>
-                                <dd>{{item.category}}</dd>
-                            </div>
-                            <div class="col-md-6">
-                                <dt>Available From:</dt>
-                                <dd>{{item.startDate | date:'shortDate'}}</dd>
-                                <dt>Available To:</dt>
-                                <dd>{{item.endDate | date:'shortDate'}}</dd>
-                                <dt>Price Per Day:</dt>
-                                <dd>{{item.pricePerHour}}</dd>
-                                <dt>Owner ID:</dt>
-                                <dd>{{item.owner.userId}}</dd>
-                            </div>
-                            <p align="right"><button (click)="addToCart(item)" class="btn btn-primary">AddToOrders</button> </p>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-
-
-
-    <!-- <app-header1></app-header1>
-<br><br><br><br><br><br><br>
-<h1>Vehicle Information</h1>
-<br>
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-3" *ngFor="let item of products">
-            <div class="card" style="width:300px;">
-                <img class="card-img-top" [src]="item.picByte" alt="Card image" style="width:100%; margin-top: 5px;">
-                <div class="card-body">
-                    <dl class="card-info">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <dt>Colour:</dt>
-                                <dd>{{item.colour}}</dd>
-                                <dt>Seats:</dt>
-                                <dd>{{item.seats}}</dd>
-                                <dt>Model:</dt>
-                                <dd>{{item.model}}</dd>
-                                <dt>Category:</dt>
-                                <dd>{{item.category}}</dd>
-                            </div>
-                            <div class="col-md-6">
-                                <dt>Available From:</dt>
-                                <dd>{{item.startDate | date:'shortDate'}}</dd>
-                                <dt>Available To:</dt>
-                                <dd>{{item.endDate | date:'shortDate'}}</dd>
-                                <dt>Price Per Day:</dt>
-                                <dd>{{item.pricePerHour}}</dd>
-                                <dt>Owner ID:</dt>
-                                <dd>{{item.owner.userId}}</dd>
-                            </div>
-                            <p align="right"><button (click)="addToCart(item)" class="btn btn-primary">AddToOrders</button> </p>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> 
-
-
-<div class="col-md-6">
-    <dt>Starting Date</dt>
-    <input type="date" class="form-control" placeholder="From Date" name="fromDate" [(ngModel)]="fromDate"  (ngModelChange)="printDates()">
-    <dt>Ending ate</dt>
-    <input type="date" class="form-control" placeholder="To Date" name="toDate" [(ngModel)]="toDate"  (ngModelChange)="printDates()">
-
-</div> -->
-
-
-<!-- <app-header1></app-header1>
-<br><br><br><br><br><br><br>
-<h1>Vehicle Information</h1>
-<br>
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-3" *ngFor="let item of products">
-            <div class="card" style="width:300px;">
-                <img class="card-img-top" [src]="item.picByte" alt="Card image" style="width:100%; margin-top: 5px;">
-                <div class="card-body">
-                    <dl class="card-info">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <dt>Colour:</dt>
-                                <dd>{{item.colour}}</dd>
-                                <dt>Seats:</dt>
-                                <dd>{{item.seats}}</dd>
-                                <dt>Model:</dt>
-                                <dd>{{item.model}}</dd>
-                                <dt>Category:</dt>
-                                <dd>{{item.category}}</dd>
-                            </div>
-                            <div class="col-md-6">
-                                <dt>Available From:</dt>
-                                <dd>{{item.startDate | date:'shortDate'}}</dd>
-                                <dt>Available To:</dt>
-                                <dd>{{item.endDate | date:'shortDate'}}</dd>
-                                <dt>Price Per Day:</dt>
-                                <dd>{{item.pricePerHour}}</dd>
-                                <dt>Owner ID:</dt>
-                                <dd>{{item.owner.userId}}</dd>
-                            </div>
-                            <p align="right"><button (click)="addToCart(item)" class="btn btn-primary" [disabled]="!fromDate || !toDate ||errorMessage">AddToOrders</button> </p>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    
-
-   
-    <div class="row">
-        <div class="col-md-6">
-            <label for="fromDate">From:</label>
-            <input type="date" id="fromDate" class="form-control" name="fromDate" [(ngModel)]="fromDate" (ngModelChange)="printDates()" [min]="minFromDate">
-        </div>
-        <div class="col-md-6">
-            <label for="toDate">To:</label>
-            <input type="date" id="toDate" class="form-control" name="toDate" [(ngModel)]="toDate" (ngModelChange)="printDates()" [min]="fromDate">
-        </div>
-    </div>
-    <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
-
-     -->
-
-<!-- 
-     <app-header1></app-header1>
+<app-header1></app-header1>
 <br><br><br><br><br><br><br>
 <h1>Vehicle Information</h1>
 <br>
@@ -218,7 +60,7 @@
                       <input type="file" (change)="onFileChanged($event)">
                       <input type="text" [(ngModel)]="panId" placeholder="Enter your panId" />
                       <input type="text" [(ngModel)]="documentId" placeholder="Enter your LicenseNo" />
-                      <button (click)="onUpload()">Upload</button> 
+                      <button (click)="onUpload()">Upload</button>
                       <br><br><br>
                       <div *ngIf="drivingLicenseStatus === 'Not Approved'">
                         <h1>{{ drivingLicenseStatus }}</h1>
@@ -235,122 +77,6 @@
                 <div *ngIf="selectedOption === 'driver-service'">
                   <p>You've selected driver service. Please proceed to book a driver.</p>
                   <div *ngIf="gender === 'Female'">
-                    <button class="btn btn-primary" (click)="selectedDriver = 'Female'">
-                      Female Driver (Price: ${{femaleDriverPrice}})
-                    </button>
-                    <button class="btn btn-primary" (click)="selectedDriver = 'Male'">
-                      Male Driver (Price: ${{maleDriverPrice}})
-                    </button>
-                  </div>
-                  <div *ngIf="gender === 'Male'">
-                    <button class="btn btn-primary" (click)="selectedDriver = 'Male'">
-                      Male Driver (Price: ${{maleDriverPrice}})
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <p align="right"><button (click)="addToCart(item)" class="btn btn-primary" [disabled]="!fromDate || !toDate ||errorMessage">AddToOrders</button> </p>
-            </div>
-          </dl>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6">
-      <label for="fromDate">From:</label>
-      <input type="date" id="fromDate" class="form-control" name="fromDate" [(ngModel)]="fromDate" (ngModelChange)="printDates()" [min]="minFromDate">
-  </div>
-  <div class="col-md-6">
-      <label for="toDate">To:</label>
-      <input type="date" id="toDate" class="form-control" name="toDate" [(ngModel)]="toDate" (ngModelChange)="printDates()" [min]="fromDate">
-  </div>
-</div>
-<div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
- -->
-
- 
- <app-header1></app-header1>
- <br><br><br><br><br><br><br>
- <h1>Vehicle Information</h1>
- <br>
- 
- <div class="container">
-   <div class="row">
-     <div class="col-lg-12">
-       <div *ngFor="let item of products" class="card" style="width:100%;">
-         <img class="card-img-top" [src]="item.picByte" alt="Card image" style="width:50%; margin-top: 5px;">
-         <div class="card-body">
-           <dl class="card-info">
-             <div class="row">
-               <div class="col-md-6">
-                 <dt>Colour:</dt>
-                 <dd>{{item.colour}}</dd>
-                 <dt>Seats:</dt>
-                 <dd>{{item.seats}}</dd>
-                 <dt>Model:</dt>
-                 <dd>{{item.model}}</dd>
-                 <dt>Category:</dt>
-                 <dd>{{item.category}}</dd>
-                 <dt>Available From:</dt>
-                 <dd>{{item.startDate | date:'shortDate'}}</dd>
-                 <dt>Available To:</dt>
-                 <dd>{{item.endDate | date:'shortDate'}}</dd>
-                 <dt>Price Per Day:</dt>
-                 <dd>{{item.pricePerHour}}</dd>
-                 <dt>Owner ID:</dt>
-                 <dd>{{item.owner.userId}}</dd>
-               </div>
- 
-               <div class="col-md-6">
-                 <div>
-                   <p>Welcome to our website! Explore our range of vehicles.</p>
-                   <p><u>Choose Mode of Driving</u></p>
-                   <label>
-                     <input type="radio" name="drivingOption" [(ngModel)]="selectedOption" value="self-driving">
-                     Self-driving
-                   </label>
-                   <label>
-                     <input type="radio" name="drivingOption" [(ngModel)]="selectedOption" value="driver-service">
-                     Driver-service
-                   </label>
-                 </div>
- 
-                 <div *ngIf="selectedOption === 'self-driving'">
-                   <div [ngSwitch]="drivingLicenseStatus">
-                     <div *ngSwitchCase="'Not Approved'">
-                       <h1>{{ drivingLicenseStatus }}</h1>
-                       <p>Your driving license is uploaded but not approved by admin. Please Wait..!</p>
-                     </div>
-                     <div *ngSwitchCase="'Approved'">
-                       <h1>{{ drivingLicenseStatus }}</h1>
-                       <p>Your driving license is up to date. You can book the Vehicle.</p>
-                     </div>
-                     <div *ngSwitchDefault="'NoRecord'">
-                       <h1>{{ drivingLicenseStatus }}</h1>
-                       <p>Your driving license is not uploaded, Please Upload.</p>
-                       <input type="file" (change)="onFileChanged($event)">
-                       <input type="text" [(ngModel)]="panId" placeholder="Enter your panId" />
-                       <input type="text" [(ngModel)]="documentId" placeholder="Enter your LicenseNo" />
-                       <button (click)="onUpload()">Upload</button> 
-                       <br><br><br>
-                       <div *ngIf="drivingLicenseStatus === 'Not Approved'">
-                         <h1>{{ drivingLicenseStatus }}</h1>
-                         <p>Your driving license is uploaded but not approved by admin. Please Wait..!</p>
-                       </div>
-                       <div *ngIf="drivingLicenseStatus === 'Approved'">
-                         <h1>{{ drivingLicenseStatus }}</h1>
-                         <p>Your driving license is up to date. You can book the Vehicle.</p>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <div *ngIf="selectedOption === 'driver-service'">
-                  <p>You've selected driver service. Please proceed to book a driver.</p>
-                  <div *ngIf="gender === 'Female'">
                     <button class="btn btn-primary" (click)="selectDriver('Female')">
                       Female Driver (Price: ${{femaleDriverPrice}})
                     </button>
@@ -364,26 +90,28 @@
                     </button>
                   </div>
                 </div>
-                
-               </div>
-               <p align="right"><button (click)="addToCart(item)" class="btn btn-primary" [disabled]="!fromDate || !toDate ||errorMessage">AddToOrders</button> </p>
-             </div>
-           </dl>
-         </div>
-       </div>
-     </div>
-   </div>
- </div>
- 
- <div class="row">
-   <div class="col-md-6">
-       <label for="fromDate">From:</label>
-       <input type="date" id="fromDate" class="form-control" name="fromDate" [(ngModel)]="fromDate" (ngModelChange)="printDates()" [min]="minFromDate">
-   </div>
-   <div class="col-md-6">
-       <label for="toDate">To:</label>
-       <input type="date" id="toDate" class="form-control" name="toDate" [(ngModel)]="toDate" (ngModelChange)="printDates()" [min]="fromDate">
-   </div>
- </div>
- <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
- 
+
+              </div>
+              <p align="right"><button (click)="addToCart(item)" class="btn btn-primary"
+                  [disabled]="!fromDate || !toDate ||errorMessage">AddToOrders</button> </p>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <label for="fromDate">From:</label>
+    <input type="date" id="fromDate" class="form-control" name="fromDate" [(ngModel)]="fromDate"
+      (ngModelChange)="printDates()" [min]="minFromDate">
+  </div>
+  <div class="col-md-6">
+    <label for="toDate">To:</label>
+    <input type="date" id="toDate" class="form-control" name="toDate" [(ngModel)]="toDate"
+      (ngModelChange)="printDates()" [min]="fromDate">
+  </div>
+</div>
+<div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>

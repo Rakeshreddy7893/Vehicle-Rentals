@@ -1,12 +1,10 @@
 body {
-    background-image: url('../../assets/images/bicycle.jpeg');
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    background-position: center;
-  }
-  
+  background-image: url('../../assets/images/bicycle.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-  
 footer {
   width: 100%;
   display: flex;
@@ -30,8 +28,6 @@ footer span {
 footer a {
   padding: 0;
 }
-
-
 
 footer {
   background: #000;

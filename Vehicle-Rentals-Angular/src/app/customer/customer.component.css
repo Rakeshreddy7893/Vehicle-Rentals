@@ -1,14 +1,10 @@
 .main {
-    /* background-image: url('https://images.pexels.com/photos/978587/pexels-photo-978587.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); */
-    background-size: cover; 
-    background-position: center; 
-    padding: 20px; 
-    background-color:#F0F8E1;
-  }
-  
- 
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  background-color: #F0F8E1;
+}
 
-  
 footer {
   width: 100%;
   display: flex;
@@ -32,8 +28,6 @@ footer span {
 footer a {
   padding: 0;
 }
-
-
 
 footer {
   background: #000;

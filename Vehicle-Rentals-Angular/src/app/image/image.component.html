@@ -5,8 +5,6 @@
     <input type="text" name="seats" [(ngModel)]="imageSeats" placeholder="No. of Seats" required><br>
     <input type="text" name="model" [(ngModel)]="imageModel" placeholder="vehicle model" required><br>
     <input type="text" name="category" [(ngModel)]="imageCategory" placeholder="Category" required><br>
-    <!-- <input type="date" name="startDate" [(ngModel)]="imageStartDate" placeholder="Start Date" required><br>
-    <input type="date" name="endDate" [(ngModel)]="imageEndDate" placeholder="End Date" required><br> -->
     <input type="date" name="startDate" [(ngModel)]="imageStartDate" placeholder="Start Date" required
         [min]="minDate"><br>
     <input type="date" name="endDate" [(ngModel)]="imageEndDate" placeholder="End Date" required [min]="minDate"><br>

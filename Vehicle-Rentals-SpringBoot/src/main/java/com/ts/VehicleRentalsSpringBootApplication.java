@@ -8,9 +8,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.ts.config.TwilioConfig;
 
-@EnableJpaRepositories(basePackages="com.ts.dao")
-@EntityScan(basePackages="com.ts.model")
-@SpringBootApplication(scanBasePackages="com.ts")
+@EnableJpaRepositories(basePackages = "com.ts.dao")
+@EntityScan(basePackages = "com.ts.model")
+@SpringBootApplication(scanBasePackages = "com.ts")
 @Import(TwilioConfig.class)
 public class VehicleRentalsSpringBootApplication {
 

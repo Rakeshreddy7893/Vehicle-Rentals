@@ -7,31 +7,35 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-image',
   templateUrl: './image.component.html',
-  styleUrls: ['./image.component.css']
+  styleUrls: ['./image.component.css'],
 })
 export class ImageComponent {
-  imageId:string = '';
+  imageId: string = '';
   imageName: string = '';
   imageColour: string = '';
   imageSeats: string = '';
   imageModel: string = '';
   imageCategory: string = '';
-  imageStartDate: any = new Date(); // Initialize to current date
-  imageEndDate: any = new Date(); // Initialize to current date
+  imageStartDate: any = new Date();
+  imageEndDate: any = new Date();
   imagePricePerHour: number = 0;
   selectedFile: File | undefined;
   minDate: string;
 
   ownerId: any;
 
-  constructor(private imageService: ImageService, private userService: UserService, private router : Router, private toastr : ToastrService) {
-    this.ownerId = localStorage.getItem("userid");
+  constructor(
+    private imageService: ImageService,
+    private userService: UserService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {
+    this.ownerId = localStorage.getItem('userid');
 
     const today = new Date();
-    const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Adjust for zero-based month
+    const month = (today.getMonth() + 1).toString().padStart(2, '0');
     const day = today.getDate().toString().padStart(2, '0');
     this.minDate = `${today.getFullYear()}-${month}-${day}`;
-
   }
 
   onFileSelected(event: any) {
@@ -41,10 +45,9 @@ export class ImageComponent {
   onImageUpload() {
     if (!this.selectedFile) {
       console.error('No file selected');
-      return; // Return early if no file is selected
+      return;
     }
 
-    // Explicitly convert to Date object
     this.imageStartDate = new Date(this.imageStartDate);
     this.imageEndDate = new Date(this.imageEndDate);
 
@@ -56,20 +59,20 @@ export class ImageComponent {
     formData.append('seats', this.imageSeats);
     formData.append('model', this.imageModel);
     formData.append('category', this.imageCategory);
-    formData.append('startDate', this.imageStartDate.toISOString()); // Convert to string
-    formData.append('endDate', this.imageEndDate.toISOString()); // Convert to string
-    formData.append('pricePerHour', this.imagePricePerHour.toString()); // Convert to string
-    formData.append('ownerId', this.ownerId); 
+    formData.append('startDate', this.imageStartDate.toISOString());
+    formData.append('endDate', this.imageEndDate.toISOString());
+    formData.append('pricePerHour', this.imagePricePerHour.toString());
+    formData.append('ownerId', this.ownerId);
 
     this.imageService.uploadImage(formData).subscribe(
-      (data : any) => {
+      (data: any) => {
         console.log('Image uploaded successfully');
-        this.toastr.success("Image uploaded successfully !");
+        this.toastr.success('Image uploaded successfully !');
         this.router.navigate(['mystack']);
         console.log(data);
       },
       (error) => {
-        this.toastr.error("Image not inserted successfully ?");
+        this.toastr.error('Image not inserted successfully ?');
       }
     );
   }

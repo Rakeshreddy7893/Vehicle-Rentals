@@ -67,9 +67,8 @@ public class ImageUploadController {
 		img.setStartDate(startDate);
 		img.setEndDate(endDate);
 		img.setPricePerHour(pricePerHour);
-		img.setStatus("Not Approved"); // Default status
+		img.setStatus("Not Approved");
 
-		// Get owner from database using ownerId
 		Optional<User> ownerOptional = userRepository.findById(ownerId);
 		if (ownerOptional.isPresent()) {
 			User owner = ownerOptional.get();
@@ -117,7 +116,7 @@ public class ImageUploadController {
 
 		return ResponseEntity.ok(imageResponses);
 	}
-	
+
 	@GetMapping(path = { "/getAllNotApprovedImages" })
 	public ResponseEntity<List<ImageResponse>> getAllNotApprovedImages() {
 		List<ImageModel> images = imageRepository.findAllNotApprovedVehicles("Not Approved");
@@ -151,27 +150,25 @@ public class ImageUploadController {
 
 		return ResponseEntity.ok(imageResponses);
 	}
-	
-	
-	 @PutMapping("/updateSingleImage")
-	 public void updateSingleImage(
-	            @RequestParam("id") String id, @RequestParam("name") String name, @RequestParam("colour") String colour,
-	            @RequestParam("seats") String seats, @RequestParam("model") String model,
-	            @RequestParam("category") String category,
-	            @RequestParam("pricePerHour") double pricePerHour) {
-		 imageRepository.updateSingleImage(id,name,colour,seats,model,category,pricePerHour);
-	 }
-	
+
+	@PutMapping("/updateSingleImage")
+	public void updateSingleImage(@RequestParam("id") String id, @RequestParam("name") String name,
+			@RequestParam("colour") String colour, @RequestParam("seats") String seats,
+			@RequestParam("model") String model, @RequestParam("category") String category,
+			@RequestParam("pricePerHour") double pricePerHour) {
+		imageRepository.updateSingleImage(id, name, colour, seats, model, category, pricePerHour);
+	}
+
 	@GetMapping(path = { "/updateImage/{status}/{id}" })
 	public void updateImage(@PathVariable("status") String status, @PathVariable("id") String id) throws IOException {
-	    imageRepository.updateImageStatus(status, id);
+		imageRepository.updateImageStatus(status, id);
 	}
-	
-	@DeleteMapping(path = {"/deleteImage/{id}"})
-    public boolean deleteImageById(@PathVariable String id) {
-    	imageUploadDao.deleteImageById(id);
-    	return true;
-    }
+
+	@DeleteMapping(path = { "/deleteImage/{id}" })
+	public boolean deleteImageById(@PathVariable String id) {
+		imageUploadDao.deleteImageById(id);
+		return true;
+	}
 
 	@GetMapping(path = { "/getImagesByCategory/{category}" })
 	public ResponseEntity<List<ImageResponse>> getImagesByCategory(@PathVariable("category") String category) {
@@ -207,7 +204,6 @@ public class ImageUploadController {
 		return ResponseEntity.ok(imageResponses);
 	}
 
-	// ImageResponse class definition
 	public class ImageResponse {
 		private String id;
 		private String name;
@@ -221,7 +217,6 @@ public class ImageUploadController {
 		private User owner;
 		private String status;
 		private byte[] picByte;
-
 
 		public ImageResponse(String id, String name, String colour, String seats, String model, String category,
 				Date startDate, Date endDate, double pricePerHour, User owner, String status, byte[] picByte) {
@@ -336,8 +331,6 @@ public class ImageUploadController {
 		}
 	}
 
-	// compress and decompress methods remain unchanged
-	// compress the image bytes before storing it in the database
 	public static byte[] compressBytes(byte[] data) {
 		Deflater deflater = new Deflater();
 		deflater.setInput(data);
@@ -359,7 +352,6 @@ public class ImageUploadController {
 		return outputStream.toByteArray();
 	}
 
-	// uncompress the image bytes before returning it to the angular application
 	public static byte[] decompressBytes(byte[] data) {
 		Inflater inflater = new Inflater();
 		inflater.setInput(data);

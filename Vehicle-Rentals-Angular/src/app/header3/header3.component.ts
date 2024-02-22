@@ -4,32 +4,26 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-header3',
   templateUrl: './header3.component.html',
-  styleUrl: './header3.component.css'
+  styleUrl: './header3.component.css',
 })
 export class Header3Component implements OnInit {
-  constructor(private router :Router){
+  constructor(private router: Router) {}
 
+  ngOnInit() {}
+
+  redirectToMyStack() {
+    this.router.navigate(['mystack']);
   }
 
-
-  ngOnInit() {
-    
-  }
-
-  redirectToMyStack(){
-    this.router.navigate(['mystack'])
-  }
-
-  redirectToLogin(){
+  redirectToLogin() {
     this.router.navigate(['login']);
   }
 
-  redirectToContact(){
-    this.router.navigate(['contact'])
+  redirectToContact() {
+    this.router.navigate(['contact']);
   }
 
-  redirectToImage(){
+  redirectToImage() {
     this.router.navigate(['owner']);
   }
-
 }

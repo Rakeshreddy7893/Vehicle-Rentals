@@ -70,7 +70,7 @@ header a:hover {
 }
 
 .navbar .all-links {
-  margin-left: auto; 
+  margin-left: auto;
 }
 
 .nav-link {
@@ -79,11 +79,11 @@ header a:hover {
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s; 
+  transition: background 0.3s, color 0.3s;
 }
 
 .nav-link:hover {
-  background: #555; 
+  background: #555;
 }
 
 
@@ -99,7 +99,7 @@ header a:hover {
     transition: left 0.3s ease;
   }
 
-  .navbar #menu-toggler:checked ~ .all-links {
+  .navbar #menu-toggler:checked~.all-links {
     left: 0;
   }
 

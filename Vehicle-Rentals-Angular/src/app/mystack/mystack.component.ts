@@ -4,10 +4,9 @@ import { ImageService } from '../image.service';
 @Component({
   selector: 'app-mystack',
   templateUrl: './mystack.component.html',
-  styleUrl: './mystack.component.css'
+  styleUrl: './mystack.component.css',
 })
 export class MystackComponent {
-  
   selectedFile: File | undefined;
   retrievedImage: any;
   message: string = '';
@@ -17,19 +16,18 @@ export class MystackComponent {
 
   allImages: any[] = [];
 
-  flag : boolean = false;
-  btnData : string = 'table';
+  flag: boolean = false;
+  btnData: string = 'table';
 
   ownerId: any;
 
-  constructor(private imageService : ImageService) { 
-    this.ownerId = localStorage.getItem("userid");
+  constructor(private imageService: ImageService) {
+    this.ownerId = localStorage.getItem('userid');
   }
 
   ngOnInit() {
     this.getAllMyVehicles();
   }
-
 
   getAllMyVehicles() {
     this.imageService.getMyStack(this.ownerId).subscribe(
@@ -46,7 +44,6 @@ export class MystackComponent {
     );
   }
 
-
   private resetValues() {
     this.selectedFile = undefined;
     this.imageName = '';
@@ -54,14 +51,13 @@ export class MystackComponent {
     this.categoryFilter = '';
   }
 
-  toggle() : void {
-    if(this.flag == false){
-      this.flag = (!this.flag);
+  toggle(): void {
+    if (this.flag == false) {
+      this.flag = !this.flag;
       this.btnData = 'cards';
     } else {
-      this.flag = (!this.flag);
+      this.flag = !this.flag;
       this.btnData = 'table';
     }
   }
-
 }

@@ -1,10 +1,9 @@
 .status-message {
-    font-size: 40px; /* Adjust the font size as needed */
-    color: green;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
+  font-size: 40px;
+  color: green;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -18,129 +18,129 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "user")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class User {
-    @Id
-    @GeneratedValue
-    private int userId;
+	@Id
+	@GeneratedValue
+	private int userId;
 
-    private String userName;
-    private String gender;
-    private String country;
-    private String role;
-    private String phoneNumber;
+	private String userName;
+	private String gender;
+	private String country;
+	private String role;
+	private String phoneNumber;
 
-    @Column(unique = true)
-    private String email;
-    private String password;
-    
-    // One-to-one mapping with CustomerDocuments class
-    @JsonIgnore
-    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private CustomerDocuments customerDocuments;
+	@Column(unique = true)
+	private String email;
+	private String password;
 
-    // One-to-many mapping with ImageModel class
-    @JsonIgnore
-    @OneToMany(mappedBy = "owner")
-    private List<ImageModel> imageList = new ArrayList<>();
+	@JsonIgnore
+	@OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private CustomerDocuments customerDocuments;
 
-    public User() {
-    }
+	@JsonIgnore
+	@OneToMany(mappedBy = "owner")
+	private List<ImageModel> imageList = new ArrayList<>();
 
-    public User(String userName, String gender, String country, String role, String phoneNumber, String email, String password) {
-        this.userName = userName;
-        this.gender = gender;
-        this.country = country;
-        this.role = role;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.password = password;
-    }
-    
-    public User(int userId, String userName, String gender, String country, String role, String phoneNumber, String email, String password) {
-    	this.userId = userId;
-        this.userName = userName;
-        this.gender = gender;
-        this.country = country;
-        this.role = role;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.password = password;
-    }
+	public User() {
+	}
 
-    public int getUserId() {
-        return userId;
-    }
+	public User(String userName, String gender, String country, String role, String phoneNumber, String email,
+			String password) {
+		this.userName = userName;
+		this.gender = gender;
+		this.country = country;
+		this.role = role;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.password = password;
+	}
 
-    public String getUserName() {
-        return userName;
-    }
+	public User(int userId, String userName, String gender, String country, String role, String phoneNumber,
+			String email, String password) {
+		this.userId = userId;
+		this.userName = userName;
+		this.gender = gender;
+		this.country = country;
+		this.role = role;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.password = password;
+	}
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	public int getUserId() {
+		return userId;
+	}
 
-    public String getGender() {
-        return gender;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public String getCountry() {
-        return country;
-    }
+	public String getGender() {
+		return gender;
+	}
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 
-    public String getRole() {
-        return role;
-    }
+	public String getCountry() {
+		return country;
+	}
 
-    public void setRole(String role) {
-        this.role = role;
-    }
+	public void setCountry(String country) {
+		this.country = country;
+	}
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+	public String getRole() {
+		return role;
+	}
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+	public void setRole(String role) {
+		this.role = role;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
-    public CustomerDocuments getCustomerDocuments() {
-        return customerDocuments;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setCustomerDocuments(CustomerDocuments customerDocuments) {
-        this.customerDocuments = customerDocuments;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public List<ImageModel> getImageList() {
-        return imageList;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setImageList(List<ImageModel> imageList) {
-        this.imageList = imageList;
-    }
+	public CustomerDocuments getCustomerDocuments() {
+		return customerDocuments;
+	}
+
+	public void setCustomerDocuments(CustomerDocuments customerDocuments) {
+		this.customerDocuments = customerDocuments;
+	}
+
+	public List<ImageModel> getImageList() {
+		return imageList;
+	}
+
+	public void setImageList(List<ImageModel> imageList) {
+		this.imageList = imageList;
+	}
 }

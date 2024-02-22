@@ -1,31 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-// import { Router } from '@angular/router';
-// import { ToastrService } from 'ngx-toastr';
-// import { UserService } from '../user.service';
-
-// @Component({
-//   selector: 'app-logout',
-//   templateUrl: './logout.component.html',
-//   styleUrl: './logout.component.css'
-// })
-// export class LogoutComponent implements OnInit {
-//   emailId : any;
-
-//   ngOnInit(){
-    
-//   }
-//   constructor(private router :Router,private toastr : ToastrService,private service : UserService){
-//   service.setIsUserLoggedOut();
-//   this.router.navigate(['login']);
-
-
-//   }
-  
-
-// }
-
-
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -34,28 +6,23 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-logout',
   templateUrl: './logout.component.html',
-  styleUrl: './logout.component.css'
+  styleUrl: './logout.component.css',
 })
 export class LogoutComponent implements OnInit {
-  email : any;
+  email: any;
 
-  ngOnInit(){
-    
-  }
+  ngOnInit() {}
 
-  constructor(private router : Router, private toastr : ToastrService, private service : UserService){
+  constructor(
+    private router: Router,
+    private toastr: ToastrService,
+    private service: UserService
+  ) {
     this.email = localStorage.getItem('email');
-    this.toastr.success(this.email+' is Logout');
+    this.toastr.success(this.email + ' is Logout');
     localStorage.removeItem('email');
     localStorage.clear();
     service.setIsUserLoggedOut();
     this.router.navigate(['login']);
   }
-
-  // constructor(private router :Router,private toastr : ToastrService,private service : UserService){
-  // service.setIsUserLoggedOut();
-  // this.router.navigate(['login']);
-  // }
-  
-
 }

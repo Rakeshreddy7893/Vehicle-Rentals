@@ -3,39 +3,37 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  isUserLoggedIn: boolean;
+  loginStatus: any;
 
-  isUserLoggedIn : boolean;
-  loginStatus : any;
+  user: any;
+  otp: number;
 
-  user : any;
-  otp : number;
-
-  constructor(private http : HttpClient) {
+  constructor(private http: HttpClient) {
     this.isUserLoggedIn = false;
     this.loginStatus = new Subject();
 
     this.otp = 0;
-    this.user ={
-      userName:'',
-      gender:'',
-      country:'',
-      role:'',
-      phoneNumber:'',
-      email:'',
-      password:''
-    }
-
+    this.user = {
+      userName: '',
+      gender: '',
+      country: '',
+      role: '',
+      phoneNumber: '',
+      email: '',
+      password: '',
+    };
   }
 
-  updateUser(user : any){
-    return this.http.put('http://localhost:8085/updateUser',user);
+  updateUser(user: any) {
+    return this.http.put('http://localhost:8085/updateUser', user);
   }
 
-  deleteUser(userId : any) {
-    return this.http.delete('http://localhost:8085/deleteUserById/'+userId);
+  deleteUser(userId: any) {
+    return this.http.delete('http://localhost:8085/deleteUserById/' + userId);
   }
 
   getAllUsers() {
@@ -49,35 +47,38 @@ export class UserService {
   getAllCountries(): any {
     return this.http.get('https://restcountries.com/v3.1/all');
   }
-  
-  registerUser():any{
-    return this.http.post('http://localhost:8085/addUser',this.user);
-  }
- 
-  userLogin(emailId:any,password:any){
-    return this.http.get('http://localhost:8085/userLogin/' + emailId +'/'+ password).toPromise();
+
+  registerUser(): any {
+    return this.http.post('http://localhost:8085/addUser', this.user);
   }
 
-  sendMail(mail : string, message : string){
-    return this.http.get('http://localhost:8085/sendMail/'+mail+'/'+ message);
+  userLogin(emailId: any, password: any) {
+    return this.http
+      .get('http://localhost:8085/userLogin/' + emailId + '/' + password)
+      .toPromise();
   }
 
-setIsUserLoggedIn(){
-   this.isUserLoggedIn = true;
-   this.loginStatus.next(true);
-}
+  sendMail(mail: string, message: string) {
+    return this.http.get(
+      'http://localhost:8085/sendMail/' + mail + '/' + message
+    );
+  }
 
-getIsUserLoggedIn():boolean{
-  return this.isUserLoggedIn;
-}
+  setIsUserLoggedIn() {
+    this.isUserLoggedIn = true;
+    this.loginStatus.next(true);
+  }
 
-getLoginStatus(): any {
-  return this.loginStatus.asObservable();
-}
+  getIsUserLoggedIn(): boolean {
+    return this.isUserLoggedIn;
+  }
 
-setIsUserLoggedOut() {
-  this.isUserLoggedIn = false;
-  this.loginStatus.next(false);
-}
+  getLoginStatus(): any {
+    return this.loginStatus.asObservable();
+  }
 
+  setIsUserLoggedOut() {
+    this.isUserLoggedIn = false;
+    this.loginStatus.next(false);
+  }
 }

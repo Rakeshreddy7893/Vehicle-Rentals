@@ -1,80 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- 
-  <title>Login Form</title>
-</head>
-
-<body>
-  <section class="container">
-    <header>Login Form</header>
-    <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm.value, loginForm)" class="form" novalidate>
-      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-        <input type="text" class="form-control" placeholder="Enter email" name="email" ngModel #email="ngModel" required
-          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
-      </div>
-      <h6 *ngIf="email.invalid && (email.dirty || email.touched || loginForm.submitted)" class="error"
-        style="color: red;">
-        <h6 *ngIf="email.hasError('required')">Email is required.</h6>
-        <h6 *ngIf="email.hasError('pattern')">Enter a valid email.</h6>
-      </h6>
-      <br />
-
-      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-        <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" placeholder="Enter password"
-          name="password" ngModel #password="ngModel" required />
-        <span class="input-group-addon" (click)="togglePasswordVisibility()">
-          <i class="glyphicon"
-            [ngClass]="{'glyphicon-eye-open': showPassword, 'glyphicon-eye-close': !showPassword}"></i>
-        </span>
-      </div>
-      <h6 *ngIf="password.invalid && (password.dirty || password.touched || loginForm.submitted)" class="error"
-        style="color: red;">
-        <h6 *ngIf="password.hasError('required')">Password is required.</h6>
-      </h6>
-      <br />
-
-      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-menu-down"></i></span>
-        <select name="role" class="form-control" ngModel required>
-          <option value="" disabled selected>Select role</option>
-          <option value="owner">Owner</option>
-          <option value="customer">Customer</option>
-          <option value="admin">Admin</option>
-        </select>
-      </div>
-      <h6 *ngIf="loginForm.controls['role'].invalid && loginForm.controls['role'].touched" class="error"
-        style="color: red;">Role is required.</h6>
-      <br />
-
-      <form [formGroup]="aFormGroup">
-        <ngx-recaptcha2 #captchaElem
-          [siteKey]="siteKey"
-          formControlName="recaptcha">
-        </ngx-recaptcha2>
-      </form>
-
-      <button type="button" (click)="loginSubmit(loginForm.value, loginForm)">
-        <h5>Login</h5>
-      </button>
-
-      New User ?<a routerLink="/register">Register</a>
-    </form>
-  </section>
-</body>
-
-</html> -->
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,8 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- <!-- Google Identity Services Script -->
-<script src="https://accounts.google.com/gsi/client"></script>
+  <script src="https://accounts.google.com/gsi/client"></script>
 
   <title>Login Form</title>
 </head>
@@ -135,20 +57,16 @@
       <br />
 
       <form [formGroup]="aFormGroup">
-        <ngx-recaptcha2 #captchaElem
-          [siteKey]="siteKey"
-          formControlName="recaptcha">
+        <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha">
         </ngx-recaptcha2>
       </form>
       <button type="button" (click)="loginSubmit(loginForm.value, loginForm)">
         <h5>Login</h5>
       </button>
       New User ?<a routerLink="/register">Register Here</a>
-     <a routerLink="/header">Home</a>
+      <a routerLink="/header">Home</a>
 
       <div id="google-btn"></div>
-
-
 
     </form>
   </section>

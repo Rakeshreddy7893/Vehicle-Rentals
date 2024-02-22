@@ -5,10 +5,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-vehicleimages',
   templateUrl: './vehicleimages.component.html',
-  styleUrls: ['./vehicleimages.component.css']
+  styleUrls: ['./vehicleimages.component.css'],
 })
 export class VehicleimagesComponent implements OnInit {
-
   selectedFile: File | undefined;
   retrievedImage: any;
   message: string = '';
@@ -16,25 +15,23 @@ export class VehicleimagesComponent implements OnInit {
   category: string = '';
   categoryFilter: string = '';
 
-  flag : boolean = false;
-  btnData : string = 'table';
+  flag: boolean = false;
+  btnData: string = 'table';
 
   allImages: any[] = [];
 
-
   products: any;
-  email : any;
+  email: any;
 
-  cartProducts : any;
+  cartProducts: any;
 
-  constructor(private imageService: ImageService, private router : Router) { 
+  constructor(private imageService: ImageService, private router: Router) {
     this.email = localStorage.getItem('email');
   }
 
   ngOnInit() {
     this.getAllImages();
   }
-
 
   getAllImages() {
     this.imageService.getAllImages().subscribe(
@@ -73,29 +70,27 @@ export class VehicleimagesComponent implements OnInit {
   }
 
   addToCart(product: any) {
-    const isData = localStorage.getItem("singleItem");
-    if(isData == null){
+    const isData = localStorage.getItem('singleItem');
+    if (isData == null) {
       const newArr = [];
       newArr.push(product);
-      localStorage.setItem("singleItem", JSON.stringify(newArr));
+      localStorage.setItem('singleItem', JSON.stringify(newArr));
     } else {
-      //const oldData = JSON.parse(isData);
-      localStorage.removeItem("singleItem");
+      localStorage.removeItem('singleItem');
       const newArr = [];
       newArr.push(product);
-      localStorage.setItem("singleItem", JSON.stringify(newArr));
+      localStorage.setItem('singleItem', JSON.stringify(newArr));
     }
 
     this.router.navigate(['vehicle-info']);
-
   }
 
-  toggle() : void {
-    if(this.flag == false){
-      this.flag = (!this.flag);
+  toggle(): void {
+    if (this.flag == false) {
+      this.flag = !this.flag;
       this.btnData = 'cards';
     } else {
-      this.flag = (!this.flag);
+      this.flag = !this.flag;
       this.btnData = 'table';
     }
   }
@@ -106,5 +101,4 @@ export class VehicleimagesComponent implements OnInit {
     this.category = '';
     this.categoryFilter = '';
   }
-  
 }

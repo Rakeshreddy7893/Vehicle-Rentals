@@ -9,7 +9,7 @@ import com.ts.model.ImageModel;
 
 @Service
 public class ImageUploadDao {
-	
+
 	@Autowired
 	ImageRepository imageRepository;
 
@@ -20,5 +20,5 @@ public class ImageUploadDao {
 	public void deleteImageById(String id) {
 		imageRepository.deleteById(id);
 	}
-	
+
 }

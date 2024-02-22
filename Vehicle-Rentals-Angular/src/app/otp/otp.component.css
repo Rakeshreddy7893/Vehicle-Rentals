@@ -1,4 +1,3 @@
-/* Import Google font - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 * {
@@ -38,12 +37,12 @@ body {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
 }
 
 .form .input-box,
 .select-box {
-  width: 50%; 
+  width: 50%;
   margin-top: 20px;
 }
 
@@ -54,16 +53,16 @@ body {
 
 .form :where(.input-box input, .select-box select, .otp-input) {
   position: relative;
-  height: 40px; /* Adjusted height to match register input fields */
-  width: 100%; /* Adjusted width to match register input fields */
+  height: 40px;
+  width: 100%;
   outline: none;
   font-size: 1rem;
   color: #707070;
   margin-top: 8px;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   border: 1px solid #ddd;
   border-radius: 6px;
-  padding: 0 8px; 
+  padding: 0 8px;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -75,7 +74,7 @@ body {
 
 .form .column {
   display: flex;
-  column-gap: 10px; 
+  column-gap: 10px;
 }
 
 .form .gender-box {
@@ -110,7 +109,7 @@ body {
 }
 
 .form button {
-  height: 40px; 
+  height: 40px;
   width: 50%;
   color: #fff;
   font-size: 0.9rem;

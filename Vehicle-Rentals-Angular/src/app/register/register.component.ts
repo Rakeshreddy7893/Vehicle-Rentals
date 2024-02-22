@@ -12,20 +12,24 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   countries: any;
   formError: string = '';
-  user:any;
-  randomNumber : number;
+  user: any;
+  randomNumber: number;
 
-  constructor(private service: UserService, private toastr: ToastrService,private router :Router) {
-      this.user ={
-        userName:'',
-        gender:'',
-        country:'',
-        role:'',
-        phoneNumber:'',
-        email:'',
-        password:''
-      }
-      this.randomNumber = 0;
+  constructor(
+    private service: UserService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {
+    this.user = {
+      userName: '',
+      gender: '',
+      country: '',
+      role: '',
+      phoneNumber: '',
+      email: '',
+      password: '',
+    };
+    this.randomNumber = 0;
   }
 
   ngOnInit() {
@@ -54,7 +58,7 @@ export class RegisterComponent implements OnInit {
       !formData.mobileNumber ||
       !formData.gender ||
       !formData.country ||
-      !formData.role||
+      !formData.role ||
       !formData.emailId ||
       !formData.password ||
       !formData.confirmPassword
@@ -76,33 +80,31 @@ export class RegisterComponent implements OnInit {
     this.user.gender = formData.gender;
     this.user.country = formData.country;
     this.user.role = formData.role;
-    this.user.phoneNumber= formData.mobileNumber;
+    this.user.phoneNumber = formData.mobileNumber;
     this.user.email = formData.emailId;
-    this.user.password= formData.password;
+    this.user.password = formData.password;
 
     console.log(formData);
 
     this.randomNumber = this.getRandomNumber(100000, 999999);
 
-    this.service.sendOtpToUser(this.user.phoneNumber, this.randomNumber)
-    .subscribe({
-      next: (flag: any) => {
-        if (flag) {
-          this.service.user = this.user;
-          this.service.otp = this.randomNumber;
-          this.service.setIsUserLoggedIn();
-          this.router.navigate(['otp']);
-        } else {
-          this.toastr.error('OTP is not sent to the user');
-        }
-      },
-      error: (error) => {
-        console.error('Error sending OTP:', error);
-        this.toastr.error('Error sending OTP. Please try again.');
-      }
-    });
-
-
+    this.service
+      .sendOtpToUser(this.user.phoneNumber, this.randomNumber)
+      .subscribe({
+        next: (flag: any) => {
+          if (flag) {
+            this.service.user = this.user;
+            this.service.otp = this.randomNumber;
+            this.service.setIsUserLoggedIn();
+            this.router.navigate(['otp']);
+          } else {
+            this.toastr.error('OTP is not sent to the user');
+          }
+        },
+        error: (error) => {
+          console.error('Error sending OTP:', error);
+          this.toastr.error('Error sending OTP. Please try again.');
+        },
+      });
   }
- 
 }

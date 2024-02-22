@@ -1,24 +1,24 @@
-/* CSS for Cart Items Table */
+
 .container {
     margin-top: 20px;
 }
 
 .table {
-    background-color: #fff; /* White background for the table */
+    background-color: #fff;
 }
 
 .table th,
 .table td {
-    vertical-align: middle; /* Align table cells vertically in the middle */
+    vertical-align: middle; 
 }
 
 .table th {
-    background-color: #007bff; /* Blue background for table header */
-    color: #fff; /* White text color for table header */
+    background-color: #007bff;
+    color: #fff; 
 }
 
 .table td {
-    background-color: #f8f9fa; /* Light gray background for table cells */
+    background-color: #f8f9fa;
 }
 
 .table-bordered th,
@@ -32,18 +32,18 @@
 }
 
 .btn-primary:hover {
-    background-color: #0056b3; /* Darker blue background on hover for Purchase button */
-    border-color: #0056b3; /* Darker blue border color on hover for Purchase button */
+    background-color: #0056b3;
+    border-color: #0056b3;
 }
 
 .bg-info {
-    background-color: #17a2b8 !important; /* Cyan background color for table header background */
+    background-color: #17a2b8 !important; 
 }
 
 .text-white {
-    color: #fff !important; /* White text color for table header text */
+    color: #fff !important;
 }
 
 .text-center {
-    text-align: center !important; /* Center align text */
+    text-align: center !important; 
 }

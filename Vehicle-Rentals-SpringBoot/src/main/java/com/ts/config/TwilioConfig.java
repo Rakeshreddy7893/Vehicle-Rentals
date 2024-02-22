@@ -11,25 +11,21 @@ import com.twilio.type.PhoneNumber;
 @Configuration
 public class TwilioConfig {
 
-    @Value("${twilio.account.sid}")
-    private String accountSid;
+	@Value("${twilio.account.sid}")
+	private String accountSid;
 
-    @Value("${twilio.auth.token}")
-    private String authToken;
+	@Value("${twilio.auth.token}")
+	private String authToken;
 
-    @Value("${twilio.phone.number}")
-    private String twilioPhoneNumber;
+	@Value("${twilio.phone.number}")
+	private String twilioPhoneNumber;
 
-    @Bean
-    public void initTwilio() {
-        Twilio.init(accountSid, authToken);
-    }
+	@Bean
+	public void initTwilio() {
+		Twilio.init(accountSid, authToken);
+	}
 
-    public void sendOtp(String to, String otp) {
-        Message.creator(
-                new PhoneNumber(to),
-                new PhoneNumber(twilioPhoneNumber),
-                "Your OTP is: " + otp
-                ).create();
-    }
+	public void sendOtp(String to, String otp) {
+		Message.creator(new PhoneNumber(to), new PhoneNumber(twilioPhoneNumber), "Your OTP is: " + otp).create();
+	}
 }

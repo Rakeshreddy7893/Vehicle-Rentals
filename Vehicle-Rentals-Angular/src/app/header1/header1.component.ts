@@ -11,21 +11,14 @@ import { Location } from '@angular/common';
 })
 export class Header1Component implements OnInit {
   cartItems: any;
-  // loginStatus : any;
   constructor(private service: ImageService, private router:Router,private location :Location) {
     this.cartItems = service.getCartItems();
   }
 
   ngOnInit() {
-    // Listen for the cartChanged event
     this.service.cartChanged.subscribe(() => {
       this.cartItems = this.service.getCartItems();
     });
-
-
-    // this.service.getLoginStatus().subscribe((data: any) => {
-    //   this.loginStatus = data;
-    // });
   }
 
   redirectToCart(){

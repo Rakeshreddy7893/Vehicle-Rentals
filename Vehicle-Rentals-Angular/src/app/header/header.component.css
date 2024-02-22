@@ -23,18 +23,8 @@ header {
   width: 100%;
   display: flex;
   justify-content: center;
-  background:black;
+  background: black;
 }
-
-/* .navbar {
-  display: flex;
-  padding: 0 10px;
-  max-width: 1200px;
-  width: 100%;
-  height: 100px;
-  align-items: center;
-  justify-content: space-between;
-} */
 
 .navbar {
   display: flex;
@@ -46,20 +36,10 @@ header {
   justify-content: space-between;
 }
 
-/* .navbar .logo {
-  margin-left: 20px; 
-}
-
-.navbar .all-links {
-  display: flex;
-  align-items: center;
-  margin-right: 20px; 
-} */
-
 .navbar .all-links li {
   position: relative;
   list-style: none;
-  margin-left: 20px; /* Adjust the margin as needed */
+  margin-left: 20px;
 }
 
 
@@ -71,24 +51,9 @@ header {
   cursor: pointer;
   display: none;
 }
-/* 
-.navbar .all-links {
-  display: flex;
-  align-items: center;
-}
 
-.navbar .all-links li {
-  position: relative;
-  list-style: none;
-}
-
-.navbar .logo a {
-  display: flex;
-  align-items: center;
-  margin-left: 0;
-} */
-
-header a, footer a {
+header a,
+footer a {
   margin-left: 40px;
   text-decoration: none;
   color: #fff;
@@ -97,7 +62,8 @@ header a, footer a {
   display: inline-block;
 }
 
-header a:hover, footer a:hover {
+header a:hover,
+footer a:hover {
   color: #ddd;
 }
 
@@ -161,7 +127,7 @@ header a:hover, footer a:hover {
 
 .content a:hover {
   color: #fff;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 section {
@@ -175,7 +141,7 @@ section h2 {
   font-size: 2rem;
 }
 
-section > p {
+section>p {
   text-align: center;
 }
 
@@ -225,7 +191,7 @@ section .cards .card {
   padding: 0 0 20px;
 }
 
- .services .card img {
+.services .card img {
   width: 120px;
   height: 120px;
   margin-bottom: 20px;
@@ -233,13 +199,6 @@ section .cards .card {
   object-fit: cover;
 }
 
-/* .services .card img,
-.portfolio .card img {
-  width: 120px;
-  height: 120px;
-  margin-bottom: 20px;
-  object-fit: cover;
-} */
 
 .portfolio .card img {
   width: 100%;
@@ -365,7 +324,7 @@ footer a {
     display: block;
   }
 
-  section > p {
+  section>p {
     text-align: center;
   }
 
@@ -421,15 +380,15 @@ footer a {
 
 
 .navbar .logo {
-  margin-left: -50px; 
+  margin-left: -50px;
   margin-right: auto;
 }
 
 .navbar .all-links {
   display: flex;
   align-items: center;
-  margin-right: 20px; 
-  margin-left: auto; 
+  margin-right: 20px;
+  margin-left: auto;
 }
 
 
@@ -463,106 +422,101 @@ footer div {
   margin-bottom: 5px;
 }
 
-
-
-
-
 body {
-    background: #ecececdb;
+  background: #ecececdb;
 }
 
 .card-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    max-width: 1250px;
-    margin: 150px auto;
-    padding: 20px;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  max-width: 1250px;
+  margin: 150px auto;
+  padding: 20px;
+  gap: 20px;
 }
 
 .card-list .card-item {
-    background: #fff;
-    padding: 26px;
-    border-radius: 8px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
-    list-style: none;
-    cursor: pointer;
-    text-decoration: none;
-    border: 2px solid transparent;
-    transition: border 0.5s ease;
+  background: #fff;
+  padding: 26px;
+  border-radius: 8px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
+  list-style: none;
+  cursor: pointer;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: border 0.5s ease;
 }
 
 .card-list .card-item:hover {
-    border: 2px solid #000;
+  border: 2px solid #000;
 }
 
 .card-list .card-item img {
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 8px;
-    object-fit: cover;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .card-list span {
-    display: inline-block;
-    background: #F7DFF5;
-    margin-top: 32px;
-    padding: 8px 15px;
-    font-size: 0.75rem;
-    border-radius: 50px;
-    font-weight: 600;
+  display: inline-block;
+  background: #F7DFF5;
+  margin-top: 32px;
+  padding: 8px 15px;
+  font-size: 0.75rem;
+  border-radius: 50px;
+  font-weight: 600;
 }
 
 .card-list .developer {
-    background-color: #F7DFF5; 
-    color: #B22485;
-}   
+  background-color: #F7DFF5;
+  color: #B22485;
+}
 
 .card-list .designer {
-    background-color: #d1e8ff;
-    color: #2968a8;
+  background-color: #d1e8ff;
+  color: #2968a8;
 }
 
 .card-list .editor {
-    background-color: #d6f8d6; 
-    color: #205c20;
+  background-color: #d6f8d6;
+  color: #205c20;
 }
 
 .card-item h3 {
-    color: #000;
-    font-size: 1.438rem;
-    margin-top: 28px;
-    font-weight: 600;
+  color: #000;
+  font-size: 1.438rem;
+  margin-top: 28px;
+  font-weight: 600;
 }
 
 .card-item .arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(-35deg);
-    height: 40px;
-    width: 40px;
-    color: #000;
-    border: 1px solid #000;
-    border-radius: 50%;
-    margin-top: 40px;
-    transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-35deg);
+  height: 40px;
+  width: 40px;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 50%;
+  margin-top: 40px;
+  transition: 0.2s ease;
 }
 
-.card-list .card-item:hover .arrow  {
-    background: #000;
-    color: #fff; 
+.card-list .card-item:hover .arrow {
+  background: #000;
+  color: #fff;
 }
 
 @media (max-width: 1200px) {
-    .card-list .card-item {
-        padding: 15px;
-    }
+  .card-list .card-item {
+    padding: 15px;
+  }
 }
 
 @media screen and (max-width: 980px) {
-    .card-list {
-        margin: 0 auto;
-    }
+  .card-list {
+    margin: 0 auto;
+  }
 }
-

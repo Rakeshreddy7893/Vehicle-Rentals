@@ -1,4 +1,3 @@
-/* Import Google font - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 * {
@@ -15,9 +14,9 @@ body {
   justify-content: center;
   padding: 20px;
   background-image: url('https://cdn.pixabay.com/photo/2021/09/25/10/08/road-6654573_960_720.jpg');
-  background-repeat: no-repeat; /* Prevent background image from repeating */
-  background-size: cover; 
-  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 
@@ -42,12 +41,12 @@ body {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the form horizontally */
+  align-items: center;
 }
 
 .form .input-box,
 .select-box {
-  width: 50%; /* Adjust the width based on your design preference */
+  width: 50%;
   margin-top: 20px;
 }
 
@@ -58,16 +57,16 @@ body {
 
 .form :where(.input-box input, .select-box select) {
   position: relative;
-  height: 35px; /* Adjust the height as needed */
-  width: 100%; /* Make the input boxes and dropdowns full width */
+  height: 35px;
+  width: 100%;
   outline: none;
   font-size: 1rem;
   color: #707070;
   margin-top: 8px;
-  margin-bottom: 20px; /* Adjusted margin-bottom for consistent gaps */
+  margin-bottom: 20px;
   border: 1px solid #ddd;
   border-radius: 6px;
-  padding: 0 8px; /* Adjust the padding as needed */
+  padding: 0 8px;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -78,7 +77,7 @@ body {
 
 .form .column {
   display: flex;
-  column-gap: 10px; /* Adjust the gap between columns as needed */
+  column-gap: 10px;
 }
 
 .form .gender-box {
@@ -113,8 +112,8 @@ body {
 }
 
 .form button {
-  height: 40px; /* Adjust the button height as needed */
-  width: 50%; /* Adjust the button width based on your design preference */
+  height: 40px;
+  width: 50%;
   color: #fff;
   font-size: 0.9rem;
   font-weight: 400;
@@ -129,7 +128,7 @@ body {
   background: rgb(88, 56, 250);
 }
 
-/* Responsive adjustments */
+
 @media screen and (max-width: 500px) {
   .form .column {
     flex-wrap: wrap;
@@ -140,17 +139,17 @@ body {
   }
 }
 
-/* Additional Styles for Login Form */
+
 .login-form .form {
   margin-top: 30px;
 }
 
 .login-form button {
-  background: rgb(60, 179, 113); /* Change the button color for login form */
+  background: rgb(60, 179, 113);
 }
 
 .login-form button:hover {
-  background: rgb(46, 139, 87); /* Change the hover color for login form */
+  background: rgb(46, 139, 87);
 }
 
 .anchor {

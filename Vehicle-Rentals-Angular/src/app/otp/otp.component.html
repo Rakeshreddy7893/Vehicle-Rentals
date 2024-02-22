@@ -18,11 +18,12 @@
     <form #otpForm="ngForm" (ngSubmit)="submitOTP(otpForm.value)" class="form" novalidate>
       <div class="input-box" class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-        <input type="text" class="form-control" placeholder="Enter OTP sent to registred mobile number" name="otp" ngModel required />
+        <input type="text" class="form-control" placeholder="Enter OTP sent to registred mobile number" name="otp"
+          ngModel required />
       </div>
-      <h6 *ngIf="otpForm.controls['otp'].invalid && otpForm.controls['otp'].touched"
-        class="error" style="color: red;">OTP is required sent to.</h6>
-      
+      <h6 *ngIf="otpForm.controls['otp'].invalid && otpForm.controls['otp'].touched" class="error" style="color: red;">
+        OTP is required sent to.</h6>
+
       <br />
 
       <button type="submit">

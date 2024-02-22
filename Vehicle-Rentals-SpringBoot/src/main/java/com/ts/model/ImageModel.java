@@ -14,173 +14,173 @@ import java.util.Date;
 @Table(name = "vehicle_images")
 public class ImageModel {
 
-    @Id
-    @Column(name = "vehicle_id")
-    private String id;
+	@Id
+	@Column(name = "vehicle_id")
+	private String id;
 
-    @Column(name = "vehicle_name")
-    private String name;
-    
-    @Column(name = "colour")
-    private String colour;
-    
-    @Column(name = "seats")
-    private String seats;
-    
-    @Column(name = "model")
-    private String model;
+	@Column(name = "vehicle_name")
+	private String name;
 
-    @Column(name = "category")
-    private String category;
+	@Column(name = "colour")
+	private String colour;
 
-    @Column(name = "start_date")
-    private Date startDate;
+	@Column(name = "seats")
+	private String seats;
 
-    @Column(name = "end_date")
-    private Date endDate;
+	@Column(name = "model")
+	private String model;
 
-    @Column(name = "price_per_hour")
-    private double pricePerHour;
+	@Column(name = "category")
+	private String category;
 
-    @ManyToOne
-    @JoinColumn(name = "owner_id") 
-    private User owner;
+	@Column(name = "start_date")
+	private Date startDate;
 
-    @Column(name = "status")
-    private String status;
+	@Column(name = "end_date")
+	private Date endDate;
 
-    @Lob
-    @Column(name = "pic_byte", columnDefinition = "LONGBLOB")
-    private byte[] picByte;
+	@Column(name = "price_per_hour")
+	private double pricePerHour;
 
-    public ImageModel() {
-        this.status = "not approved"; // Default status
-    }
+	@ManyToOne
+	@JoinColumn(name = "owner_id")
+	private User owner;
 
-    public ImageModel(String name,String colour, String seats, String model, byte[] picByte, String category, Date startDate, Date endDate, double pricePerHour, User owner, String status) {
-        this.name = name;
-        this.colour = colour;
-        this.seats = seats;
-        this.model = model;
-        this.picByte = picByte;
-        this.category = category;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.pricePerHour = pricePerHour;
-        this.owner = owner;
-        this.status = status;
-    }
+	@Column(name = "status")
+	private String status;
 
-    public ImageModel(String id, String name, String colour, String seats, String model, byte[] picByte, String category, Date startDate, Date endDate, double pricePerHour, User owner, String status) {
-        this.id = id;
-        this.name = name;
-        this.colour = colour;
-        this.seats = seats;
-        this.model = model;
-        this.picByte = picByte;
-        this.category = category;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.pricePerHour = pricePerHour;
-        this.owner = owner;
-        this.status = status;
-    }
+	@Lob
+	@Column(name = "pic_byte", columnDefinition = "LONGBLOB")
+	private byte[] picByte;
 
-    // Getters and setters for all fields
+	public ImageModel() {
+		this.status = "not approved";
+	}
 
-    public String getId() {
-        return id;
-    }
+	public ImageModel(String name, String colour, String seats, String model, byte[] picByte, String category,
+			Date startDate, Date endDate, double pricePerHour, User owner, String status) {
+		this.name = name;
+		this.colour = colour;
+		this.seats = seats;
+		this.model = model;
+		this.picByte = picByte;
+		this.category = category;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.pricePerHour = pricePerHour;
+		this.owner = owner;
+		this.status = status;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public ImageModel(String id, String name, String colour, String seats, String model, byte[] picByte,
+			String category, Date startDate, Date endDate, double pricePerHour, User owner, String status) {
+		this.id = id;
+		this.name = name;
+		this.colour = colour;
+		this.seats = seats;
+		this.model = model;
+		this.picByte = picByte;
+		this.category = category;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.pricePerHour = pricePerHour;
+		this.owner = owner;
+		this.status = status;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getColour() {
-    	return colour;
-    }
-    
-    public void setColour(String colour) {
-    	this.colour = colour;
-    }
-    
-    public String getSeats() {
-    	return seats;
-    }
-    
-    public void setSeats(String seats) {
-    	this.seats = seats;
-    }
-    
-    public String getModel() {
-    	return model;
-    }
-    
-    public void setModel(String model) {
-    	this.model = model;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getCategory() {
-        return category;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public Date getStartDate() {
-        return startDate;
-    }
+	public String getColour() {
+		return colour;
+	}
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
+	public void setColour(String colour) {
+		this.colour = colour;
+	}
 
-    public Date getEndDate() {
-        return endDate;
-    }
+	public String getSeats() {
+		return seats;
+	}
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
+	public void setSeats(String seats) {
+		this.seats = seats;
+	}
 
-    public double getPricePerHour() {
-        return pricePerHour;
-    }
+	public String getModel() {
+		return model;
+	}
 
-    public void setPricePerHour(double pricePerHour) {
-        this.pricePerHour = pricePerHour;
-    }
+	public void setModel(String model) {
+		this.model = model;
+	}
 
-    public User getOwner() {
-        return owner;
-    }
+	public String getCategory() {
+		return category;
+	}
 
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
-    public String getStatus() {
-        return status;
-    }
+	public Date getStartDate() {
+		return startDate;
+	}
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
 
-    public byte[] getPicByte() {
-        return picByte;
-    }
+	public Date getEndDate() {
+		return endDate;
+	}
 
-    public void setPicByte(byte[] picByte) {
-        this.picByte = picByte;
-    }
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public double getPricePerHour() {
+		return pricePerHour;
+	}
+
+	public void setPricePerHour(double pricePerHour) {
+		this.pricePerHour = pricePerHour;
+	}
+
+	public User getOwner() {
+		return owner;
+	}
+
+	public void setOwner(User owner) {
+		this.owner = owner;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public byte[] getPicByte() {
+		return picByte;
+	}
+
+	public void setPicByte(byte[] picByte) {
+		this.picByte = picByte;
+	}
 }

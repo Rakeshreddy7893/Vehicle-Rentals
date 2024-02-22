@@ -1,68 +1,66 @@
-
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
-  input[type="text"],
-  input[type="date"],
-  input[type="number"],
-  input[type="file"],
-  button {
-    margin-bottom: 10px; 
-    padding: 10px;
-    width: calc(100% - 20px); 
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
- 
-  input[type="file"] {
-    border: none;
-    padding: 0;
-    width: auto;
-    cursor: pointer;
-  }
-  
- 
-  input[type="file"]::-webkit-file-upload-button {
-    visibility: hidden;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
 
-  input[type="file"]::before {
-    content: 'Select File';
-    display: inline-block;
-    background: #007bff;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  
-  button[type="submit"] {
-    margin-top: 10px;
-  }
-  
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="file"],
+button {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: calc(100% - 20px);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+
+input[type="file"] {
+  border: none;
+  padding: 0;
+  width: auto;
+  cursor: pointer;
+}
+
+
+input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+
+input[type="file"]::before {
+  content: 'Select File';
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+button[type="submit"] {
+  margin-top: 10px;
+}

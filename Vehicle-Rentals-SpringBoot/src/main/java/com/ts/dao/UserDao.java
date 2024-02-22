@@ -14,32 +14,29 @@ import com.ts.model.User;
 
 @Service
 public class UserDao {
-	
+
 	@Autowired
 	UserRepository userRepository;
-    
+
 	@Autowired
 	private JavaMailSender mailSender;
 
-    // Hash the password using BCrypt
-    private String hashPassword(String plainTextPassword) {
-        return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
-    }
-	
+	private String hashPassword(String plainTextPassword) {
+		return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
+	}
+
 	public User addUser(User user) {
-		sendWelcomeEmail(user);		
+		sendWelcomeEmail(user);
 		user.setPassword(hashPassword(user.getPassword()));
-		User savedUser = userRepository.save(user);   		
+		User savedUser = userRepository.save(user);
 		return savedUser;
 	}
-	
 
 	private void sendWelcomeEmail(User user) {
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(user.getEmail());
 		message.setSubject("Welcome to VEHICLE-HOST-HUB");
-		message.setText("Dear " + user.getUserName() + ",\n\n"
-				+ "Thank you for registering ");
+		message.setText("Dear " + user.getUserName() + ",\n\n" + "Thank you for registering ");
 
 		mailSender.send(message);
 	}
@@ -55,14 +52,14 @@ public class UserDao {
 	public User getUserByEmail(String email) {
 		return userRepository.findByEmail(email);
 	}
-	
+
 	public User userLogin(String email, String password) {
 		User user = userRepository.findByEmail(email);
-	    if (user != null && BCrypt.checkpw(password, user.getPassword())) {
-	        return user;
-	    } else {
+		if (user != null && BCrypt.checkpw(password, user.getPassword())) {
+			return user;
+		} else {
 			return null;
-	    }
+		}
 	}
 
 	public List<User> getUsers() {
@@ -70,7 +67,8 @@ public class UserDao {
 	}
 
 	public User updateUser(User user) {
-		if(userRepository.findById(user.getUserId()) != null)return userRepository.save(user);
+		if (userRepository.findById(user.getUserId()) != null)
+			return userRepository.save(user);
 		else {
 			return null;
 		}
