@@ -254,3 +254,67 @@
 </div>
 
 
+<br><br><br><br><br>
+<h1>Click here to see the customer documents</h1>
+<br><br>
+<div align="center" class="container">
+    <button class="btn btn-primary" (click)="showApprovedImages()">Approved Customers</button>
+    <button class="btn btn-primary" (click)="showUnapprovedImages()">Unapproved Customers</button>
+</div>
+
+<div *ngIf="showApproved" align="center" class="container">
+    <h1 align="center">Approved Customers Data</h1>
+    <br/>
+    <table class="table table-hover table-striped table-sm table-bordered">
+        <table class="table table-hover table-striped table-sm table-bordered">
+            <thead>
+                <tr align="center">
+                    <th class="bg-info text-white">License</th>
+                    <th class="bg-info text-white">DLNo</th>
+                    <th class="bg-info text-white">PanId</th>
+                    <th class="bg-info text-white">CustomerId</th>
+                    <th class="bg-info text-white">Status</th>
+                    <th class="bg-info text-white" colspan="2" align="center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let image of allDocumentsApprovedImages" align="center">
+                    <td><img [src]="image.documentContent" width="50px" height="50px" alt={{image.documentId}} /></td>
+                    <td> {{image.documentId}} </td>
+                    <td> {{image.panId}} </td>
+                    <td> {{image.user.userId}} </td>
+                    <td> <button (click)="toggleDocumentStatus(image)" class="btn btn-success">{{image.status}}</button> </td>
+                    <td> <button (click)="editImage(image)" class="glyphicon glyphicon-pencil"></button></td>
+                    <td> <button (click)="deleteImage(image.id)" class="glyphicon glyphicon-trash"></button> </td>
+                </tr>
+            </tbody>
+        </table>
+    </table>
+</div>
+
+<div *ngIf="showUnapproved" align="center" class="container">
+    <h1 align="center">Unapproved Customers Data</h1>
+    <br/>
+    <table class="table table-hover table-striped table-sm table-bordered">
+        <thead>
+            <tr align="center">
+                <th class="bg-info text-white">License</th>
+                <th class="bg-info text-white">DLNo</th>
+                <th class="bg-info text-white">PanId</th>
+                <th class="bg-info text-white">CustomerId</th>
+                <th class="bg-info text-white">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let image of allDocumentsNotApprovedImages" align="center">
+                <td><img [src]="image.documentContent" width="50px" height="50px" alt={{image.documentId}} /></td>
+                <td>{{ image.documentId }}</td>
+                <td>{{ image.panId }}</td>
+                <td>{{ image.user.userId }}</td>
+                <td><button (click)="toggleDocumentStatus(image)" class="btn btn-danger">{{ image.status }}</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

@@ -1,3 +1,38 @@
+<!-- 
+<app-header1></app-header1>
+<br><br><br><br><br><br><br>
+<h1 align="center">Cart Items</h1>
+
+<div class="container">
+    <table class="table text-center table-bordered table-sm">
+        <thead>
+            <tr>
+                <th class="bg-info text-white text-center">Product Id</th>
+                <th class="bg-info text-white text-center">Product Name</th>
+                <th class="bg-info text-white text-center">Price</th>
+                <th class="bg-info text-white text-center">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{ totalAmount }}</td> 
+
+                <td><button class="glyphicon glyphicon-trash" (click)="deleteProduct(product)"></button></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right"><b>Total</b></td>
+                <td>{{ totalAmount }}</td> 
+
+            </tr>
+            <tr>
+                <td colspan="3" align="right"><button class="btn btn-primary" (click)="payNow()">Purchase</button></td>
+            </tr>
+        </tbody>
+    </table>
+ 
+</div> -->
 
 <app-header1></app-header1>
 <br><br><br><br><br><br><br>
@@ -17,12 +52,15 @@
             <tr *ngFor="let product of products">
                 <td>{{product.id}}</td>
                 <td>{{product.name}}</td>
-                <td>{{product.pricePerDay}}</td>
+                <!-- <td>{{product.pricePerDay}}</td> -->
+                <!-- <td>{{  calculateTotal()}}</td> -->
+                <td>{{ totalAmount }}</td> 
+
                 <td><button class="glyphicon glyphicon-trash" (click)="deleteProduct(product)"></button></td>
             </tr>
             <tr>
                 <td colspan="2" align="right"><b>Total</b></td>
-                <td>{{ calculateTotal() * days }}</td> 
+                <td>{{ totalAmount }}</td> 
 
             </tr>
             <tr>
@@ -32,4 +70,17 @@
     </table>
  
 </div>
+
+
+
+
+
+
+
+
+      
+ 
+
+
+
 
