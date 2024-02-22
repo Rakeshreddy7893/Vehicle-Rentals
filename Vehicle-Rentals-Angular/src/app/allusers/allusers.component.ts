@@ -143,9 +143,8 @@ export class AllusersComponent implements OnInit {
 
   toggleStatus(image: any) {
     this.presentStatus = image.status;
-    const newStatus =
-      this.presentStatus === 'Approved' ? 'Not Approved' : 'Approved';
-    this.imageService.updateImage(newStatus, image.id).subscribe(() => {
+    const newStatus = this.presentStatus === 'Approved' ? 'Not Approved' : 'Approved';
+    this.imageService.updateImage(newStatus, image.id, image.owner.userId).subscribe(() => {
       this.getAllImages();
       this.getAllNotApprovImages();
     });

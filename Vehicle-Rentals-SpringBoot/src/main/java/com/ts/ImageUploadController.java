@@ -9,19 +9,19 @@ import java.util.Optional;
 import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
-import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,6 +40,9 @@ public class ImageUploadController {
 
 	@Autowired
 	ImageRepository imageRepository;
+
+	@Autowired
+	private JavaMailSender mailSender;
 
 	@Autowired
 	ImageUploadDao imageUploadDao;
@@ -69,13 +72,26 @@ public class ImageUploadController {
 		img.setPricePerHour(pricePerHour);
 		img.setStatus("Not Approved");
 
+		String ownerEmail;
+		String vehicleMessage = "";
+
 		Optional<User> ownerOptional = userRepository.findById(ownerId);
 		if (ownerOptional.isPresent()) {
 			User owner = ownerOptional.get();
+			ownerEmail = owner.getEmail();
 			img.setOwner(owner);
 			img.setPicByte(compressBytes(file.getBytes()));
-
+			
 			imageRepository.save(img);
+			
+			vehicleMessage = vehicleMessage + "VehicleId : " + img.getId() + "\n" + "VehicleName : " + img.getName()
+					+ "\n" + "Colour : " + img.getColour() + "\n" + "Seats : " + img.getSeats() + "\n" + "Model : "
+					+ img.getModel() + "\n" + "Category : " + img.getCategory() + "\n" + "StartDate : "
+					+ img.getStartDate() + "\n" + "EndDate : " + img.getEndDate() + "\n" + "PricePerDay : "
+					+ img.getPricePerHour() + "\n" + "Status : " + img.getStatus() + "\n" + "OwnerId : "
+					+ owner.getUserId() + "\n\n\n"
+					+ "Sir/Madam we received your vehicle upload request onto our website. We will inform you shortly regarding approval status";
+			sendUploadEmail(ownerEmail, vehicleMessage);
 
 			return ResponseEntity.status(HttpStatus.OK).build();
 		} else {
@@ -159,9 +175,17 @@ public class ImageUploadController {
 		imageRepository.updateSingleImage(id, name, colour, seats, model, category, pricePerHour);
 	}
 
-	@GetMapping(path = { "/updateImage/{status}/{id}" })
-	public void updateImage(@PathVariable("status") String status, @PathVariable("id") String id) throws IOException {
+	@GetMapping(path = { "/updateImage/{status}/{id}/{ownerId}" })
+	public void updateImage(@PathVariable("status") String status, @PathVariable("id") String id,
+			@PathVariable("ownerId") int ownerId) throws IOException {
+		
 		imageRepository.updateImageStatus(status, id);
+
+		User ownerOptional = userRepository.findById(ownerId);
+		String email = ownerOptional.getEmail();
+
+		if(status.equalsIgnoreCase("Approved"))sendApprovalEmail(email, "Your vehicle with Id : "+id+" is Successfully Approved....!");
+		else sendApprovalEmail(email, "Your vehicle with Id : "+id+" is  Removed from the website....!");
 	}
 
 	@DeleteMapping(path = { "/deleteImage/{id}" })
@@ -368,4 +392,40 @@ public class ImageUploadController {
 		}
 		return outputStream.toByteArray();
 	}
+	
+	private void sendApprovalEmail(String email, String text) {
+		SimpleMailMessage message = new SimpleMailMessage();
+		message.setTo(email);
+		message.setSubject("Welcome to VEHICLE-HOST-HUB");
+		message.setText(text);
+
+		mailSender.send(message);
+	}
+
+	private void sendUploadEmail(String email, String text) {
+		SimpleMailMessage message = new SimpleMailMessage();
+		message.setTo(email);
+		message.setSubject("Welcome to VEHICLE-HOST-HUB");
+		message.setText(text);
+
+		mailSender.send(message);
+	}
+
+	// public User addUser(User user) {
+	// sendWelcomeEmail(user);
+	// user.setPassword(hashPassword(user.getPassword()));
+	// User savedUser = userRepository.save(user);
+	// return savedUser;
+	// }
+	//
+	// private void sendWelcomeEmail(User user) {
+	// SimpleMailMessage message = new SimpleMailMessage();
+	// message.setTo(user.getEmail());
+	// message.setSubject("Welcome to VEHICLE-HOST-HUB");
+	// message.setText("Dear " + user.getUserName() + ",\n\n" + "Thank you for
+	// registering ");
+	//
+	// mailSender.send(message);
+	// }
+
 }

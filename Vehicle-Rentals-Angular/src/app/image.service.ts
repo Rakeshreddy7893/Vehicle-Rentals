@@ -23,8 +23,8 @@ export class ImageService {
     return this.httpClient.post<any>(`${this.baseUrl}/upload`, formData);
   }
 
-  updateImage(status: any, id: any) {
-    return this.httpClient.get(`${this.baseUrl}/updateImage/${status}/${id}`);
+  updateImage(status: any, id: any, ownerId : any) {
+    return this.httpClient.get(`${this.baseUrl}/updateImage/${status}/${id}/${ownerId}`);
   }
 
   deleteImage(id: any) {
