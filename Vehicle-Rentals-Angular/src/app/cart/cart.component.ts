@@ -60,6 +60,8 @@ export class CartComponent implements OnInit {
     };
     Razorpay.open(RazorpayOptions, successCallback, failureCallback);
     this.goToProducts();
+    setTimeout(() => {this.router.navigate(['customer'])}, 10000);
+    
   }
 
   deleteAllProducts() {

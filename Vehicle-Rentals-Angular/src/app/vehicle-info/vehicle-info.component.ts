@@ -48,7 +48,7 @@ export class VehicleInfoComponent implements OnInit {
     this.fetchProducts();
     this.femaleDriverPrice = 700;
     this.maleDriverPrice = 700;
-    this.calculateTotal(); // Calculate totalAmount initially
+    this.calculateTotal(); 
   }
 
   ngOnInit() {
@@ -144,7 +144,7 @@ export class VehicleInfoComponent implements OnInit {
       const differenceInTime = endDate.getTime() - startDate.getTime();
       this.numberOfDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
       localStorage.setItem('numberOfDays', this.numberOfDays.toString());
-      this.selectDriver(''); // Re-calculate totalAmount
+      this.selectDriver(''); 
     }
   }
 
