@@ -1,4 +1,6 @@
+
 <app-header1></app-header1>
+<body>
 <br><br><br><br><br><br><br>
 <h1>Vehicle Information</h1>
 <br>
@@ -92,8 +94,13 @@
                 </div>
 
               </div>
-              <p align="right"><button (click)="addToCart(item)" class="btn btn-primary"
-                  [disabled]="!fromDate || !toDate ||errorMessage">AddToOrders</button> </p>
+              <p align="right">
+                <button 
+                  (click)="addToCart(item)" 
+                  class="btn btn-primary"
+                  [disabled]="!isButtonEnabled()">AddToOrders
+                </button>
+              </p>
             </div>
           </dl>
         </div>
@@ -114,4 +121,7 @@
       (ngModelChange)="printDates()" [min]="fromDate">
   </div>
 </div>
-<div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+<div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div> 
+
+
+</body>
