@@ -57,6 +57,11 @@ export class VehicleInfoComponent implements OnInit {
   }
 
   isButtonEnabled(): boolean {
+    if (this.errorMessage) {
+      // If there is an error message, disable the button
+      return false;
+    }
+    
     if (this.selectedOption === 'self-driving') {
       return this.drivingLicenseStatus === 'Approved' && !!this.fromDate && !!this.toDate;
     } else if (this.selectedOption === 'driver-service') {
@@ -65,8 +70,6 @@ export class VehicleInfoComponent implements OnInit {
       return false; 
     }
   }
-  
-
 
   onFileChanged(event: any) {
     const inputElement = event.target as HTMLInputElement;
@@ -188,5 +191,3 @@ export class VehicleInfoComponent implements OnInit {
     return total;
   }
 }
-
-
