@@ -17,8 +17,8 @@ import com.ts.model.ImageModel;
 public interface ImageRepository extends JpaRepository<ImageModel, String> {
 	Optional<ImageModel> findByName(String name);
 
-	@Query("from ImageModel where category = :category")
-	List<ImageModel> findByCategory(@Param("category") String category);
+	@Query("from ImageModel where category = :category and status = :status")
+	List<ImageModel> findByCategory(@Param("category") String category,@Param("status") String status);
 
 	@Query("from ImageModel where colour = :colour")
 	List<ImageModel> findByColour(@Param("colour") String colour);

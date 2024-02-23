@@ -204,7 +204,7 @@ public class ImageUploadController {
 
 	@GetMapping(path = { "/getImagesByCategory/{category}" })
 	public ResponseEntity<List<ImageResponse>> getImagesByCategory(@PathVariable("category") String category) {
-		List<ImageModel> images = imageRepository.findByCategory(category);
+		List<ImageModel> images = imageRepository.findByCategory(category,"Approved");
 		List<ImageResponse> imageResponses = new ArrayList<>();
 
 		for (ImageModel retrievedImage : images) {
