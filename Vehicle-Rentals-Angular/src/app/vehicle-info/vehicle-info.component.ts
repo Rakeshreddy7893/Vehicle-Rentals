@@ -120,7 +120,8 @@ export class VehicleInfoComponent implements OnInit {
 
   addToCart(product: any) {
     this.service.addToCart(product);
-    this.router.navigate(['vehicleimages']);
+    this.router.navigate(['cart']);
+    // this.router.navigate(['vehicleimages']);
   }
 
   printDates() {

@@ -89,7 +89,7 @@ export class RegisterComponent implements OnInit {
     this.randomNumber = this.getRandomNumber(100000, 999999);
 
     this.service
-      .sendOtpToUser(this.user.phoneNumber, this.randomNumber)
+      .sendOtpToUser(this.user.phoneNumber, this.randomNumber, this.user.email)
       .subscribe({
         next: (flag: any) => {
           if (flag) {

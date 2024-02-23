@@ -9,6 +9,9 @@ export class ImageService {
   cartItems: any;
   cartChanged: EventEmitter<void> = new EventEmitter<void>();
 
+
+  vehicleId : any;
+
   private baseUrl = 'http://localhost:8085/image';
 
   constructor(private httpClient: HttpClient) {
@@ -25,6 +28,10 @@ export class ImageService {
 
   updateImage(status: any, id: any, ownerId : any) {
     return this.httpClient.get(`${this.baseUrl}/updateImage/${status}/${id}/${ownerId}`);
+  }
+
+  sendMail(email: any) {
+    return this.httpClient.get(`${this.baseUrl}/sendPaymentMail/${email}/${this.vehicleId}`);
   }
 
   deleteImage(id: any) {
@@ -58,6 +65,7 @@ export class ImageService {
   }
 
   addToCart(product: any) {
+    this.vehicleId = product.id;
     this.cartItems.push(product);
     this.cartChanged.emit();
   }
@@ -73,4 +81,5 @@ export class ImageService {
   setCartItems(count: any) {
     this.cartItems = count;
   }
+
 }

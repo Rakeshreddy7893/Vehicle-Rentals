@@ -40,8 +40,8 @@ export class UserService {
     return this.http.get(`http://localhost:8085/getAllUsers`);
   }
 
-  sendOtpToUser(phoneNumber: string, otp: number): Observable<any> {
-    return this.http.get(`http://localhost:8085/sendOtp/${phoneNumber}/${otp}`);
+  sendOtpToUser(phoneNumber: string, otp: number, email: string): Observable<any> {
+    return this.http.get(`http://localhost:8085/sendOtp/${phoneNumber}/${otp}/${email}`);
   }
 
   getAllCountries(): any {

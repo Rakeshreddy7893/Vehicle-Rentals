@@ -187,6 +187,14 @@ public class ImageUploadController {
 		if(status.equalsIgnoreCase("Approved"))sendApprovalEmail(email, "Your vehicle with Id : "+id+" is Successfully Approved....!");
 		else sendApprovalEmail(email, "Your vehicle with Id : "+id+" is  Removed from the website....!");
 	}
+	
+	@GetMapping(path = { "/sendPaymentMail/{email}/{id}" })
+	public void sendPaymentMail(@PathVariable("email") String email, @PathVariable("id") String id) throws IOException {
+		
+		System.out.println("Email : "+email+" id : "+id);
+		sendApprovalEmail(email, "Vehicle with Id : "+id+" is booked successfully....!");
+
+	}
 
 	@DeleteMapping(path = { "/deleteImage/{id}" })
 	public boolean deleteImageById(@PathVariable String id) {
@@ -410,22 +418,5 @@ public class ImageUploadController {
 
 		mailSender.send(message);
 	}
-
-	// public User addUser(User user) {
-	// sendWelcomeEmail(user);
-	// user.setPassword(hashPassword(user.getPassword()));
-	// User savedUser = userRepository.save(user);
-	// return savedUser;
-	// }
-	//
-	// private void sendWelcomeEmail(User user) {
-	// SimpleMailMessage message = new SimpleMailMessage();
-	// message.setTo(user.getEmail());
-	// message.setSubject("Welcome to VEHICLE-HOST-HUB");
-	// message.setText("Dear " + user.getUserName() + ",\n\n" + "Thank you for
-	// registering ");
-	//
-	// mailSender.send(message);
-	// }
 
 }

@@ -3,6 +3,8 @@ package com.ts;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,16 +27,20 @@ public class UserController {
 
 	@Autowired
 	private TwilioConfig twilioConfig;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 
 	@GetMapping("getAllUsers")
 	public List<User> getUsers() {
 		return userDao.getUsers();
 	}
 
-	@GetMapping("sendOtp/{phoneNumber}/{otp}")
-	private boolean sendOtpViaTwilio(@PathVariable String phoneNumber, @PathVariable int otp) {
+	@GetMapping("sendOtp/{phoneNumber}/{otp}/{email}")
+	private boolean sendOtpViaTwilio(@PathVariable String phoneNumber, @PathVariable int otp, @PathVariable String email) {
 		try {
 			twilioConfig.sendOtp(phoneNumber, String.valueOf(otp));
+			sendOTPEmail(email,String.valueOf(otp));
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -75,6 +81,15 @@ public class UserController {
 	public String deleteUserById(@PathVariable int userId) {
 		userDao.deleteUserById(userId);
 		return "User with userId : " + userId + " deleted successfully !";
+	}
+	
+	private void sendOTPEmail(String email, String otp) {
+		SimpleMailMessage message = new SimpleMailMessage();
+		message.setTo(email);
+		message.setSubject("Welcome to VEHICLE-HOST-HUB");
+		message.setText("OTP verification code is : "+otp);
+
+		mailSender.send(message);
 	}
 
 }

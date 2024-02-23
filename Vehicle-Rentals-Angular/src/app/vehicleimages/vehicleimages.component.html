@@ -51,8 +51,8 @@
                             <td>{{image.seats}}</td>
                             <td>{{image.model}}</td>
                             <td>{{image.category}}</td>
-                            <td>{{image.startDate}}</td>
-                            <td>{{image.endDate}}</td>
+                            <td>{{image.startDate | date:'shortDate'}}</td>
+                            <td>{{image.endDate | date:'shortDate'}}</td>
                             <td>{{image.pricePerHour}}</td>
                             <td>{{image.owner.userId}}</td>
                             <td>{{image.status}}</td>

@@ -30,6 +30,7 @@ export class CartComponent implements OnInit {
   }
 
   payNow() {
+    this.paymentMail()
     const RazorpayOptions = {
       description: 'Sample Razorpay demo',
       currency: 'INR',
@@ -61,7 +62,12 @@ export class CartComponent implements OnInit {
     Razorpay.open(RazorpayOptions, successCallback, failureCallback);
     this.goToProducts();
     setTimeout(() => {this.router.navigate(['customer'])}, 10000);
-    
+  }
+
+  paymentMail() {
+    // this.service.sendMail(this.email);
+    this.service.sendMail(this.email).subscribe(() => {
+    });
   }
 
   deleteAllProducts() {
