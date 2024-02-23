@@ -56,6 +56,18 @@ export class VehicleInfoComponent implements OnInit {
     this.fetchProducts();
   }
 
+  isButtonEnabled(): boolean {
+    if (this.selectedOption === 'self-driving') {
+      return this.drivingLicenseStatus === 'Approved' && !!this.fromDate && !!this.toDate;
+    } else if (this.selectedOption === 'driver-service') {
+      return (!!this.selectedDriver && (this.selectedDriver === 'Female' || this.selectedDriver === 'Male')) && !!this.fromDate && !!this.toDate;
+    } else {
+      return false; 
+    }
+  }
+  
+
+
   onFileChanged(event: any) {
     const inputElement = event.target as HTMLInputElement;
 
